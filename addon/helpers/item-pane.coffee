@@ -1,3 +1,5 @@
+`import Ember from 'ember'`
+
 ItemPaneView = Ember.View.extend(
     templateName: 'views/item-pane'
 
@@ -21,3 +23,6 @@ ItemPaneView = Ember.View.extend(
 
     contextBinding: 'controller'
 )
+
+
+`export default ItemPaneView`

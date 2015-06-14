@@ -15,7 +15,7 @@ BsAlertComponent = Ember.Component.extend TypeSupport,
   didInsertElement: () ->
     if @dismissAfter > 0
       send = () -> @send('dismiss')
-      Ember.run.later(this, send, @dismissAfter*1000)
+      Ember.run.later(this, send, @dismissAfter * 1000)
 
   actions: {
     dismiss: () ->

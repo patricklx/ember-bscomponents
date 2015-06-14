@@ -1,0 +1,9 @@
+{{#if view.content.linkTo}}
+  {{#if view.parentView.dynamicLink}}
+    {{#link-to view.content.linkTo model}}{{view.title}}{{/link-to}}
+  {{else}}
+    {{#link-to view.content.linkTo}}{{view.title}}{{/link-to}}
+  {{/if}}
+{{else}}
+  {{view view.pillAsLinkView}}
+{{/if}}

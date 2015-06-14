@@ -1,0 +1,9 @@
+{{#if view.badge}}
+  {{bs-badge content=view.badge}}
+{{/if}}
+{{#if view.sub}}
+	<h4 class="list-group-item-heading">{{view.title}}</h4>
+	<p class="list-group-item-text">{{view.sub}}</p>
+{{else}}
+  {{view.title}}
+{{/if}}

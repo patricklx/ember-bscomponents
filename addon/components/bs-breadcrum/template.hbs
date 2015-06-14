@@ -1,0 +1,13 @@
+{{#unless view.isActive}}
+  {{#if view.content.model}}
+    {{#link-to view.content.route model.id}}
+      {{view.content.name}}
+    {{/link-to}}
+  {{else}}
+    {{#link-to view.content.route}}
+      {{view.content.name}}
+    {{/link-to}}
+  {{/if}}
+{{else}}
+  {{view.content.name}}
+{{/unless}}

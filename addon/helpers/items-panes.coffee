@@ -1,12 +1,16 @@
+`import Ember from 'ember'`
+
 ItemsPanesView = Ember.CollectionView.extend(
-    viewsInserted: false
+  viewsInserted: false
 
-    corrItemsView: (->
-        itemsView = Ember.View.views[@get('items-id')]
-        itemsView
-    ).property('viewsInserted')
+  corrItemsView: (->
+    itemsView = Ember.View.views[@get('items-id')]
+    itemsView
+  ).property('viewsInserted')
 
-    didInsertElement: () ->
-        @._super()
-        @set('viewsInserted', true)
+  didInsertElement: () ->
+    @._super()
+    @set('viewsInserted', true)
 )
+
+`export default ItemsPanesView`
