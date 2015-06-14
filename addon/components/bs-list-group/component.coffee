@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import ItemsView from 'ember-cli-bscomponents/helpers/items-view'`
+`import ItemsView from 'ember-cli-bscomponents/helpers/items'`
 `import ItemView from 'ember-cli-bscomponents/helpers/item'`
 `import ItemSelection from 'ember-cli-bscomponents/mixins/item-selection'`
 `import template from './template'`

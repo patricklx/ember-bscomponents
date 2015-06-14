@@ -1,5 +1,5 @@
 `import BsPill from '../bs-pill/component'`
-`import ItemsView from 'ember-cli-bscomponents/helpers/items-view'`
+`import ItemsView from 'ember-cli-bscomponents/helpers/items'`
 `import Nav from 'ember-cli-bscomponents/mixins/nav'`
 
 BsPills = ItemsView.extend(Nav,

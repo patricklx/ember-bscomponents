@@ -1,3 +1,8 @@
+`import Ember from 'ember'`
+`import ItemsView from './items'`
+
+
+
 # helper to get the parent view and test its type
 getParentView = (view) ->
   return unless view and (parentView = view.get 'parentView')

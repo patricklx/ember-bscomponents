@@ -1,6 +1,6 @@
 `import Nav from 'ember-cli-bscomponents/mixins/nav'`
-`import BsPill from 'ember-cli-bscomponents/mixins/nav'`
-`import ItemsView from 'ember-cli-bscomponents/helpers/item'`
+`import BsPill from 'ember-cli-bscomponents/components/bs-pill/component'`
+`import ItemsView from 'ember-cli-bscomponents/helpers/items'`
 
 BsTabs = ItemsView.extend(Nav,
   navType: 'tabs'

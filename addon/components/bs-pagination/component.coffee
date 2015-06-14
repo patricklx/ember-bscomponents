@@ -1,4 +1,4 @@
-`import ItemsView from 'ember-cli-bscomponents/helpers/items-view'`
+`import ItemsView from 'ember-cli-bscomponents/helpers/items'`
 `import BsItem from './item/component'`
 `import Ember from 'ember'`
 
