@@ -22,6 +22,8 @@ BsModalComponent = Ember.Component.extend(Ember.Evented,
   isVis: false
   fullSizeButtons: false
   fade: true
+  action: null
+  allowClose: true
 
   didInsertElement: ->
     @._super()
@@ -79,12 +81,14 @@ BsModalComponent = Ember.Component.extend(Ember.Evented,
       @close event
 
   close: (event) ->
-    @set 'isVis', false
-    current = this
-    @$().one 'webkitTransitionEnd', (e) ->
-      if current.get('manual') then current.destroy() else current.hide()
-      return
-      @trigger 'closed'
+    if @get('action')
+      @sendAction()
+
+    if @get('manual')
+      @remove()
+    else
+      @hide()
+    return @trigger('closed')
 
 
 #Invoked automatically by ember when the view is destroyed, giving us a chance to perform cleanups
@@ -106,6 +110,8 @@ BsModalComponent = Ember.Component.extend(Ember.Evented,
       @keyPressed event
     jQuery(window.document).bind "keyup", handler
     @_keyUpHandler = handler
+
+
 )
 
 `export default BsModalComponent`

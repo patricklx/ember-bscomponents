@@ -1,11 +1,12 @@
 `import Ember from 'ember'`
+`import template from '../views/item-pane/template'`
 
 ItemPaneView = Ember.View.extend(
-    templateName: 'views/item-pane'
+    template: template
 
     corrItem: (->
-        if @get('parentView').get('corrItemsView')?
-            for view in @get('parentView').get('corrItemsView')._childViews
+        if @get('parentView.corrItemsView')?
+            for view in @get('parentView.corrItemsView')._childViews
                 return view if view.content is @get('content')
     ).property('parentView.corrItemsView')
 
