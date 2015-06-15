@@ -1,4 +1,4 @@
-`import TooltipBoxManager from '../managers/tooltip-box-manager'`
+`import {getInstance} from '../services/tooltip-box-manager'`
 
 helperFunction = (params, hash, options, env) ->
     newHash = {}
@@ -9,8 +9,8 @@ helperFunction = (params, hash, options, env) ->
         newHash[k] = v
     hash = Ember.Object.create(newHash)
 
-    id = TooltipBoxManager.registerTip("popover", hash, options, env)
-    env.dom.setAttribute(options.element, TooltipBoxManager.attribute, id)
+    id = getInstance().registerTip("tooltip", hash, options, env)
+    env.dom.setAttribute(options.element, getInstance().attribute, id)
     return
 
 

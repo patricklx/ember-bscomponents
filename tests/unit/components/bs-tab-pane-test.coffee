@@ -10,5 +10,6 @@ moduleForComponent('bs-tab-pane',
 
 test('is it there?', (assert) ->
   component = @subject
+  this.$()
   assert.ok(component?)
 )

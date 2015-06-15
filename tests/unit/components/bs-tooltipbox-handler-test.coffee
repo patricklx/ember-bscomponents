@@ -10,5 +10,6 @@ moduleForComponent('bs-tooltipbox-handler',
 
 test('is it there?', (assert) ->
   component = @subject
+  this.$()
   assert.ok(component?)
 )

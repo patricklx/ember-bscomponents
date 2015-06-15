@@ -1,9 +1,10 @@
 `import Ember from 'ember'`
+`import layout from './template'`
 ###
 Modal component.
 ###
 BsModalComponent = Ember.Component.extend(Ember.Evented,
-  layoutName: 'components/bs-modal'
+  layout: layout
   classNames: ['modal']
   classNameBindings: ['fade', 'isVis:in']
   attributeBindings: ['role', 'aria-labelledby', 'isAriaHidden:aria-hidden', "ariaLabelledBy:aria-labelledby"]
@@ -28,12 +29,6 @@ BsModalComponent = Ember.Component.extend(Ember.Evented,
   didInsertElement: ->
     @._super()
     @setupBinders()
-    #Register modal in the modal manager
-    name = @get('name')
-    Ember.assert("Modal name is required for modal view #{@get('elementId')}", @get('name'))
-    name?= @get('elementId')
-    ModalManager.add(name, @)
-
     if @manual
       @show()
 
@@ -97,7 +92,6 @@ BsModalComponent = Ember.Component.extend(Ember.Evented,
     @removeHandlers()
     name = @get('name')
     name?= @get('elementId')
-    ModalManager.remove(name, @)
     @_backdrop.remove() if @_backdrop
 
   removeHandlers: ->

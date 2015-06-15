@@ -10,5 +10,6 @@ moduleForComponent('bs-list-group',
 
 test('is it there?', (assert) ->
   component = @subject
+  this.$()
   assert.ok(component?)
 )

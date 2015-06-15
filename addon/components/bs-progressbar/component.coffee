@@ -1,8 +1,9 @@
 `import Ember from 'ember'`
 `import TypeSupport from 'ember-cli-bscomponents/mixins/type'`
+`import layout from './template'`
 
 BsProgressbarComponent = Ember.Component.extend(TypeSupport,
-  layoutName: 'components/bs-progressbar'
+  layout: layout
   classNames: ['progress-bar']
   attributeBindings: ['style', 'role', 'aria-valuemin', 'ariaValueNow:aria-valuenow', 'aria-valuemax']
   classTypePrefix: 'progress-bar'

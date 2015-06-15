@@ -1,8 +1,9 @@
 `import Ember from 'ember'`
 `import TypeSupport from 'ember-cli-bscomponents/mixins/type'`
+`import layout from './template'`
 
 BsPanelComponent = Ember.Component.extend(TypeSupport,
-  layoutName: 'components/bs-panel'
+  layout: layout
   classNames: ['panel']
   classTypePrefix: ['panel']
   classNameBindings: ['fade', 'fade:in']

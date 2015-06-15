@@ -1,10 +1,10 @@
 `import Ember from 'ember'`
 `import TypeSupport from 'ember-cli-bscomponents/mixins/type'`
 `import SizeSupport from 'ember-cli-bscomponents/mixins/size'`
-
+`import layout from './template'`
 
 BsButtonComponent = Ember.Component.extend(TypeSupport, SizeSupport,
-  layoutName: 'components/bs-button'
+  layout: layout
   tagName: 'button'
   classNames: ['btn']
   classNameBindings: ['blockClass']

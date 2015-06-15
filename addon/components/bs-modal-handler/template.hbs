@@ -1,4 +1,10 @@
 {{#if currentModal}}
-  {{component currentModal}}
+  {{#if isComponent}}
+    {{component currentModal attrs=currentProperties}}
+  {{else}}
+    {{view currentModal controller=currentController}}
+  {{/if}}
+
 {{/if}}
+
 

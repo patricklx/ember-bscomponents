@@ -1,3 +1,3 @@
-`import ModalManagerService from 'ember-cli-bscomponents/managers/modal-manager'`
+`import ModalManagerService from 'ember-cli-bscomponents/services/modal-manager'`
 
 `export default ModalManagerService`

@@ -1,9 +1,10 @@
 `import Ember from 'ember'`
+`import layout from './template'`
 ###
 Parent component of a progressbar component
 ###
 BsProgressComponent = Ember.Component.extend(
-  layoutName: 'components/bs-progress'
+  layout: layout
   classNames: ['progress']
   classNameBindings: ['animated:active', 'stripped:progress-striped']
 

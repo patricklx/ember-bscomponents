@@ -10,5 +10,6 @@ moduleForComponent('bs-popover',
 
 test('is it there?', (assert) ->
   component = @subject
+  this.$()
   assert.ok(component?)
 )

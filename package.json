@@ -1,7 +1,7 @@
 {
   "name": "ember-cli-bscomponents",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "an addon containing components for bootstrap.",
   "directories": {
     "doc": "doc",
     "test": "tests"

@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import TooltipBoxManager from '../managers/tooltipbox-manager'`
+`import TooltipBoxManager from '../services/tooltipbox-manager'`
 
 BsBindPopoverHelper = (morph, env, scope, params, hash, template, inverse, visitor) ->
     newHash = {}

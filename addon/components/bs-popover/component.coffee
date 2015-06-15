@@ -1,7 +1,10 @@
 `import Ember from 'ember'`
+`import layout from './template'`
+
 
 BsPopoverComponent = Ember.Component.extend(
-  layoutName: 'components/bs-popover'
+  tooltipBoxManager: Ember.inject.service('tooltip-box-manager')
+  layout: layout
   classNames: "popover"
   classNameBindings: ["fade", "in", "realPlacement"]
   titleBinding: "data.title"
@@ -48,27 +51,22 @@ BsPopoverComponent = Ember.Component.extend(
     @set "html", @get("data.html") or false
     @set "template", @get("data.template") isnt `undefined`
     if @get("template")
-      name = "components/bs-popover/_partial-content-" + @get("tip_id")
       tpl = @get("data.template")
-      if typeof tpl is "object"
-        Ember.TEMPLATES[name] = tpl
-      else
-        Ember.TEMPLATES[name] = Ember.HTMLBars.compile(tpl)
-      @set "partialTemplateName", name
+      @set "partialTemplateName", tpl
 
   didInsertElement: ->
     @$tip = @$()
-    name = TooltipBoxManager.attribute
+    name = @get('tooltipBoxManager.attribute')
     name = "[" + name + "='" + @get("tip_id") + "']"
     @$element = $(name)
     @set "inserted", true
 
     if @get("data.trigger") is "hover" and @get("data.sticky")
-      @$().on "mouseenter", ->
-        clearTimeout TooltipBoxManager.timeout
+      @$().on "mouseenter", =>
+        clearTimeout(@get('tooltipBoxManager.timeout'))
 
       @$().on "mouseleave", =>
-        TooltipBoxManager.removeTip @get("tip_id")
+        @get('tooltipBoxManager').removeTip @get("tip_id")
 
     Ember.run.scheduleOnce 'afterRender', this, @afterRender
     @$().find("img").load =>
@@ -129,7 +127,7 @@ BsPopoverComponent = Ember.Component.extend(
 
   actions:
     close: ->
-      TooltipBoxManager.removeTip @get("tip_id")
+      @get('tooltipBoxManager').removeTip @get("tip_id")
 )
 
 `export default BsPopoverComponent`

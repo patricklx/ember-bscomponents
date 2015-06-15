@@ -3,12 +3,13 @@
 `import startApp from "../../helpers/start-app"`
 
 
-moduleForComponent('bs-breadcrum',
-  needs: ['component:bs-breadcrum']
+moduleForComponent('bs-breadcrumbs',
+  needs: ['component:bs-breadcrumbs']
 )
 
 
 test('is it there?', (assert) ->
   component = @subject
+  this.$()
   assert.ok(component?)
 )

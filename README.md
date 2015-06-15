@@ -1,6 +1,6 @@
 # Ember-cli-bscomponents
 
-This README outlines the details of collaborating on this Ember addon.
+This addon is based on bootstrap-for-ember with some changes
 
 ## Installation
 

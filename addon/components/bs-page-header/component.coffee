@@ -1,7 +1,8 @@
 `import Ember from 'ember'`
+`import layout from './template'`
 
 BsPageHeaderComponent = Ember.Component.extend(
-  layoutName: 'components/bs-page-header'
+  layout: layout
   classNames: ['page-header']
 )
 

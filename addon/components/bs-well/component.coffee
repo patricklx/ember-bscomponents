@@ -1,7 +1,8 @@
 `import Ember from 'ember'`
+`import layout from './template'`
 
 BsWellComponent = Ember.Component.extend(
-  layoutName: 'components/bs-well'
+  layout: layout
   classNameBindings: ['small:well-sm', 'large:well-lg']
   classNames: ['well']
 
