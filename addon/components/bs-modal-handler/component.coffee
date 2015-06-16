@@ -5,12 +5,7 @@ BsModalHandlerComponent = Ember.Component.extend
   _controller: null
   layout: layout
   modalManager: Ember.inject.service('modal-manager')
-  currentModal: (() ->
-    modal = @get('modalManager.modal')
-    if @get('isComponent')
-      return modal
-    return @container.lookup("view:#{modal}")
-  ).property('modalManager.modal')
+  currentModal: Ember.computed.alias('modalManager.modal')
 
   isComponent: (() ->
     return not @get('currentController')?

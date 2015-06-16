@@ -9,6 +9,7 @@ BsListGroupComponent = ItemsView.extend(
   tagName: (() -> if @get('withLinks') then 'div' else 'ul').property('withLinks')
   classNames: ['list-group']
   itemViewClass: ItemView.extend(ItemSelection,
+    withLinksBinding: 'parentView.withLinks'
     classNames: ['list-group-item']
     template: template
     tagName: (() -> if @get('withLinks') then 'a' else undefined).property('withLinks')

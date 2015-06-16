@@ -147,11 +147,4 @@ TooltipBoxManager = Ember.Object.extend
     view.set instance.attribute, id
     return
 
-
-getInstance = () ->
-  if instance
-    return instance
-  return TooltipBoxManager.create()
-
-`export {getInstance}`
 `export default TooltipBoxManager`

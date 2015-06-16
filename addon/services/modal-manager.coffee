@@ -6,9 +6,9 @@ ModalManager = Ember.Object.extend
   properties: null
 
   open: (modal, context, properties) ->
-    @set('modal', modal)
     @set('context', context)
     @set('properties', properties)
+    @set('modal', modal)
     return
 
   close: () ->
