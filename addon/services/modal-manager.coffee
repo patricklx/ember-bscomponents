@@ -6,15 +6,19 @@ ModalManager = Ember.Object.extend
   properties: null
 
   open: (modal, context, properties) ->
-    @set('context', context)
-    @set('properties', properties)
-    @set('modal', modal)
+    Ember.run.next(this, () ->
+      @set('context', context)
+      @set('properties', properties)
+      @set('modal', modal)
+      return
+    )
     return
 
   close: () ->
     @set('modal', null)
     @set('context', null)
     @set('properties', null)
+    Ember.run.sync()
     return
 
 `export default ModalManager`
