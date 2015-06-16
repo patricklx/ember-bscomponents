@@ -1,10 +1,8 @@
 `import Ember from 'ember'`
+`import TooltipBoxManager from 'ember-cli-bscomponents/services/tooltip-box-manager'`
 
 BsTooltipViewMixin = Ember.Mixin.create
-  attributeBindings: (() ->
-    manager = @container.lookup('service:tooltip-box-manager')
-    return [manager.attribute]
-  ).property()
+  attributeBindings: [TooltipBoxManager::attribute]
   didInsertElement: () ->
     data = this.get("bsTooltipData")
     type = this.get("bsTooltipType")
