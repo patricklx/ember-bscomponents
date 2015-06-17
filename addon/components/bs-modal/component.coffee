@@ -19,7 +19,7 @@ BsModalComponent = Ember.Component.extend(Ember.Evented,
   backdrop: true
   title: null
   isVisible: false
-  manual: false
+  manual: true
   isVis: false
   fullSizeButtons: false
   fade: true
