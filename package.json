@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-bscomponents",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "an addon containing components for bootstrap.",
   "directories": {
     "doc": "doc",
