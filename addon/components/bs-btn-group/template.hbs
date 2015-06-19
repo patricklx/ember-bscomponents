@@ -1,0 +1,13 @@
+<div class="btn-group">
+    {{#each items as |item|}}
+      <li>
+        {{#unless (is-equal item selectedItem)}}
+          <a href="#">
+            {{item.title}}
+          </a>
+        {{else}}
+          {{item.title}}
+        {{/unless}}
+      </li>
+    {{/each}}
+</div>
