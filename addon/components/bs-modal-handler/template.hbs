@@ -1,6 +1,6 @@
 {{#if currentModal}}
   {{#if isComponent}}
-    {{component currentModal attrs=currentProperties}}
+    {{component currentModal attrs=modalManager.properties}}
   {{else}}
     {{view currentModal controller=currentController}}
   {{/if}}

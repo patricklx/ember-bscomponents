@@ -8,7 +8,8 @@ BsModalHandlerComponent = Ember.Component.extend
   currentModal: Ember.computed.alias('modalManager.modal')
 
   isComponent: (() ->
-    return not @get('currentController')?
+    modal = @get('modalManager.modal')
+    return not @container.lookup('controller:'+modal)?
   ).property('currentController')
 
   currentController: (() ->
