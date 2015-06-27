@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 
 SizeSupport = Ember.Mixin.create(
-  classTypePrefix: Ember.required(String)
+  classTypePrefix: null
   classNameBindings: ['sizeClass', 'largeSizeClass', 'smallSizeClass', 'extraSmallSizeClass']
 #Size value according to Bootstrap sizes: sm/lg/xs
   size: null

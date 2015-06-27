@@ -18,11 +18,11 @@
           {{/if}}
 		</div>
 		<div {{bind-attr class=":modal-footer fullSizeButtons:modal-footer-full"}}>
-          {{#each footerButtons}}
-            {{bs-button content=this targetObjectBinding="view.targetObject"}}
+          {{#each footerButtons as |btn|}}
+            {{bs-button content=btn targetObjectBinding="view.targetObject"}}
           {{/each}}
-          {{#each footerViews}}
-            {{view this}}
+          {{#each footerViews as |v|}}
+            {{view v}}
           {{/each}}
 		</div>
 	</div>

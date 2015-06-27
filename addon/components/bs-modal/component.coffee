@@ -46,11 +46,10 @@ BsModalComponent = Ember.Component.extend(Ember.Evented,
 
   show: ->
     @set 'isVisible', true
-    current = this
-    setTimeout (->
-      current.set 'isVis', true
+    Ember.run.later(this, () ->
+      @set 'isVis', true
       return
-    ), 15
+    , 15)
     return
 
   hide: ->

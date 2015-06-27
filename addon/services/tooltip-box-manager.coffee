@@ -45,7 +45,8 @@ TooltipBoxManager = Ember.Object.extend
         self.setupBindings()
         return
 
-    env.data.view.on "willClearRender", ->
+    view = env.view || env.data.view
+    view.on "willClearRender", ->
       pop = instance.removeTip id
       if pop then $(pop.element).unbind()
       delete instance.registeredTips[id]

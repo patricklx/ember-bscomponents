@@ -14,7 +14,7 @@ BsProgressComponent = Ember.Component.extend(
   animated: false
 
   default: (->
-    @progress
+    @get('progress')
   ).property('progress')
 )
 

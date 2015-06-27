@@ -1,10 +1,10 @@
-{{#each pop in popovers}}
+{{#each popovers as |pop|}}
   {{bs-popover
   tip_id=pop.tip_id
   data=pop.data
   }}
 {{/each}}
-{{#each pop in tooltips}}
+{{#each tooltips as |pop|}}
   {{bs-tooltip
   tip_id=pop.tip_id
   data=pop.data

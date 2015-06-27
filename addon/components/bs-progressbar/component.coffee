@@ -11,15 +11,12 @@ BsProgressbarComponent = Ember.Component.extend(TypeSupport,
   'aria-valuemin': 0
   'aria-valuemax': 100
 
-  init: ->
-    @._super()
-
   style: ( ->
-    "width:#{@progress}%;"
+    "width:#{@get('progress')}%;".htmlSafe()
   ).property('progress')
 
   ariaValueNow: ( ->
-    @progress
+    @get('progress')
   ).property('progress')
 )
 

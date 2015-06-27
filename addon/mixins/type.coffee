@@ -2,7 +2,7 @@
 
 
 TypeSupport = Ember.Mixin.create(
-  classTypePrefix: Ember.required(String)
+  classTypePrefix: null
   classNameBindings: ['typeClass']
   type: 'default'
 

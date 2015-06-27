@@ -16,8 +16,14 @@ test('it works', (assert) ->
       assert.ok(true)
   }, data: {
     view: {
-      on: (what, fn) ->
-        assert.ok(true)
+      container: {
+        lookup: () ->
+          return {
+          attribute: 'an-attribute'
+          registerTip: (type, hash, options, env) ->
+            assert.ok(true)
+          }
+      }
     }
   }}
   Ember.run(() ->

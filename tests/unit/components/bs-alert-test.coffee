@@ -2,7 +2,7 @@
 `import { test, moduleForComponent } from 'ember-qunit'`
 `import startApp from "../../helpers/start-app"`
 
-
+startApp()
 moduleForComponent('bs-alert',
   needs: ['component:bs-alert']
 )
@@ -51,10 +51,14 @@ test('trigger close action', (assert) ->
 
 
 test('auto dismiss', (assert) ->
-  component = @subject()
-  component.set('dismissAfter', 0.1)
-  @$()
+  assert.expect(1)
+  component = @subject(
+    dismissAfter: 0.1
+  )
 
-  assert.ok(@$() == undefined, 'component should have been destroyed')
+  @$()
+  wait().then(() =>
+    assert.ok(@$() == undefined, 'component should have been destroyed')
+  )
   return
 )

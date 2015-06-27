@@ -4,7 +4,8 @@ ItemsPanesView = Ember.CollectionView.extend(
   viewsInserted: false
 
   corrItemsView: (->
-    itemsView = Ember.View.views[@get('items-id')]
+    views = @get('container').lookup('-view-registry:main') || Ember.View.views;
+    itemsView = views[@get('items-id')]
     itemsView
   ).property('viewsInserted')
 

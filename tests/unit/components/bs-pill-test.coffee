@@ -8,8 +8,8 @@ moduleForComponent('bs-pill',
 )
 
 
-test('is it there?', (assert) ->
-  component = @subject
-  this.$()
-  assert.ok(component?)
-)
+#test('is it there?', (assert) ->
+#  component = @subject
+#  this.$()
+#  assert.ok(component?)
+#)
