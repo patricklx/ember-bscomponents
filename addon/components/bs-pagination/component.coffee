@@ -2,7 +2,7 @@
 `import BsItem from './item/component'`
 `import Ember from 'ember'`
 
-BsPagination = ItemsView.extend
+BsPagination = ItemsView.extend({
   init: () ->
     @_super()
     @get('selected')
@@ -51,5 +51,6 @@ BsPagination = ItemsView.extend
       )
     return
   ).observes('selected')
+})
 
 `export default BsPagination`

@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 `import layout from './template'`
 
-BsModalHandlerComponent = Ember.Component.extend
+BsModalHandlerComponent = Ember.Component.extend({
   _controller: null
   layout: layout
   modalManager: Ember.inject.service('modal-manager')
@@ -23,7 +23,7 @@ BsModalHandlerComponent = Ember.Component.extend
       @_controller = controller
     return @_controller
   ).property('modalManager.modal')
-
+})
 
 
 `export default BsModalHandlerComponent`

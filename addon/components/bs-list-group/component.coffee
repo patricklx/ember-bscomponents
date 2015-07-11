@@ -4,11 +4,11 @@
 `import ItemSelection from 'ember-cli-bscomponents/mixins/item-selection'`
 `import template from './template'`
 
-BsListGroupComponent = ItemsView.extend(
+BsListGroupComponent = ItemsView.extend({
   withLinks: true
   tagName: (() -> if @get('withLinks') then 'div' else 'ul').property('withLinks')
   classNames: ['list-group']
-  itemViewClass: ItemView.extend(ItemSelection,
+  itemViewClass: ItemView.extend(ItemSelection, {
     withLinksBinding: 'parentView.withLinks'
     classNames: ['list-group-item']
     template: template
@@ -16,20 +16,20 @@ BsListGroupComponent = ItemsView.extend(
     attributeBindings: (() -> if @get('withLinks') then ['href'] else []).property('withLinks')
     href: '#'
 
-    badge: (->
+    badge: (() ->
       #TODO: Consolidate with ItemView
       content = @get('content')
       return null unless Ember.typeOf(content) is 'instance' or Ember.canInvoke(content, 'get')
-      content.get 'badge'
+      return content.get('badge')
     ).property('content')
 
-    sub: (->
+    sub: (() ->
       #TODO: Consolidate with ItemView
       content = @get('content')
       return null unless Ember.typeOf(content) is 'instance' or Ember.canInvoke(content, 'get')
-      content.get 'sub'
+      return content.get('sub')
     ).property('content')
-  )
-)
+  })
+})
 
 `export default BsListGroupComponent`

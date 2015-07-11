@@ -3,7 +3,7 @@
 ###
 Parent component of a progressbar component
 ###
-BsProgressComponent = Ember.Component.extend(
+BsProgressComponent = Ember.Component.extend({
   layout: layout
   classNames: ['progress']
   classNameBindings: ['animated:active', 'stripped:progress-striped']
@@ -13,9 +13,9 @@ BsProgressComponent = Ember.Component.extend(
   stripped: false
   animated: false
 
-  default: (->
-    @get('progress')
+  default: (() ->
+    return @get('progress')
   ).property('progress')
-)
+})
 
 `export default BsProgressComponent`

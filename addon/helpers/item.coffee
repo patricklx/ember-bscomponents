@@ -5,17 +5,17 @@
 
 # helper to get the parent view and test its type
 getParentView = (view) ->
-  return unless view and (parentView = view.get 'parentView')
+  return unless view and (parentView = view.get('parentView'))
   # Ember objects respects the JS inheritence so instanceof can be used here
   ok = parentView instanceof ItemsView
-  Ember.assert "The parent view must be an instance of ItemsView or any inherited class", ok
-  if ok then parentView else undefined
+  Ember.assert('The parent view must be an instance of ItemsView or any inherited class', ok)
+  return if ok then parentView else undefined
 
 
 # test if the given object is an Ember object or has a get method and use it to return a property
 getProperty = (obj, prop, noGetReturns) ->
   return noGetReturns unless Ember.typeOf(obj) is 'instance' or Ember.canInvoke(obj, 'get')
-  obj.get prop
+  return obj.get(prop)
 
 
 ###
@@ -27,30 +27,30 @@ An extra 'active' css class will be assigned to the Item (this) if this is a sel
 Views that extends this view can be enhanced with:
 ItemSelection: Makes the item selectable.
 ###
-ItemView = Ember.View.extend(
+ItemView = Ember.View.extend({
   isItem: true
   classNameBindings: ['disabled']
 
   ###
   A calculated property that defines the title of the item.
   ###
-  title: (->
-    return unless (itemsView = getParentView @)
+  title: (() ->
+    return unless (itemsView = getParentView(this))
     itemTitleKey = itemsView.get('itemTitleKey') || 'title'
-    content = @get 'content'
-    getProperty content, itemTitleKey, content
+    content = @get('content')
+    return getProperty(content, itemTitleKey, content)
   ).property('content')
 
   ###
   Determine whether the item is disabled or not
   ###
-  disabled: (->
-    return unless (itemsView = getParentView @)
-    content = @get 'content'
-    disabled = !!getProperty content, 'disabled', no
-    itemsView.set('selected', null) if disabled and @get 'isActive'
-    disabled
+  disabled: (() ->
+    return unless (itemsView = getParentView(this))
+    content = @get('content')
+    disabled = !!getProperty(content, 'disabled', no)
+    itemsView.set('selected', null) if disabled and @get('isActive')
+    return disabled
   ).property('content', 'content.disabled')
-)
+})
 
 `export default ItemView`

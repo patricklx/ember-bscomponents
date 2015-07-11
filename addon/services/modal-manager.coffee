@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-ModalManager = Ember.Object.extend
+ModalManager = Ember.Object.extend({
   modal: null,
   context: null
   properties: null
@@ -20,5 +20,6 @@ ModalManager = Ember.Object.extend
     @set('properties', null)
     Ember.run.sync()
     return
+})
 
 `export default ModalManager`

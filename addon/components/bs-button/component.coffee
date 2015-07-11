@@ -3,7 +3,7 @@
 `import SizeSupport from 'ember-cli-bscomponents/mixins/size'`
 `import layout from './template'`
 
-BsButtonComponent = Ember.Component.extend(TypeSupport, SizeSupport,
+BsButtonComponent = Ember.Component.extend(TypeSupport, SizeSupport, {
   layout: layout
   tagName: 'button'
   classNames: ['btn']
@@ -23,28 +23,31 @@ BsButtonComponent = Ember.Component.extend(TypeSupport, SizeSupport,
     # If content is an object (may happen when a button is the view class of a collectionView), then assign allowed properties to the button component.
     if @get('content')? and Ember.typeOf(@get('content')) is 'instance'
       c = @get('content')
-      @set key, c[key] for key in @get('allowedProperties') when c[key]?
+      @set(key, c[key]) for key in @get('allowedProperties') when c[key]?
     else
       if not @get('title')?
         @set('title', @get('content'))
-    @attributeBindings.pushObject attr for attr of @ when attr.match(/^data-[\w-]*$/)?
+    @attributeBindings.pushObject(attr) for attr of this when attr.match(/^data-[\w-]*$/)?
+    return
 
   blockClass: (() ->
-    if @block then "#{@classTypePrefix}-block" else null
+    return if @block then "#{@classTypePrefix}-block" else null
   ).property('block')
 
   click: (evt) ->
     evt.stopPropagation() unless @get('bubbles')
     @sendAction('clicked', @get('clickedParam'))
+    return
 
   loadingChanged: (->
-    loading = if @get('loading') isnt null then @get('loading') else "reset"
+    loading = if @get('loading') isnt null then @get('loading') else 'reset'
     Ember.$("##{@elementId}").button(loading)
+    return
   ).observes('loading')
 
   icon: (->
-    if @get('isActive') then @get('icon_active') else @get('icon_inactive')
+    return if @get('isActive') then @get('icon_active') else @get('icon_inactive')
   ).property('isActive')
-)
+})
 
 `export default BsButtonComponent`

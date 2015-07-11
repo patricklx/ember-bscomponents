@@ -4,10 +4,10 @@
 `import template from './template'`
 `import LinkView from './link/component'`
 
-BsPill = ItemView.extend(NavItem, ItemSelection,
+BsPill = ItemView.extend(NavItem, ItemSelection, {
   template: template
 
   pillAsLinkView: LinkView
-)
+})
 
 `export default BsPill`

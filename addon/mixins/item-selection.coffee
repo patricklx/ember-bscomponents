@@ -7,12 +7,13 @@ A Mixin to enhance items enhanced with the 'IsItem' Mixin with selection capabil
 When a click event is received the current item will be stored in the parent view 'selected' property,
 An extra 'active' css class will be assigned to the Item (this) if this is a selected item.
 ###
-ItemSelection = Ember.Mixin.create(ItemValue, WithRouter,
-  classNameBindings: ["isActive:active"]
+ItemSelection = Ember.Mixin.create(ItemValue, WithRouter, {
+  classNameBindings: ['isActive:active']
 
-  init: ->
+  init: () ->
     @_super()
     @didRouteChange()
+    return
 
   didRouteChange: (->
     linkTo = @get('content.linkTo')
@@ -21,6 +22,7 @@ ItemSelection = Ember.Mixin.create(ItemValue, WithRouter,
     return unless itemsView?
     if @get('router')?.isActive(linkTo)
       itemsView.set('selected', @get('value'))
+    return
   ).observes('router.url')
 
   ###
@@ -30,18 +32,18 @@ ItemSelection = Ember.Mixin.create(ItemValue, WithRouter,
   This is a calculated property and will be retriggered if the 'value' property of the item has changed or the 'selected' property
   in the parent ItemsView.
   ###
-  isActive: (->
+  isActive: (() ->
     #TODO: Ensure parentView is inherited from ItemsView
     itemsView = @get('parentView')
     if not itemsView?
       return false
-    selected = itemsView.get 'selected'
-    value = @get 'value'
+    selected = itemsView.get('selected')
+    value = @get('value')
 
     if not value?
       return false
 
-    selected is value
+    return selected is value
   ).property('value', 'parentView.selected', 'content.linkTo')
 
   ###
@@ -68,6 +70,7 @@ ItemSelection = Ember.Mixin.create(ItemValue, WithRouter,
 
     #Currently multi selection is not supported
     itemsView.set('selected', @get('value'))
-)
+    return
+})
 
 `export default ItemSelection`

@@ -2,7 +2,7 @@
 `import TypeSupport from 'ember-cli-bscomponents/mixins/type'`
 `import layout from './template'`
 
-BsPanelComponent = Ember.Component.extend(TypeSupport,
+BsPanelComponent = Ember.Component.extend(TypeSupport, {
   layout: layout
   classNames: ['panel']
   classTypePrefix: ['panel']
@@ -13,27 +13,31 @@ BsPanelComponent = Ember.Component.extend(TypeSupport,
   collapsible: false
   open: true
 
-  actions:
+  actions: {
     close: (event) ->
       @sendAction('onClose')
       @$().removeClass('in')
       #TODO: Causes ' Object #<HTMLDivElement> has no method 'destroyElement' '
       #@$().one($.support.transition.end, @destroy).emulateTransitionEnd(150)
       #Workaround
-      setTimeout (->
+      setTimeout((() ->
         @destroy()
-      ).bind(@), 250
+        return
+      ).bind(this), 250)
+      return
+  }
 
   click: (event) ->
     @sendAction('clicked', event)
+    return
 
   collapsibleBodyId: (->
-    "#{@get('elementId')}_body"
+    return "#{@get('elementId')}_body"
   ).property('collapsible')
 
   collapsibleBodyLink: (->
-    "##{@get('elementId')}_body"
+    return "##{@get('elementId')}_body"
   ).property('collapsibleBodyId')
-)
+})
 
 `export default BsPanelComponent`
