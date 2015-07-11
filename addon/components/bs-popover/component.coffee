@@ -119,9 +119,9 @@ BsPopoverComponent = Ember.Component.extend({
     el = @$element[0]
     pos = $.extend({}, (
       if (typeof el.getBoundingClientRect is 'function')
-        return el.getBoundingClientRect()
+        el.getBoundingClientRect()
       else
-        return {
+        {
           width: el.offsetWidth
           height: el.offsetHeight
         }
