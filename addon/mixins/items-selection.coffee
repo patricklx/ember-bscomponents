@@ -12,6 +12,15 @@ ItemsSelection = Ember.Mixin.create({
   An array of selected item(s), can be also bound to a controller property via 'selectedBinding'
   ###
   selected: []
+
+  actions: {
+    itemSelected: (item) ->
+      if item in @selected
+        @selected.removeObject(item)
+      else
+        @selected.push(item)
+      return
+  }
 })
 
 `export default ItemsSelection`

@@ -1,0 +1,9 @@
+{{#each content as |item|}}
+  {{component itemComponent
+  content=item
+  icon_active=icon_active
+  icon_inactive=icon_inactive
+  clicked="itemSelected"
+  clickedParam=item
+  isActive=(is-in item selected)}}
+{{/each}}

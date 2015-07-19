@@ -2,11 +2,12 @@
 `import linkTemplate from './template'`
 
 
-BsPillLinkView = Ember.View.extend({
+BsPillLinkView = Ember.Component.extend({
   tagName: 'a'
   template: linkTemplate
   attributeBindings: ['href']
   href: '#'
+  title: null
 })
 
 `export default BsPillLinkView`

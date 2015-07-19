@@ -1,9 +1,9 @@
-{{#if view.content.linkTo}}
-  {{#if view.parentView.dynamicLink}}
-    {{#link-to view.content.linkTo model}}{{view.title}}{{/link-to}}
+{{#if content.linkTo}}
+  {{#if content.dynamicLink}}
+    {{#link-to content.linkTo model}}{{content.title}}{{/link-to}}
   {{else}}
-    {{#link-to view.content.linkTo}}{{view.title}}{{/link-to}}
+    {{#link-to content.linkTo}}{{content.title}}{{/link-to}}
   {{/if}}
 {{else}}
-  {{view view.pillAsLinkView}}
+  {{bs-pill-link title=content.title}}
 {{/if}}

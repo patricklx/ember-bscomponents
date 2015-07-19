@@ -1,8 +1,9 @@
-`import ItemsView from 'ember-cli-bscomponents/helpers/items'`
-`import BsItem from './item/component'`
 `import Ember from 'ember'`
+`import SelectableItems from '../../mixins/selectable-items'`
+`import template from '../common/itemslist.template'`
 
-BsPagination = ItemsView.extend({
+BsPagination = Ember.Component.extend(SelectableItems, {
+  template: template
   init: () ->
     @_super()
     @get('selected')
@@ -10,9 +11,10 @@ BsPagination = ItemsView.extend({
     @get('totalLength')
     return
 
+  itemComponent: 'bs-pagination/item'
+
   tagName: 'ul'
   classNames: ['pagination']
-  itemViewClass: BsItem
   totalLength: 0
   itemsPerPage: 10
   selected: 1

@@ -1,5 +1,10 @@
-`import ItemPaneView from 'ember-cli-bscomponents/helpers/item-pane'`
+`import Ember from 'ember'`
+`import template from './template'`
 
-BsTabPane = ItemPaneView.extend()
+BsTabPane = Ember.Component.extend({
+  template: template
+  pane: null
+  isActive: false
+})
 
 `export default BsTabPane`

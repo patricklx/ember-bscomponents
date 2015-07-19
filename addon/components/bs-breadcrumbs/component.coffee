@@ -1,11 +1,12 @@
 `import Ember from 'ember'`
-`import ItemsView from 'ember-cli-bscomponents/helpers/items'`
-`import BsBreadcrumbsItem from './item/component'`
+`import SelectableItems from '../../mixins/selectable-items'`
+`import template from '../common/itemslist.template'`
 
-BsBreadcrumbs = ItemsView.extend({
+BsBreadcrumbs = Ember.Component.extend(SelectableItems, {
+  template: template
   tagName: ['ol']
   classNames: ['breadcrumb']
-  itemViewClass: BsBreadcrumbsItem
+  itemComponent: 'bs-breadcrumbs/item'
 })
 
 `export default BsBreadcrumbs`

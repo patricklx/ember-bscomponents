@@ -1,11 +1,12 @@
-`import ItemView from 'ember-cli-bscomponents/helpers/item'`
 `import ItemSelection from 'ember-cli-bscomponents/mixins/item-selection'`
 `import template from './template'`
+`import Ember from 'ember'`
 
 
-BsPaginationItem = ItemView.extend(ItemSelection, {
-  #tagName: 'li',
+BsPaginationItem = Ember.Component.extend(ItemSelection, {
+  tagName: 'li'
   template: template
+  content: null
 })
 
 

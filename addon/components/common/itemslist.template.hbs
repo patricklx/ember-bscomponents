@@ -1,7 +1,5 @@
 {{#each content as |item|}}
-  {{bs-list-group/item
-  content=item
-  withLinks=withLinks
+  {{component itemComponent
   isActive=(is-equal item selected)
-  }}
+  content=item}}
 {{/each}}

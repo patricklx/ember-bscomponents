@@ -1,13 +1,11 @@
 `import NavItem from 'ember-cli-bscomponents/mixins/nav-item'`
 `import ItemSelection from 'ember-cli-bscomponents/mixins/item-selection'`
-`import ItemView from 'ember-cli-bscomponents/helpers/item'`
 `import template from './template'`
-`import LinkView from './link/component'`
+`import Ember from 'ember'`
 
-BsPill = ItemView.extend(NavItem, ItemSelection, {
+BsPill = Ember.Component.extend(NavItem, ItemSelection, {
   template: template
-
-  pillAsLinkView: LinkView
+  content: null
 })
 
 `export default BsPill`

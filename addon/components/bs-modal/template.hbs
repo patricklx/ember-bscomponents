@@ -1,23 +1,19 @@
 <div class="modal-dialog">
 	<div class="modal-content">
 		<div class="modal-header">
-			<button type="button" {{bind-attr class=":close allowClose::hide"}} data-dismiss="modal"
+			<button type="button" class="close {{unless allowClose 'hide'}}" data-dismiss="modal"
 					aria-hidden="true">&times;</button>
 			<h4 class="modal-title">
               {{#if titleIconClasses}}
-				  <i {{bind-attr class="titleIconClasses"}}></i>
+				        <i class={{titleIconClasses}}></i>
               {{/if}}
               {{{title}}}
 			</h4>
 		</div>
 		<div class="modal-body">
-          {{#if body}}
-            {{view view.body}}
-          {{else}}
-            {{yield}}
-          {{/if}}
+        {{yield}}
 		</div>
-		<div {{bind-attr class=":modal-footer fullSizeButtons:modal-footer-full"}}>
+		<div class="modal-footer {{if fullSizeButtons 'modal-footer-full'}}">
           {{#each footerButtons as |btn|}}
             {{bs-button content=btn targetObjectBinding="view.targetObject"}}
           {{/each}}

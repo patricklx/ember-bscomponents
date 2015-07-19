@@ -1,13 +1,14 @@
 `import Nav from 'ember-cli-bscomponents/mixins/nav'`
-`import BsPill from 'ember-cli-bscomponents/components/bs-pill/component'`
-`import ItemsView from 'ember-cli-bscomponents/helpers/items'`
+`import Ember from 'ember'`
+`import template from './template'`
+`import SelectableItems from '../../mixins/selectable-items'`
 
-BsTabs = ItemsView.extend(Nav, {
+BsTabs = Ember.Component.extend(Nav, SelectableItems, {
+  template: template
   navType: 'tabs'
   classNameBindings: ['justified:nav-justified']
   attributeBindings: ['style']
-
-  itemViewClass: BsPill
+  content: []
 })
 
 `export default BsTabs`

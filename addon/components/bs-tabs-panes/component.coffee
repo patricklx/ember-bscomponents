@@ -1,9 +1,25 @@
-`import ItemsPanesView from 'ember-cli-bscomponents/helpers/items-panes'`
-`import BsTabPane from 'ember-cli-bscomponents/components/bs-tab-pane/component'`
+`import Ember from 'ember'`
+`import template from './template'`
 
-BsTabsPanes = ItemsPanesView.extend({
+BsTabsPanes = Ember.Component.extend({
+  template: template
   classNames: ['tab-content']
-  itemViewClass: BsTabPane
+  viewsInserted: false
+  selected: Ember.computed.alias('corrItemsView.selected')
+
+  corrItemsView: (() ->
+    views = @get('container').lookup('-view-registry:main') || Ember.View.views
+    itemsView = views[@get('items-id')]
+    return itemsView
+  ).property('viewsInserted')
+
+  didInsertElement: () ->
+    @._super()
+    Ember.run.next(this, () ->
+      @set('viewsInserted', true)
+      return
+    )
+    return
 })
 
 `export default BsTabsPanes`
