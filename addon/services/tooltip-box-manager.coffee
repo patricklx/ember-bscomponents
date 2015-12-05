@@ -130,7 +130,7 @@ TooltipBoxManager = Ember.Object.extend({
     return
 
   removeTip: (id) ->
-    pop = @popovers.findProperty('tip_id', id) or @tooltips.findProperty('tip_id')
+    pop = @popovers.findBy('tip_id', id) or @tooltips.findBy('tip_id')
     @popovers.removeObject(pop)
     @tooltips.removeObject(pop)
     delete @showing[id]
