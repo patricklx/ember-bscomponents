@@ -7,9 +7,7 @@ An extra 'active' css class will be assigned to the Item (this) if this is a sel
 ###
 ItemSelection = Ember.Mixin.create({
   classNameBindings: ['isActive:active']
-
   isActive: false
-  itemSelected: "itemSelected"
 
   ###
   Handle selection by click event.
@@ -17,7 +15,8 @@ ItemSelection = Ember.Mixin.create({
   click: (event) ->
     #event.stopPropagation()
     event.preventDefault()
-    @sendAction('itemSelected', this)
+    if @get('disabled') then return
+    @attrs.onItemSelected?()
     return
 })
 

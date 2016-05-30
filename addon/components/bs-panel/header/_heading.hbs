@@ -1,0 +1,7 @@
+{{#if collapsible}}
+    <a class="accordion-toggle" role="button" href='#' aria-expanded="false" {{action 'toggleCollapsed'}}>
+      {{yield}}
+    </a>
+{{else}}
+  {{yield}}
+{{/if}}

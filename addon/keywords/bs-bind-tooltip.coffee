@@ -1,18 +1,20 @@
 `import Ember from 'ember'`
-`import TooltipBoxManager from '../services/tooltipbox-manager'`
 
-BsBindTooltipHelper = (morph, env, scope, params, hash, template, inverse, visitor) ->
+BsBindTooltipHelper = (node, env, scope, params, hash, template, inverse, visitor) ->
+  view = env.view || env.data.view
+  manager = Ember.getOwner(view).lookup('service:tooltip-box-manager')
+  if env.dom.getAttribute? and env.dom.getAttribute(node.element, manager.attribute)
+    return
   newHash = {}
   for k,v of hash
-    v = hash[k]
     if v.isStream
       newHash[k+'Binding'] = v
     else
       newHash[k] = v
   hash = Ember.Object.create(newHash)
 
-  id = TooltipBoxManager.registerTip('tooltip', hash, options, env)
-  env.dom.setAttribute(options.element, TooltipBoxManager.attribute, id)
+  id = manager.registerTip('tooltip', params[0] or hash, node, env)
+  env.dom.setAttribute(node.element, manager.attribute, id)
   return
 
 `export default BsBindTooltipHelper`

@@ -1,9 +1,1 @@
-{{#if content.linkTo}}
-  {{#if content.dynamicLink}}
-    {{#link-to content.linkTo model}}{{content.title}}{{/link-to}}
-  {{else}}
-    {{#link-to content.linkTo}}{{content.title}}{{/link-to}}
-  {{/if}}
-{{else}}
-  {{bs-pill-link title=content.title}}
-{{/if}}
+<a href="#">{{yield}}{{content}}</a>

@@ -1,36 +1,41 @@
 `import Ember from 'ember'`
 `import layout from './template'`
+
 ###
 Modal component.
 ###
-BsModalComponent = Ember.Component.extend(Ember.Evented, {
+BsModalComponent = Ember.Component.extend({
+  modalManager: Ember.inject.service()
   layout: layout
   classNames: ['modal']
   classNameBindings: ['fade', 'isVis:in']
-  attributeBindings: ['role', 'aria-labelledby', 'isAriaHidden:aria-hidden', 'ariaLabelledBy:aria-labelledby']
+  attributeBindings: ['role', 'aria-labelledby', 'isAriaHidden:aria-hidden', 'ariaLabelledBy:aria-labelledby', 'style']
+  style: (() ->
+    return Ember.String.htmlSafe('display: block')
+  ).property('isVisible')
   isAriaHidden: (() ->
-    return "#{@get('isVisible')}"
+    return "#{!@get('isVisible')}"
   ).property('isVisible')
   modalBackdrop: '<div class="modal-backdrop fade in"></div>'
   role: 'dialog'
-  footerViews: []
+
+  header: 'bs-modal/header',
+  body: 'bs-modal/body',
+  footer: 'bs-modal/footer'
 
 #--Defaults--
   backdrop: true
-  title: null
-  isVisible: false
-  manual: true
-  isVis: false
-  fullSizeButtons: false
   fade: true
   action: null
   allowClose: true
+  isVis: true
+  isVisible: true
 
   didInsertElement: ->
     @._super()
     @setupBinders()
-    if @manual
-      @show()
+    if @get('isVisible')
+      @becameVisible()
     return
 
   becameVisible: ->
@@ -48,14 +53,6 @@ BsModalComponent = Ember.Component.extend(Ember.Evented, {
     @_backdrop = Em.$(@modalBackdrop).appendTo(parentElement)
     return
 
-  show: ->
-    @set('isVisible', true)
-    Ember.run.later(this, () ->
-      @set('isVis', true)
-      return
-    , 15)
-    return
-
   hide: ->
     @set('isVis', false)
     current = this
@@ -65,17 +62,6 @@ BsModalComponent = Ember.Component.extend(Ember.Evented, {
     )
     return false
 
-  toggle: ->
-    @toggleProperty('isVisible')
-    return
-
-  click: (event) ->
-    target = event.target
-    targetDismiss = target.getAttribute('data-dismiss')
-    if targetDismiss is 'modal'
-      @close()
-    return
-
   keyPressed: (event) ->
   #Handle ESC
     if event.keyCode is 27
@@ -83,22 +69,21 @@ BsModalComponent = Ember.Component.extend(Ember.Evented, {
     return
 
   close: (event) ->
-    if @get('action')
-      @sendAction()
+    @attrs.onClose?()
+    @get('modalManager').close()
+    return
 
-    if @get('manual')
-      @remove()
-    else
-      @hide()
-    return @trigger('closed')
+  actions: {
+    onClose: (event) ->
+      @close(event)
+      return
+  }
 
 
 #Invoked automatically by ember when the view is destroyed, giving us a chance to perform cleanups
   willDestroyElement: () ->
     Em.$('body').removeClass('modal-open')
     @removeHandlers()
-    name = @get('name')
-    name ?= @get('elementId')
     @_backdrop.remove() if @_backdrop
     return
 

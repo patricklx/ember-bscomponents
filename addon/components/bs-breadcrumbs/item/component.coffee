@@ -4,7 +4,7 @@
 BsBreadcrumbsItem = Ember.Component.extend(ItemSelection, {
   tagName: ['li']
   classNameBindings: ['isActive:active']
-  template: template
+  layout: template
 })
 
 

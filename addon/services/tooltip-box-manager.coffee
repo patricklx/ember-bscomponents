@@ -8,7 +8,7 @@ with an id that will be increased with each tip.
 AfterRender the manager binds a function to each element containing the attribute 'bootstrap-tip-id'
 and on 'willClearRender' it will be removed
 ###
-TooltipBoxManager = Ember.Object.extend({
+TooltipBoxManager = Ember.Service.extend({
   uuid: 0
   attribute: 'bootstrap-tip-id'
   willSetup: false
@@ -130,7 +130,7 @@ TooltipBoxManager = Ember.Object.extend({
     return
 
   removeTip: (id) ->
-    pop = @popovers.findProperty('tip_id', id) or @tooltips.findProperty('tip_id')
+    pop = @popovers.findBy('tip_id', id) or @tooltips.findBy('tip_id')
     @popovers.removeObject(pop)
     @tooltips.removeObject(pop)
     delete @showing[id]

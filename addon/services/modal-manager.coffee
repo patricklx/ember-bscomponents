@@ -1,13 +1,13 @@
 `import Ember from 'ember'`
 
-ModalManager = Ember.Object.extend({
+ModalManager = Ember.Service.extend({
   modal: null,
   context: null
   properties: null
 
-  open: (modal, context, properties) ->
+  open: (modal, target, properties) ->
     Ember.run.next(this, () ->
-      @set('context', context)
+      @set('modalTarget', target)
       @set('properties', properties)
       @set('modal', modal)
       return
@@ -16,10 +16,19 @@ ModalManager = Ember.Object.extend({
 
   close: () ->
     @set('modal', null)
-    @set('context', null)
+    @set('target', null)
     @set('properties', null)
     Ember.run.sync()
     return
+
+  actions: {
+    open: (modal, target, properties) ->
+      @open(modal, target, properties)
+      return
+    close: () ->
+      @close()
+      return
+  }
 })
 
 `export default ModalManager`

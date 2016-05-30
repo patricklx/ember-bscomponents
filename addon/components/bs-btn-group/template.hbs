@@ -1,9 +1,6 @@
 {{#each content as |item|}}
-  {{component itemComponent
-  content=item
-  icon_active=icon_active
-  icon_inactive=icon_inactive
-  clicked="itemSelected"
-  clickedParam=item
-  isActive=(is-in item selected)}}
+  {{yield (hash
+    item-component=(component itemComponent onClick=(action "onItemSelected" item) isActive=(is-in item selected))
+    content=item
+  )}}
 {{/each}}
