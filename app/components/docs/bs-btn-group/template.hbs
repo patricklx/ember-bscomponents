@@ -1,0 +1,81 @@
+<div class="page-header" style="margin-top: 0">
+  <h4>The Button Group Component</h4>
+</div>
+
+<div>
+{{#bs-btn-group onItemSelected=(action (mut selectedItem)) selected=(mut selected1) content=items multiSelection=true as |item|}}
+  {{#item.item-component}}
+    {{item.content}}
+    {{#if (is-equal item.content 'b')}}
+      <span class='badge'>b badge</span>
+    {{/if}}
+  {{/item.item-component}}
+{{/bs-btn-group}}
+  selected: {{selected1}}
+</div>
+<br>
+<div>
+{{#bs-btn-group onItemSelected=(action (mut selectedItem2)) content=radios as |item|}}
+  {{#item.item-component type='primary'}}
+    {{item.content}}
+    {{#if (is-equal item.content 'b')}}
+      <span class='badge'>b badge</span>
+    {{/if}}
+  {{/item.item-component}}
+{{/bs-btn-group}}
+  selected: {{selectedItem2}}
+</div>
+<br>
+<div>
+  {{#bs-btn-group onItemSelected=(action (mut selectedItem3)) isSelectable=false content=items as |item|}}
+    {{#item.item-component}}
+      {{item.content}}
+    {{/item.item-component}}
+  {{/bs-btn-group}}
+  clicked: {{selectedItem3}}
+</div>
+<br>
+
+
+<div class="page-header" style="margin-top: 0">
+  <h4>Doc</h4>
+</div>
+
+{{md-text
+typographer = true
+linkify     = false
+text        = "
+#### Attributes
+- **content:** list of items
+- **isSelectable:** `false`|`true` *default:* `true`
+- **multiSelection:** `false`|`true` *default:* `false`
+- **onItemSelected:** action to call when an item was selected
+- **selected:** mutable list of selected items when multiSelection is set to true
+
+#### Examples
+```handlebars
+{{#bs-btn-group onItemSelected=(action (mut selectedItem)) content=items as |item|}}
+  {{#item.item-component}}
+    {{item.content}}
+    {{#if (is-equal item.content 'b')}}
+      <span class='badge'>b badge</span>
+    {{/if}}
+  {{/item.item-component}}
+
+  {{#bs-btn-group onItemSelected=(action (mut selectedItem)) content=radios as |item|}}
+    {{#item.item-component type='primary'}}
+      {{item.content}}
+      {{#if (is-equal item.content 'b')}}
+        <span class='badge'>b badge</span>
+      {{/if}}
+    {{/item.item-component}}
+  {{/bs-btn-group}}
+
+  {{#bs-btn-group onItemSelected=(action (mut selectedItem2)) isSelectable=false content=items as |item|}}
+    {{#item.item-component}}
+      {{item.content}}
+    {{/item.item-component}}
+  {{/bs-btn-group}}
+{{/bs-btn-group}}
+```"
+}}

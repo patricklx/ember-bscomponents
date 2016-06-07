@@ -1,0 +1,12 @@
+{{#bs-modal onClose=(action 'onClose') as |section|}}
+  {{#section.header}}
+    the header
+  {{/section.header}}
+  {{#section.body}}
+    the body
+  {{/section.body}}
+  {{#section.footer}}
+    the footer
+    {{#bs-button onClick=section.onClose}}Close{{/bs-button}}
+  {{/section.footer}}
+{{/bs-modal}}

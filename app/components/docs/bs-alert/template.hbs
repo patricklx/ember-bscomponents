@@ -1,0 +1,80 @@
+<div>
+  <div class="page-header" style="margin-top: 0">
+    <h4>The Alert Component</h4>
+  </div>
+  {{#bs-alert type=currentType onDismiss=(action (mut alertDismissed) true)}}
+    <h4>This is an alert</h4>
+    <p>
+        Click the buttons to change the style
+    </p>
+  {{/bs-alert}}
+
+  <br>
+
+  {{#if alertDismissed}}
+    <div class="label label-info">
+      You dismissed the alert
+    </div>
+  {{/if}}
+  <br>
+  <br>
+  <div>
+    {{bs-button onClick=(action (mut currentType) 'danger') title="danger"}}
+    {{bs-button onClick=(action (mut currentType) 'warning') title="warning"}}
+    {{bs-button onClick=(action (mut currentType) 'info') title="info"}}
+    {{bs-button onClick=(action (mut currentType) 'success') title="success"}}
+  </div>
+</div>
+
+<div>
+  <div class="page-header">
+    <h4>An alert with auto dismiss after 3 seconds</h4>
+  </div>
+  {{bs-button onClick=(action (mut showAutoDimissAlert) (not showAutoDimissAlert)) title=(if showAutoDimissAlert 'again' 'show me') }}
+
+  {{#if showAutoDimissAlert}}
+    {{#bs-alert type=currentType onDismiss=(action (mut autoAlertDismissed) true) onAutoDismiss=(action (mut autoAlertDismissed) true) dismissAfter=3}}
+        <h4>This is an alert with auto dimiss</h4>
+        <p>
+            This alert will be dismissed in 3 seconds
+        </p>
+    {{/bs-alert}}
+    <div>
+      {{if autoAlertDismissed 'alert was auto dismissed'}}
+    </div>
+  {{/if}}
+</div>
+
+<div class="page-header" style="margin-top: 0">
+  <h4>Doc</h4>
+</div>
+
+{{md-text
+typographer = true
+linkify     = false
+text        = "
+- **type:** `default`|`danger`|`warning`|`success` *default:* `default`
+- **isActive:** toggle state `false`|`true` *default:* `false`
+- **onDismiss:** action to call on dismiss
+- **onAutoDismiss:** action to call when it is dismissed by the timer
+- **dismissAfter:** seconds after which to dismiss the alert
+### Examples
+```handlebars
+{{#bs-alert type=currentType onDismiss=(action (mut alertDismissed) true)}}
+    <h4>This is an alert</h4>
+    <p>
+        Click the buttons to change the style
+    </p>
+  {{/bs-alert}}
+```
+
+Auto Dismiss
+```handlebars
+{{#bs-alert type=currentType onAutoDismiss=(action (mut autoAlertDismissed) true) dismissAfter=3}}
+  <h4>This is an alert with auto dimiss</h4>
+  <p>
+    This alert will be dismissed in 3 seconds
+  </p>
+{{/bs-alert}}
+```"
+}}

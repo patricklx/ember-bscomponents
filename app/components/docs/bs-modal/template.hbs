@@ -1,0 +1,65 @@
+<div class="page-header" style="margin-top: 0">
+  <h4>The Modal Component</h4>
+</div>
+
+{{bs-button onClick=(action 'open' 'docs/bs-modal/test' target=modalManager) title='show modal'}}
+
+<br>
+<div class="page-header" style="margin-top: 0">
+  <h4>Doc</h4>
+</div>
+
+{{md-text
+typographer = true
+linkify     = false
+text        = "
+- **onClose:** action to call when to modal closes
+
+- **yields:**
+-- **components:** header|body|footer
+-- **action:** onClose
+
+### Example
+
+
+```javascript
+export default Ember.Component.extend({
+  modalManager: Ember.inject.service(),
+
+  actions: {
+    showModal() {
+      //open(*path to a modal component*, *context*, *content*)
+      this.get('modalManager').open('docs/bs-modal/test', this, {
+        callback() {
+
+        }
+      });
+    }
+  }
+})
+
+```
+
+
+```handlebars
+{{bs-button onClick=(action 'open' 'docs/bs-modal/test' target=modalManager) title='show modal'}}
+```
+
+
+```handlebars
+{{#bs-modal onClose=(action 'onClose') as |section|}}
+  {{#section.header}}
+    the header
+  {{/section.header}}
+  {{#section.body}}
+    the body
+  {{/section.body}}
+  {{#section.footer}}
+    the footer
+    {{#bs-button onClick=section.onClose}}Close{{/bs-button}}
+  {{/section.footer}}
+{{/bs-modal}}
+
+```
+"
+}}

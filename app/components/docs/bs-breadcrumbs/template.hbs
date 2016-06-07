@@ -1,0 +1,35 @@
+<div class="page-header" style="margin-top: 0">
+  <h4>The Breadcrumbs Component</h4>
+</div>
+
+{{#bs-breadcrumbs onItemSelected=(action (mut selectedItem)) content=items as |crumb|}}
+  {{#crumb.item-component}}
+    {{crumb.content}}
+  {{/crumb.item-component}}
+{{/bs-breadcrumbs}}
+
+<div>
+  currently: {{selectedItem}}
+</div>
+
+
+<div class="page-header" style="margin-top: 0">
+  <h4>Doc</h4>
+</div>
+
+{{md-text
+typographer = true
+linkify     = false
+text        = "
+#### Attributes
+- **content:** list of *crumbs*
+- **onItemSelected:** action to call when an item was selected
+#### Examples
+```handlebars
+{{#bs-breadcrumbs onItemSelected=(action (mut selectedItem)) content=items as |crumb|}}
+  {{#crumb.item}}
+    {{crumb.content}}
+  {{/crumb.item}}
+{{/bs-breadcrumbs}}
+```"
+}}

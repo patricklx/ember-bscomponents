@@ -1,0 +1,55 @@
+<div class="page-header" style="margin-top: 0">
+  <h4>The Tooltip Component</h4>
+</div>
+
+<div>
+  <p>Tight pants next level keffiyeh
+    <a href="#" {{bs-bind-tooltip title="default tooltip"}}>you probably</a>
+    haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown.
+    Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american apparel
+    <a href="#" {{bs-bind-tooltip title="another tooltip"}}>have a</a>
+    terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats.
+    Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray.
+    A really ironic artisan
+    <a href="#" {{bs-bind-tooltip title="another one here too"}}>whatever keytar</a>,
+    scenester farm-to-table banksy Austin
+    <a href="#" {{bs-bind-tooltip title="the last tooltip"}}>twitter handle</a>
+    freegan cred raw denim single-origin coffee viral.</p>
+</div>
+<br>
+
+<div class="page-header" style="margin-top: 0">
+  <h4>Doc</h4>
+</div>
+
+{{md-text
+typographer = true
+linkify     = false
+text        = "
+- **type:** `default`|`danger`|`warning`|`success` *default:* `default`
+- **isActive:** toggle state `false`|`true` *default:* `false`
+- **onClick:** action to call on click/toggle
+- **title:** title of button for inline use
+### Examples
+Use as inline helper
+```handlebars
+{{bs-button type='default' onClick=(action (mut buttonClicked) 'default') title='default'}}
+```
+Use as block helper
+```handlebars
+{{#bs-button type='success' onClick=(action (mut buttonClicked) 'success')}}
+    success
+{{/bs-button}}
+```
+Use as toggle button
+```handlebars
+{{bs-button type='default'
+            isActive=buttonActive
+            onClick=(action (mut buttonActive) (not buttonActive))
+            title='toggle button'
+}}
+```
+"
+
+
+}}

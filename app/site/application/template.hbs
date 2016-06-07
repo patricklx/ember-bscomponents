@@ -1,0 +1,21 @@
+<nav class="navbar navbar-inverse navbar-fixed-top mobile-collapse" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+                Ember Cli BsComponents
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div id="content" style="margin-top: 40px">
+    <div class="container-fluid">
+      {{outlet}}
+    </div>
+</div>
+
+{{bs-modal-handler}}
+{{bs-tooltipbox-handler}}
+{{#unless ismobile}}
+  {{bs-notifications}}
+{{/unless}}

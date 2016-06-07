@@ -1,0 +1,64 @@
+<div class="page-header" style="margin-top: 0">
+  <h4>The Button Component</h4>
+</div>
+
+{{bs-button type='default' onClick=(action (mut buttonClicked) 'default') title='default'}}
+{{bs-button type='danger' onClick=(action (mut buttonClicked) 'danger') title='danger'}}
+{{bs-button type='warning' onClick=(action (mut buttonClicked) 'warning') title='warning'}}
+{{bs-button type='info' onClick=(action (mut buttonClicked) 'info') title='info'}}
+{{#bs-button type='success' onClick=(action (mut buttonClicked) 'success')}}
+    success
+{{/bs-button}}
+
+<br>
+<br>
+<p>
+  {{!--bs-label type=buttonClicked label=buttonClicked--}}
+  {{!--<span class="label label-{{buttonClicked}}">{{buttonClicked}}</span>--}}
+    {{#if buttonClicked}}
+      You clicked the <span class="label label-{{buttonClicked}}">{{buttonClicked}}</span> button
+    {{else}}
+        Click a button
+    {{/if}}
+</p>
+
+<div>
+  {{bs-button type='default' isActive=buttonActive onClick=(action (mut buttonActive) (not buttonActive)) title='toggle button'}}
+</div>
+<br>
+<div class="page-header" style="margin-top: 0">
+  <h4>Doc</h4>
+</div>
+
+
+{{md-text
+typographer = true
+linkify     = false
+text        = "
+- **type:** `default`|`danger`|`warning`|`success` *default:* `default`
+- **isActive:** toggle state `false`|`true` *default:* `false`
+- **onClick:** action to call on click/toggle
+- **title:** title of button for inline use
+#### Examples
+Use as inline helper
+```handlebars
+{{bs-button type='default' onClick=(action (mut buttonClicked) 'default') title='default'}}
+```
+Use as block helper
+```handlebars
+{{#bs-button type='success' onClick=(action (mut buttonClicked) 'success')}}
+    success
+{{/bs-button}}
+```
+Use as toggle button
+```handlebars
+{{bs-button type='default'
+            isActive=buttonActive
+            onClick=(action (mut buttonActive) (not buttonActive))
+            title='toggle button'
+}}
+```
+"
+
+
+}}

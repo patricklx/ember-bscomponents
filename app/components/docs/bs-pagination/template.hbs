@@ -1,0 +1,32 @@
+<div class="page-header" style="margin-top: 0">
+  <h4>The Pagination Component</h4>
+</div>
+
+{{bs-pagination totalLength=35}}
+
+
+
+<br>
+radio: {{currentRadio}}
+
+<br>
+<div class="page-header" style="margin-top: 0">
+  <h4>Doc</h4>
+</div>
+
+
+{{md-text
+typographer = true
+linkify     = false
+text        = "
+```handlebars
+{{#bs-list-group onItemSelected=(action (mut selectedItem)) content=items as |item|}}
+  {{#item.item-component}}
+    {{item.content}}
+    {{#if (is-equal item.content 'b')}}
+      <span class='badge'>b badge</span>
+    {{/if}}
+  {{/item.item-component}}
+{{/bs-list-group}}
+```"
+}}

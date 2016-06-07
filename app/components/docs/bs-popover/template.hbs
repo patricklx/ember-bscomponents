@@ -1,0 +1,47 @@
+<div class="page-header" style="margin-top: 0">
+  <h4>The Popover Component</h4>
+</div>
+
+<div>
+  <div style="width: 50px" {{bs-bind-popover title="the first popover" content="this is the first popover"}}>First</div>
+  <div style="width: 50px" {{bs-bind-popover placement='right' title="the second popover" content="this is the second popover"}}>Second</div>
+</div>
+<br>
+
+<div class="page-header" style="margin-top: 0">
+  <h4>Doc</h4>
+</div>
+
+
+
+{{md-text
+typographer = true
+linkify     = false
+text        = "
+- **type:** `default`|`danger`|`warning`|`success` *default:* `default`
+- **isActive:** toggle state `false`|`true` *default:* `false`
+- **onClick:** action to call on click/toggle
+- **title:** title of button for inline use
+### Examples
+Use as inline helper
+```handlebars
+{{bs-button type='default' onClick=(action (mut buttonClicked) 'default') title='default'}}
+```
+Use as block helper
+```handlebars
+{{#bs-button type='success' onClick=(action (mut buttonClicked) 'success')}}
+    success
+{{/bs-button}}
+```
+Use as toggle button
+```handlebars
+{{bs-button type='default'
+            isActive=buttonActive
+            onClick=(action (mut buttonActive) (not buttonActive))
+            title='toggle button'
+}}
+```
+"
+
+
+}}

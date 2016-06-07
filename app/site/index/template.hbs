@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-md-2">
+    {{#bs-panel as |section|}}
+      {{#section.header}}
+        Components
+      {{/section.header}}
+      {{#bs-list-group onItemSelected=(action (mut selectedDoc)) content=docs as |item|}}
+        {{#item.item-component}}
+          {{item.content}}
+        {{/item.item-component}}
+      {{/bs-list-group}}
+    {{/bs-panel}}
+  </div>
+
+  <!--<div class="col-md-1"></div>-->
+
+  <div class="col-md-8">
+    {{#bs-panel as |section|}}
+      {{#section.header}}
+          {{if currentDoc currentDoc 'No doc'}}
+      {{/section.header}}
+      {{#section.body}}
+        {{#if currentDoc}}
+        {{component currentDoc}}
+        {{else}}
+          <h4>Documentation for Ember Cli Bs Components</h4>
+        {{/if}}
+      {{/section.body}}
+    {{/bs-panel}}
+  </div>
+</div>
+

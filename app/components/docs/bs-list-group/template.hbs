@@ -1,0 +1,41 @@
+<div class="page-header" style="margin-top: 0">
+  <h4>The List Group Component</h4>
+</div>
+
+{{#bs-list-group onItemSelected=(action (mut selectedItem)) content=items as |item|}}
+  {{#item.item-component disabled=(is-equal item.content 'b')}}
+    {{item.content}}
+    {{#if (is-equal item.content 'b')}}
+      <span class='badge'>b disabled</span>
+    {{/if}}
+  {{/item.item-component}}
+{{/bs-list-group}}
+
+
+<br>
+radio: {{currentRadio}}
+
+<br>
+<div class="page-header" style="margin-top: 0">
+  <h4>Doc</h4>
+</div>
+
+
+{{md-text
+typographer = true
+linkify     = false
+text        = "
+- **content:** list of items
+- **onItemSelected:** action to call on selection
+#### Examples
+```handlebars
+{{#bs-list-group onItemSelected=(action (mut selectedItem)) content=items as |item|}}
+  {{#item.item-component}}
+    {{item.content}}
+    {{#if (is-equal item.content 'b')}}
+      <span class='badge'>b badge</span>
+    {{/if}}
+  {{/item.item-component}}
+{{/bs-list-group}}
+```"
+}}
