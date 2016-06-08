@@ -24,7 +24,7 @@
     "ember-cli": "2.5.1",
     "ember-cli-app-version": "^1.0.0",
     "ember-cli-babel": "^5.1.6",
-    "ember-cli-bscomponents": "git://github.com/patricklx/ember-cli-bscomponents.git#a5cff555a6fa533fb7a0e84ff3c579ac4eb80bdc",
+    "ember-cli-bscomponents": "git://github.com/patricklx/ember-cli-bscomponents.git#update-2.x",
     "ember-cli-coffeescript": "1.13.2",
     "ember-cli-dependency-checker": "^1.2.0",
     "ember-cli-htmlbars": "^1.0.3",

@@ -7,10 +7,15 @@ export default Ember.Component.extend({
   actions: {
     showModal() {
       this.get('modalManager').open('docs/bs-modal/test', this, {
+        myprop: 'lalala',
         callback() {
-
+          alert('tadaaa');
         }
       });
+    },
+    doSomething(closeAction) {
+      alert('do stuff');
+      closeAction();
     }
   }
 })

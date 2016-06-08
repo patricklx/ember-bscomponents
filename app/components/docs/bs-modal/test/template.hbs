@@ -7,6 +7,6 @@
   {{/section.body}}
   {{#section.footer}}
     the footer
-    {{#bs-button onClick=section.onClose}}Close{{/bs-button}}
+    {{#bs-button onClick=(action 'doSomething' section.onClose target=modalTarget)}}Close{{/bs-button}}
   {{/section.footer}}
 {{/bs-modal}}

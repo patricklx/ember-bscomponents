@@ -2,12 +2,9 @@
   <h4>The Pagination Component</h4>
 </div>
 
-{{bs-pagination totalLength=35}}
-
-
-
+{{bs-pagination totalLength=333 onItemSelected=(action (mut currentPage))}}
 <br>
-radio: {{currentRadio}}
+{{currentPage}}
 
 <br>
 <div class="page-header" style="margin-top: 0">
@@ -19,14 +16,15 @@ radio: {{currentRadio}}
 typographer = true
 linkify     = false
 text        = "
+#### Attributes
+**totalLength:** `number`, *default:* 0
+**itemsPerPage:** `number`, *default:* 10
+**itemsPerGroup:** `number`, *default:* 10
+**onItemSelected:** action executed on selection
+#### Example
 ```handlebars
-{{#bs-list-group onItemSelected=(action (mut selectedItem)) content=items as |item|}}
-  {{#item.item-component}}
-    {{item.content}}
-    {{#if (is-equal item.content 'b')}}
-      <span class='badge'>b badge</span>
-    {{/if}}
-  {{/item.item-component}}
-{{/bs-list-group}}
+{{bs-pagination totalLength=35 onItemSelected=(action (mut currentPage))}}
+<br>
+{{currentPage}}
 ```"
 }}

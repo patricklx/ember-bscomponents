@@ -30,7 +30,7 @@ text        = "
 #### Examples
 ```handlebars
 {{#bs-list-group onItemSelected=(action (mut selectedItem)) content=items as |item|}}
-  {{#item.item-component}}
+  {{#item.item-component disabled=(is-equal item.content 'b')}}
     {{item.content}}
     {{#if (is-equal item.content 'b')}}
       <span class='badge'>b badge</span>
