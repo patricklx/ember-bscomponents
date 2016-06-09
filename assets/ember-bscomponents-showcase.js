@@ -6,152 +6,152 @@
 
 /* jshint ignore:end */
 
-define('ember-cli-bscomponents-showcase/app', ['exports', 'ember', 'ember-cli-bscomponents-showcase/resolver', 'ember-load-initializers', 'ember-cli-bscomponents-showcase/config/environment'], function (exports, _ember, _emberCliBscomponentsShowcaseResolver, _emberLoadInitializers, _emberCliBscomponentsShowcaseConfigEnvironment) {
+define('ember-bscomponents-showcase/app', ['exports', 'ember', 'ember-bscomponents-showcase/resolver', 'ember-load-initializers', 'ember-bscomponents-showcase/config/environment'], function (exports, _ember, _emberBscomponentsShowcaseResolver, _emberLoadInitializers, _emberBscomponentsShowcaseConfigEnvironment) {
 
   var App = undefined;
 
   _ember['default'].MODEL_FACTORY_INJECTIONS = true;
 
   App = _ember['default'].Application.extend({
-    modulePrefix: _emberCliBscomponentsShowcaseConfigEnvironment['default'].modulePrefix,
-    podModulePrefix: _emberCliBscomponentsShowcaseConfigEnvironment['default'].podModulePrefix,
-    Resolver: _emberCliBscomponentsShowcaseResolver['default']
+    modulePrefix: _emberBscomponentsShowcaseConfigEnvironment['default'].modulePrefix,
+    podModulePrefix: _emberBscomponentsShowcaseConfigEnvironment['default'].podModulePrefix,
+    Resolver: _emberBscomponentsShowcaseResolver['default']
   });
 
-  (0, _emberLoadInitializers['default'])(App, _emberCliBscomponentsShowcaseConfigEnvironment['default'].modulePrefix);
+  (0, _emberLoadInitializers['default'])(App, _emberBscomponentsShowcaseConfigEnvironment['default'].modulePrefix);
 
   exports['default'] = App;
 });
-define('ember-cli-bscomponents-showcase/components/app-version', ['exports', 'ember-cli-app-version/components/app-version', 'ember-cli-bscomponents-showcase/config/environment'], function (exports, _emberCliAppVersionComponentsAppVersion, _emberCliBscomponentsShowcaseConfigEnvironment) {
+define('ember-bscomponents-showcase/components/app-version', ['exports', 'ember-cli-app-version/components/app-version', 'ember-bscomponents-showcase/config/environment'], function (exports, _emberCliAppVersionComponentsAppVersion, _emberBscomponentsShowcaseConfigEnvironment) {
 
-  var name = _emberCliBscomponentsShowcaseConfigEnvironment['default'].APP.name;
-  var version = _emberCliBscomponentsShowcaseConfigEnvironment['default'].APP.version;
+  var name = _emberBscomponentsShowcaseConfigEnvironment['default'].APP.name;
+  var version = _emberBscomponentsShowcaseConfigEnvironment['default'].APP.version;
 
   exports['default'] = _emberCliAppVersionComponentsAppVersion['default'].extend({
     version: version,
     name: name
   });
 });
-define('ember-cli-bscomponents-showcase/components/bs-alert/component', ['exports', 'ember-cli-bscomponents/components/bs-alert/component'], function (exports, _emberCliBscomponentsComponentsBsAlertComponent) {
+define('ember-bscomponents-showcase/components/bs-alert/component', ['exports', 'ember-cli-bscomponents/components/bs-alert/component'], function (exports, _emberCliBscomponentsComponentsBsAlertComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsAlertComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-badge/component', ['exports', 'ember-cli-bscomponents/components/bs-badge/component'], function (exports, _emberCliBscomponentsComponentsBsBadgeComponent) {
+define('ember-bscomponents-showcase/components/bs-badge/component', ['exports', 'ember-cli-bscomponents/components/bs-badge/component'], function (exports, _emberCliBscomponentsComponentsBsBadgeComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsBadgeComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-breadcrumbs/component', ['exports', 'ember-cli-bscomponents/components/bs-breadcrumbs/component'], function (exports, _emberCliBscomponentsComponentsBsBreadcrumbsComponent) {
+define('ember-bscomponents-showcase/components/bs-breadcrumbs/component', ['exports', 'ember-cli-bscomponents/components/bs-breadcrumbs/component'], function (exports, _emberCliBscomponentsComponentsBsBreadcrumbsComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsBreadcrumbsComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-breadcrumbs/item/component', ['exports', 'ember-cli-bscomponents/components/bs-breadcrumbs/item/component'], function (exports, _emberCliBscomponentsComponentsBsBreadcrumbsItemComponent) {
+define('ember-bscomponents-showcase/components/bs-breadcrumbs/item/component', ['exports', 'ember-cli-bscomponents/components/bs-breadcrumbs/item/component'], function (exports, _emberCliBscomponentsComponentsBsBreadcrumbsItemComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsBreadcrumbsItemComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-btn-group/component', ['exports', 'ember-cli-bscomponents/components/bs-btn-group/component'], function (exports, _emberCliBscomponentsComponentsBsBtnGroupComponent) {
+define('ember-bscomponents-showcase/components/bs-btn-group/component', ['exports', 'ember-cli-bscomponents/components/bs-btn-group/component'], function (exports, _emberCliBscomponentsComponentsBsBtnGroupComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsBtnGroupComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-btn-toolbar/component', ['exports', 'ember-cli-bscomponents/components/bs-btn-toolbar/component'], function (exports, _emberCliBscomponentsComponentsBsBtnToolbarComponent) {
+define('ember-bscomponents-showcase/components/bs-btn-toolbar/component', ['exports', 'ember-cli-bscomponents/components/bs-btn-toolbar/component'], function (exports, _emberCliBscomponentsComponentsBsBtnToolbarComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsBtnToolbarComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-button/component', ['exports', 'ember-cli-bscomponents/components/bs-button/component'], function (exports, _emberCliBscomponentsComponentsBsButtonComponent) {
+define('ember-bscomponents-showcase/components/bs-button/component', ['exports', 'ember-cli-bscomponents/components/bs-button/component'], function (exports, _emberCliBscomponentsComponentsBsButtonComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsButtonComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-items-action-bar/component', ['exports', 'ember-cli-bscomponents/components/bs-item-action-bar/component'], function (exports, _emberCliBscomponentsComponentsBsItemActionBarComponent) {
+define('ember-bscomponents-showcase/components/bs-items-action-bar/component', ['exports', 'ember-cli-bscomponents/components/bs-item-action-bar/component'], function (exports, _emberCliBscomponentsComponentsBsItemActionBarComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsItemActionBarComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-label/component', ['exports', 'ember-cli-bscomponents/components/bs-label/component'], function (exports, _emberCliBscomponentsComponentsBsLabelComponent) {
+define('ember-bscomponents-showcase/components/bs-label/component', ['exports', 'ember-cli-bscomponents/components/bs-label/component'], function (exports, _emberCliBscomponentsComponentsBsLabelComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsLabelComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-list-group/component', ['exports', 'ember-cli-bscomponents/components/bs-list-group/component'], function (exports, _emberCliBscomponentsComponentsBsListGroupComponent) {
+define('ember-bscomponents-showcase/components/bs-list-group/component', ['exports', 'ember-cli-bscomponents/components/bs-list-group/component'], function (exports, _emberCliBscomponentsComponentsBsListGroupComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsListGroupComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-list-group/item/component', ['exports', 'ember-cli-bscomponents/components/bs-list-group/item/component'], function (exports, _emberCliBscomponentsComponentsBsListGroupItemComponent) {
+define('ember-bscomponents-showcase/components/bs-list-group/item/component', ['exports', 'ember-cli-bscomponents/components/bs-list-group/item/component'], function (exports, _emberCliBscomponentsComponentsBsListGroupItemComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsListGroupItemComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-modal/body/template', ['exports', 'ember-cli-bscomponents/components/bs-modal/body/template'], function (exports, _emberCliBscomponentsComponentsBsModalBodyTemplate) {
+define('ember-bscomponents-showcase/components/bs-modal/body/template', ['exports', 'ember-cli-bscomponents/components/bs-modal/body/template'], function (exports, _emberCliBscomponentsComponentsBsModalBodyTemplate) {
   exports['default'] = _emberCliBscomponentsComponentsBsModalBodyTemplate['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-modal/component', ['exports', 'ember-cli-bscomponents/components/bs-modal/component'], function (exports, _emberCliBscomponentsComponentsBsModalComponent) {
+define('ember-bscomponents-showcase/components/bs-modal/component', ['exports', 'ember-cli-bscomponents/components/bs-modal/component'], function (exports, _emberCliBscomponentsComponentsBsModalComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsModalComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-modal/footer/template', ['exports', 'ember-cli-bscomponents/components/bs-modal/footer/template'], function (exports, _emberCliBscomponentsComponentsBsModalFooterTemplate) {
+define('ember-bscomponents-showcase/components/bs-modal/footer/template', ['exports', 'ember-cli-bscomponents/components/bs-modal/footer/template'], function (exports, _emberCliBscomponentsComponentsBsModalFooterTemplate) {
   exports['default'] = _emberCliBscomponentsComponentsBsModalFooterTemplate['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-modal/header/template', ['exports', 'ember-cli-bscomponents/components/bs-modal/header/template'], function (exports, _emberCliBscomponentsComponentsBsModalHeaderTemplate) {
+define('ember-bscomponents-showcase/components/bs-modal/header/template', ['exports', 'ember-cli-bscomponents/components/bs-modal/header/template'], function (exports, _emberCliBscomponentsComponentsBsModalHeaderTemplate) {
   exports['default'] = _emberCliBscomponentsComponentsBsModalHeaderTemplate['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-modal-handler/component', ['exports', 'ember-cli-bscomponents/components/bs-modal-handler/component'], function (exports, _emberCliBscomponentsComponentsBsModalHandlerComponent) {
+define('ember-bscomponents-showcase/components/bs-modal-handler/component', ['exports', 'ember-cli-bscomponents/components/bs-modal-handler/component'], function (exports, _emberCliBscomponentsComponentsBsModalHandlerComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsModalHandlerComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-page-header/component', ['exports', 'ember-cli-bscomponents/components/bs-page-header/component'], function (exports, _emberCliBscomponentsComponentsBsPageHeaderComponent) {
+define('ember-bscomponents-showcase/components/bs-page-header/component', ['exports', 'ember-cli-bscomponents/components/bs-page-header/component'], function (exports, _emberCliBscomponentsComponentsBsPageHeaderComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsPageHeaderComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-pagination/component', ['exports', 'ember-cli-bscomponents/components/bs-pagination/component'], function (exports, _emberCliBscomponentsComponentsBsPaginationComponent) {
+define('ember-bscomponents-showcase/components/bs-pagination/component', ['exports', 'ember-cli-bscomponents/components/bs-pagination/component'], function (exports, _emberCliBscomponentsComponentsBsPaginationComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsPaginationComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-pagination/item/component', ['exports', 'ember-cli-bscomponents/components/bs-pagination/item/component'], function (exports, _emberCliBscomponentsComponentsBsPaginationItemComponent) {
+define('ember-bscomponents-showcase/components/bs-pagination/item/component', ['exports', 'ember-cli-bscomponents/components/bs-pagination/item/component'], function (exports, _emberCliBscomponentsComponentsBsPaginationItemComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsPaginationItemComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-panel/body/template', ['exports', 'ember-cli-bscomponents/components/bs-panel/body/template'], function (exports, _emberCliBscomponentsComponentsBsPanelBodyTemplate) {
+define('ember-bscomponents-showcase/components/bs-panel/body/template', ['exports', 'ember-cli-bscomponents/components/bs-panel/body/template'], function (exports, _emberCliBscomponentsComponentsBsPanelBodyTemplate) {
   exports['default'] = _emberCliBscomponentsComponentsBsPanelBodyTemplate['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-panel/component', ['exports', 'ember-cli-bscomponents/components/bs-panel/component'], function (exports, _emberCliBscomponentsComponentsBsPanelComponent) {
+define('ember-bscomponents-showcase/components/bs-panel/component', ['exports', 'ember-cli-bscomponents/components/bs-panel/component'], function (exports, _emberCliBscomponentsComponentsBsPanelComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsPanelComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-panel/footer/template', ['exports', 'ember-cli-bscomponents/components/bs-panel/footer/template'], function (exports, _emberCliBscomponentsComponentsBsPanelFooterTemplate) {
+define('ember-bscomponents-showcase/components/bs-panel/footer/template', ['exports', 'ember-cli-bscomponents/components/bs-panel/footer/template'], function (exports, _emberCliBscomponentsComponentsBsPanelFooterTemplate) {
   exports['default'] = _emberCliBscomponentsComponentsBsPanelFooterTemplate['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-panel/header/template', ['exports', 'ember-cli-bscomponents/components/bs-panel/header/template'], function (exports, _emberCliBscomponentsComponentsBsPanelHeaderTemplate) {
+define('ember-bscomponents-showcase/components/bs-panel/header/template', ['exports', 'ember-cli-bscomponents/components/bs-panel/header/template'], function (exports, _emberCliBscomponentsComponentsBsPanelHeaderTemplate) {
   exports['default'] = _emberCliBscomponentsComponentsBsPanelHeaderTemplate['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-pill/component', ['exports', 'ember-cli-bscomponents/components/bs-pill/component'], function (exports, _emberCliBscomponentsComponentsBsPillComponent) {
+define('ember-bscomponents-showcase/components/bs-pill/component', ['exports', 'ember-cli-bscomponents/components/bs-pill/component'], function (exports, _emberCliBscomponentsComponentsBsPillComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsPillComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-pill/link/component', ['exports', 'ember-cli-bscomponents/components/bs-pill/link/component'], function (exports, _emberCliBscomponentsComponentsBsPillLinkComponent) {
+define('ember-bscomponents-showcase/components/bs-pill/link/component', ['exports', 'ember-cli-bscomponents/components/bs-pill/link/component'], function (exports, _emberCliBscomponentsComponentsBsPillLinkComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsPillLinkComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-pill-link/component', ['exports', 'ember-cli-bscomponents/components/bs-pill/link/component'], function (exports, _emberCliBscomponentsComponentsBsPillLinkComponent) {
+define('ember-bscomponents-showcase/components/bs-pill-link/component', ['exports', 'ember-cli-bscomponents/components/bs-pill/link/component'], function (exports, _emberCliBscomponentsComponentsBsPillLinkComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsPillLinkComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-pills/component', ['exports', 'ember-cli-bscomponents/components/bs-pills/component'], function (exports, _emberCliBscomponentsComponentsBsPillsComponent) {
+define('ember-bscomponents-showcase/components/bs-pills/component', ['exports', 'ember-cli-bscomponents/components/bs-pills/component'], function (exports, _emberCliBscomponentsComponentsBsPillsComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsPillsComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-popover/component', ['exports', 'ember-cli-bscomponents/components/bs-popover/component'], function (exports, _emberCliBscomponentsComponentsBsPopoverComponent) {
+define('ember-bscomponents-showcase/components/bs-popover/component', ['exports', 'ember-cli-bscomponents/components/bs-popover/component'], function (exports, _emberCliBscomponentsComponentsBsPopoverComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsPopoverComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-progress/component', ['exports', 'ember-cli-bscomponents/components/bs-progress/component'], function (exports, _emberCliBscomponentsComponentsBsProgressComponent) {
+define('ember-bscomponents-showcase/components/bs-progress/component', ['exports', 'ember-cli-bscomponents/components/bs-progress/component'], function (exports, _emberCliBscomponentsComponentsBsProgressComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsProgressComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-progressbar/component', ['exports', 'ember-cli-bscomponents/components/bs-progressbar/component'], function (exports, _emberCliBscomponentsComponentsBsProgressbarComponent) {
+define('ember-bscomponents-showcase/components/bs-progressbar/component', ['exports', 'ember-cli-bscomponents/components/bs-progressbar/component'], function (exports, _emberCliBscomponentsComponentsBsProgressbarComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsProgressbarComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-tab-pane/component', ['exports', 'ember-cli-bscomponents/components/bs-tab-pane/component'], function (exports, _emberCliBscomponentsComponentsBsTabPaneComponent) {
+define('ember-bscomponents-showcase/components/bs-tab-pane/component', ['exports', 'ember-cli-bscomponents/components/bs-tab-pane/component'], function (exports, _emberCliBscomponentsComponentsBsTabPaneComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsTabPaneComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-tabs/component', ['exports', 'ember-cli-bscomponents/components/bs-tabs/component'], function (exports, _emberCliBscomponentsComponentsBsTabsComponent) {
+define('ember-bscomponents-showcase/components/bs-tabs/component', ['exports', 'ember-cli-bscomponents/components/bs-tabs/component'], function (exports, _emberCliBscomponentsComponentsBsTabsComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsTabsComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-tabs/pane/template', ['exports', 'ember-cli-bscomponents/components/bs-tabs/pane/template'], function (exports, _emberCliBscomponentsComponentsBsTabsPaneTemplate) {
+define('ember-bscomponents-showcase/components/bs-tabs/pane/template', ['exports', 'ember-cli-bscomponents/components/bs-tabs/pane/template'], function (exports, _emberCliBscomponentsComponentsBsTabsPaneTemplate) {
   exports['default'] = _emberCliBscomponentsComponentsBsTabsPaneTemplate['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-tabs/tabs/component', ['exports', 'ember-cli-bscomponents/components/bs-tabs/tabs/component'], function (exports, _emberCliBscomponentsComponentsBsTabsTabsComponent) {
+define('ember-bscomponents-showcase/components/bs-tabs/tabs/component', ['exports', 'ember-cli-bscomponents/components/bs-tabs/tabs/component'], function (exports, _emberCliBscomponentsComponentsBsTabsTabsComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsTabsTabsComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-tabs-panes/component', ['exports', 'ember-cli-bscomponents/components/bs-tabs-panes/component'], function (exports, _emberCliBscomponentsComponentsBsTabsPanesComponent) {
+define('ember-bscomponents-showcase/components/bs-tabs-panes/component', ['exports', 'ember-cli-bscomponents/components/bs-tabs-panes/component'], function (exports, _emberCliBscomponentsComponentsBsTabsPanesComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsTabsPanesComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-tooltip/component', ['exports', 'ember-cli-bscomponents/components/bs-tooltip/component'], function (exports, _emberCliBscomponentsComponentsBsTooltipComponent) {
+define('ember-bscomponents-showcase/components/bs-tooltip/component', ['exports', 'ember-cli-bscomponents/components/bs-tooltip/component'], function (exports, _emberCliBscomponentsComponentsBsTooltipComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsTooltipComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-tooltipbox-handler/component', ['exports', 'ember-cli-bscomponents/components/bs-tooltipbox-handler/component'], function (exports, _emberCliBscomponentsComponentsBsTooltipboxHandlerComponent) {
+define('ember-bscomponents-showcase/components/bs-tooltipbox-handler/component', ['exports', 'ember-cli-bscomponents/components/bs-tooltipbox-handler/component'], function (exports, _emberCliBscomponentsComponentsBsTooltipboxHandlerComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsTooltipboxHandlerComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/bs-well/component', ['exports', 'ember-cli-bscomponents/components/bs-well/component'], function (exports, _emberCliBscomponentsComponentsBsWellComponent) {
+define('ember-bscomponents-showcase/components/bs-well/component', ['exports', 'ember-cli-bscomponents/components/bs-well/component'], function (exports, _emberCliBscomponentsComponentsBsWellComponent) {
   exports['default'] = _emberCliBscomponentsComponentsBsWellComponent['default'];
 });
-define('ember-cli-bscomponents-showcase/components/docs/bs-alert/component', ['exports', 'ember'], function (exports, _ember) {
+define('ember-bscomponents-showcase/components/docs/bs-alert/component', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Component.extend({
     currentType: 'info'
   });
 });
-define("ember-cli-bscomponents-showcase/components/docs/bs-alert/template", ["exports"], function (exports) {
+define("ember-bscomponents-showcase/components/docs/bs-alert/template", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     var child0 = (function () {
       return {
@@ -169,7 +169,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-alert/template", ["ex
               "column": 2
             }
           },
-          "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-alert/template.hbs"
+          "moduleName": "ember-bscomponents-showcase/components/docs/bs-alert/template.hbs"
         },
         isEmpty: false,
         arity: 0,
@@ -217,7 +217,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-alert/template", ["ex
               "column": 2
             }
           },
-          "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-alert/template.hbs"
+          "moduleName": "ember-bscomponents-showcase/components/docs/bs-alert/template.hbs"
         },
         isEmpty: false,
         arity: 0,
@@ -261,7 +261,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-alert/template", ["ex
                 "column": 4
               }
             },
-            "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-alert/template.hbs"
+            "moduleName": "ember-bscomponents-showcase/components/docs/bs-alert/template.hbs"
           },
           isEmpty: false,
           arity: 0,
@@ -308,7 +308,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-alert/template", ["ex
               "column": 2
             }
           },
-          "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-alert/template.hbs"
+          "moduleName": "ember-bscomponents-showcase/components/docs/bs-alert/template.hbs"
         },
         isEmpty: false,
         arity: 0,
@@ -362,7 +362,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-alert/template", ["ex
             "column": 0
           }
         },
-        "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-alert/template.hbs"
+        "moduleName": "ember-bscomponents-showcase/components/docs/bs-alert/template.hbs"
       },
       isEmpty: false,
       arity: 0,
@@ -499,12 +499,12 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-alert/template", ["ex
     };
   })());
 });
-define('ember-cli-bscomponents-showcase/components/docs/bs-breadcrumbs/component', ['exports', 'ember'], function (exports, _ember) {
+define('ember-bscomponents-showcase/components/docs/bs-breadcrumbs/component', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Component.extend({
     items: 'a breadcrumb component example'.split(' ')
   });
 });
-define("ember-cli-bscomponents-showcase/components/docs/bs-breadcrumbs/template", ["exports"], function (exports) {
+define("ember-bscomponents-showcase/components/docs/bs-breadcrumbs/template", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     var child0 = (function () {
       var child0 = (function () {
@@ -523,7 +523,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-breadcrumbs/template"
                 "column": 2
               }
             },
-            "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-breadcrumbs/template.hbs"
+            "moduleName": "ember-bscomponents-showcase/components/docs/bs-breadcrumbs/template.hbs"
           },
           isEmpty: false,
           arity: 0,
@@ -564,7 +564,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-breadcrumbs/template"
               "column": 0
             }
           },
-          "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-breadcrumbs/template.hbs"
+          "moduleName": "ember-bscomponents-showcase/components/docs/bs-breadcrumbs/template.hbs"
         },
         isEmpty: false,
         arity: 1,
@@ -606,7 +606,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-breadcrumbs/template"
             "column": 0
           }
         },
-        "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-breadcrumbs/template.hbs"
+        "moduleName": "ember-bscomponents-showcase/components/docs/bs-breadcrumbs/template.hbs"
       },
       isEmpty: false,
       arity: 0,
@@ -675,13 +675,13 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-breadcrumbs/template"
     };
   })());
 });
-define('ember-cli-bscomponents-showcase/components/docs/bs-btn-group/component', ['exports', 'ember'], function (exports, _ember) {
+define('ember-bscomponents-showcase/components/docs/bs-btn-group/component', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Component.extend({
     items: 'a b c d e'.split(' '),
     radios: ['Radio 1', 'Radio 2', 'Radio 3']
   });
 });
-define("ember-cli-bscomponents-showcase/components/docs/bs-btn-group/template", ["exports"], function (exports) {
+define("ember-bscomponents-showcase/components/docs/bs-btn-group/template", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     var child0 = (function () {
       var child0 = (function () {
@@ -701,7 +701,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-btn-group/template", 
                   "column": 4
                 }
               },
-              "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-btn-group/template.hbs"
+              "moduleName": "ember-bscomponents-showcase/components/docs/bs-btn-group/template.hbs"
             },
             isEmpty: false,
             arity: 0,
@@ -743,7 +743,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-btn-group/template", 
                 "column": 2
               }
             },
-            "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-btn-group/template.hbs"
+            "moduleName": "ember-bscomponents-showcase/components/docs/bs-btn-group/template.hbs"
           },
           isEmpty: false,
           arity: 0,
@@ -788,7 +788,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-btn-group/template", 
               "column": 0
             }
           },
-          "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-btn-group/template.hbs"
+          "moduleName": "ember-bscomponents-showcase/components/docs/bs-btn-group/template.hbs"
         },
         isEmpty: false,
         arity: 1,
@@ -830,7 +830,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-btn-group/template", 
                   "column": 4
                 }
               },
-              "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-btn-group/template.hbs"
+              "moduleName": "ember-bscomponents-showcase/components/docs/bs-btn-group/template.hbs"
             },
             isEmpty: false,
             arity: 0,
@@ -872,7 +872,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-btn-group/template", 
                 "column": 2
               }
             },
-            "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-btn-group/template.hbs"
+            "moduleName": "ember-bscomponents-showcase/components/docs/bs-btn-group/template.hbs"
           },
           isEmpty: false,
           arity: 0,
@@ -917,7 +917,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-btn-group/template", 
               "column": 0
             }
           },
-          "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-btn-group/template.hbs"
+          "moduleName": "ember-bscomponents-showcase/components/docs/bs-btn-group/template.hbs"
         },
         isEmpty: false,
         arity: 1,
@@ -958,7 +958,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-btn-group/template", 
                 "column": 4
               }
             },
-            "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-btn-group/template.hbs"
+            "moduleName": "ember-bscomponents-showcase/components/docs/bs-btn-group/template.hbs"
           },
           isEmpty: false,
           arity: 0,
@@ -999,7 +999,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-btn-group/template", 
               "column": 2
             }
           },
-          "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-btn-group/template.hbs"
+          "moduleName": "ember-bscomponents-showcase/components/docs/bs-btn-group/template.hbs"
         },
         isEmpty: false,
         arity: 1,
@@ -1041,7 +1041,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-btn-group/template", 
             "column": 0
           }
         },
-        "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-btn-group/template.hbs"
+        "moduleName": "ember-bscomponents-showcase/components/docs/bs-btn-group/template.hbs"
       },
       isEmpty: false,
       arity: 0,
@@ -1157,7 +1157,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-btn-group/template", 
     };
   })());
 });
-define("ember-cli-bscomponents-showcase/components/docs/bs-button/template", ["exports"], function (exports) {
+define("ember-bscomponents-showcase/components/docs/bs-button/template", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     var child0 = (function () {
       return {
@@ -1175,7 +1175,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-button/template", ["e
               "column": 0
             }
           },
-          "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-button/template.hbs"
+          "moduleName": "ember-bscomponents-showcase/components/docs/bs-button/template.hbs"
         },
         isEmpty: false,
         arity: 0,
@@ -1211,7 +1211,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-button/template", ["e
               "column": 4
             }
           },
-          "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-button/template.hbs"
+          "moduleName": "ember-bscomponents-showcase/components/docs/bs-button/template.hbs"
         },
         isEmpty: false,
         arity: 0,
@@ -1257,7 +1257,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-button/template", ["e
               "column": 4
             }
           },
-          "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-button/template.hbs"
+          "moduleName": "ember-bscomponents-showcase/components/docs/bs-button/template.hbs"
         },
         isEmpty: false,
         arity: 0,
@@ -1295,7 +1295,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-button/template", ["e
             "column": 0
           }
         },
-        "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-button/template.hbs"
+        "moduleName": "ember-bscomponents-showcase/components/docs/bs-button/template.hbs"
       },
       isEmpty: false,
       arity: 0,
@@ -1405,12 +1405,12 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-button/template", ["e
     };
   })());
 });
-define('ember-cli-bscomponents-showcase/components/docs/bs-list-group/component', ['exports', 'ember'], function (exports, _ember) {
+define('ember-bscomponents-showcase/components/docs/bs-list-group/component', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Component.extend({
     items: 'a b c d e'.split(' ')
   });
 });
-define("ember-cli-bscomponents-showcase/components/docs/bs-list-group/template", ["exports"], function (exports) {
+define("ember-bscomponents-showcase/components/docs/bs-list-group/template", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     var child0 = (function () {
       var child0 = (function () {
@@ -1430,7 +1430,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-list-group/template",
                   "column": 4
                 }
               },
-              "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-list-group/template.hbs"
+              "moduleName": "ember-bscomponents-showcase/components/docs/bs-list-group/template.hbs"
             },
             isEmpty: false,
             arity: 0,
@@ -1472,7 +1472,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-list-group/template",
                 "column": 2
               }
             },
-            "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-list-group/template.hbs"
+            "moduleName": "ember-bscomponents-showcase/components/docs/bs-list-group/template.hbs"
           },
           isEmpty: false,
           arity: 0,
@@ -1517,7 +1517,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-list-group/template",
               "column": 0
             }
           },
-          "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-list-group/template.hbs"
+          "moduleName": "ember-bscomponents-showcase/components/docs/bs-list-group/template.hbs"
         },
         isEmpty: false,
         arity: 1,
@@ -1559,7 +1559,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-list-group/template",
             "column": 2
           }
         },
-        "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-list-group/template.hbs"
+        "moduleName": "ember-bscomponents-showcase/components/docs/bs-list-group/template.hbs"
       },
       isEmpty: false,
       arity: 0,
@@ -1623,13 +1623,13 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-list-group/template",
         dom.insertBoundary(fragment, null);
         return morphs;
       },
-      statements: [["block", "bs-list-group", [], ["onItemSelected", ["subexpr", "action", [["subexpr", "mut", [["get", "selectedItem", ["loc", [null, [5, 45], [5, 57]]]]], [], ["loc", [null, [5, 40], [5, 58]]]]], [], ["loc", [null, [5, 32], [5, 59]]]], "content", ["subexpr", "@mut", [["get", "items", ["loc", [null, [5, 68], [5, 73]]]]], [], []]], 0, null, ["loc", [null, [5, 0], [12, 18]]]], ["content", "currentRadio", ["loc", [null, [16, 7], [16, 23]]]], ["inline", "md-text", [], ["typographer", true, "linkify", false, "text", "\n- **content:** list of items\n- **onItemSelected:** action to call on selection\n#### Examples\n```handlebars\n{{#bs-list-group onItemSelected=(action (mut selectedItem)) content=items as |item|}}\n  {{#item.item-component disabled=(is-equal item.content 'b')}}\n    {{item.content}}\n    {{#if (is-equal item.content 'b')}}\n      <span class='badge'>b badge</span>\n    {{/if}}\n  {{/item.item-component}}\n{{/bs-list-group}}\n```"], ["loc", [null, [24, 0], [41, 2]]]]],
+      statements: [["block", "bs-list-group", [], ["onItemSelected", ["subexpr", "action", [["subexpr", "mut", [["get", "selectedItem", ["loc", [null, [5, 45], [5, 57]]]]], [], ["loc", [null, [5, 40], [5, 58]]]]], [], ["loc", [null, [5, 32], [5, 59]]]], "content", ["subexpr", "@mut", [["get", "items", ["loc", [null, [5, 68], [5, 73]]]]], [], []]], 0, null, ["loc", [null, [5, 0], [12, 18]]]], ["content", "currentRadio", ["loc", [null, [16, 7], [16, 23]]]], ["inline", "md-text", [], ["typographer", true, "linkify", false, "text", "\r\n- **content:** list of items\r\n- **onItemSelected:** action to call on selection\r\n#### Examples\r\n```handlebars\r\n{{#bs-list-group onItemSelected=(action (mut selectedItem)) content=items as |item|}}\r\n  {{#item.item-component disabled=(is-equal item.content 'b')}}\r\n    {{item.content}}\r\n    {{#if (is-equal item.content 'b')}}\r\n      <span class='badge'>b badge</span>\r\n    {{/if}}\r\n  {{/item.item-component}}\r\n{{/bs-list-group}}\r\n```"], ["loc", [null, [24, 0], [41, 2]]]]],
       locals: [],
       templates: [child0]
     };
   })());
 });
-define('ember-cli-bscomponents-showcase/components/docs/bs-modal/component', ['exports', 'ember'], function (exports, _ember) {
+define('ember-bscomponents-showcase/components/docs/bs-modal/component', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Component.extend({
     currentType: 'info',
     modalManager: _ember['default'].inject.service(),
@@ -1650,7 +1650,7 @@ define('ember-cli-bscomponents-showcase/components/docs/bs-modal/component', ['e
     }
   });
 });
-define("ember-cli-bscomponents-showcase/components/docs/bs-modal/template", ["exports"], function (exports) {
+define("ember-bscomponents-showcase/components/docs/bs-modal/template", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     return {
       meta: {
@@ -1670,7 +1670,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-modal/template", ["ex
             "column": 0
           }
         },
-        "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-modal/template.hbs"
+        "moduleName": "ember-bscomponents-showcase/components/docs/bs-modal/template.hbs"
       },
       isEmpty: false,
       arity: 0,
@@ -1731,13 +1731,13 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-modal/template", ["ex
         morphs[2] = dom.createMorphAt(fragment, 10, 10, contextualElement);
         return morphs;
       },
-      statements: [["inline", "log", [["get", "this", ["loc", [null, [5, 6], [5, 10]]]]], [], ["loc", [null, [5, 0], [5, 12]]]], ["inline", "bs-button", [], ["onClick", ["subexpr", "action", ["open", "docs/bs-modal/test", ["get", "this", ["loc", [null, [6, 56], [6, 60]]]]], ["target", ["get", "modalManager", ["loc", [null, [6, 68], [6, 80]]]]], ["loc", [null, [6, 20], [6, 81]]]], "title", "show modal"], ["loc", [null, [6, 0], [6, 102]]]], ["inline", "md-text", [], ["typographer", true, "linkify", false, "text", "\n#### Attributes\n- **onClose:** action to call when to modal closes\n- **yields:**\n-- **components:** header|body|footer\n-- **action:** onClose\n\n#### Example\n\ninclude the component\n```handlebars\n{{bs-modal-handler}}\n```\nat the bottom of the application template, this is responsible for displaying modals\n\nInvoke modal with javascript\n--------------------------------\n```javascript\nexport default Ember.Component.extend({\n  modalManager: Ember.inject.service(),\n\n  actions: {\n    showModal() {\n      //open(*path to a modal component*, *set as modalTarget*, *set as content*)\n      this.get('modalManager').open('docs/bs-modal/test', this, {\n        callback() {\n\n        }\n      });\n    }\n  }\n})\n```\n\nInvoke modal from template\n------------------------------\n```handlebars\n{{bs-button onClick=(action 'open' 'docs/bs-modal/test' this target=modalManager) title='show modal'}}\n\n{{#bs-modal onClose=(action 'onClose') as |section|}}\n  {{#section.header}}\n    the header\n  {{/section.header}}\n  {{#section.body}}\n    the body\n  {{/section.body}}\n  {{#section.footer}}\n    the footer\n    {{#bs-button onClick=section.onClose}}Close{{/bs-button}}\n  {{/section.footer}}\n{{/bs-modal}}\n```\n\n`this` will be set as `modalTarget`, so we can do\n```handlebars\n{{#bs-modal onClose=(action 'onClose') as |section|}}\n  ...\n  {{#section.footer}}\n    the footer\n    {{#bs-button onClick=(action 'doSomething' target=modalTarget)}}Close{{/bs-button}}\n  {{/section.footer}}\n{{/bs-modal}}\n```\n"], ["loc", [null, [13, 0], [80, 2]]]]],
+      statements: [["inline", "log", [["get", "this", ["loc", [null, [5, 6], [5, 10]]]]], [], ["loc", [null, [5, 0], [5, 12]]]], ["inline", "bs-button", [], ["onClick", ["subexpr", "action", ["open", "docs/bs-modal/test", ["get", "this", ["loc", [null, [6, 56], [6, 60]]]]], ["target", ["get", "modalManager", ["loc", [null, [6, 68], [6, 80]]]]], ["loc", [null, [6, 20], [6, 81]]]], "title", "show modal"], ["loc", [null, [6, 0], [6, 102]]]], ["inline", "md-text", [], ["typographer", true, "linkify", false, "text", "\r\n#### Attributes\r\n- **onClose:** action to call when to modal closes\r\n- **yields:**\r\n-- **components:** header|body|footer\r\n-- **action:** onClose\r\n\r\n#### Example\r\n\r\ninclude the component\r\n```handlebars\r\n{{bs-modal-handler}}\r\n```\r\nat the bottom of the application template, this is responsible for displaying modals\r\n\r\nInvoke modal with javascript\r\n--------------------------------\r\n```javascript\r\nexport default Ember.Component.extend({\r\n  modalManager: Ember.inject.service(),\r\n\r\n  actions: {\r\n    showModal() {\r\n      //open(*path to a modal component*, *set as modalTarget*, *set as content*)\r\n      this.get('modalManager').open('docs/bs-modal/test', this, {\r\n        callback() {\r\n\r\n        }\r\n      });\r\n    }\r\n  }\r\n})\r\n```\r\n\r\nInvoke modal from template\r\n------------------------------\r\n```handlebars\r\n{{bs-button onClick=(action 'open' 'docs/bs-modal/test' this target=modalManager) title='show modal'}}\r\n\r\n{{#bs-modal onClose=(action 'onClose') as |section|}}\r\n  {{#section.header}}\r\n    the header\r\n  {{/section.header}}\r\n  {{#section.body}}\r\n    the body\r\n  {{/section.body}}\r\n  {{#section.footer}}\r\n    the footer\r\n    {{#bs-button onClick=section.onClose}}Close{{/bs-button}}\r\n  {{/section.footer}}\r\n{{/bs-modal}}\r\n```\r\n\r\n`this` will be set as `modalTarget`, so we can do\r\n```handlebars\r\n{{#bs-modal onClose=(action 'onClose') as |section|}}\r\n  ...\r\n  {{#section.footer}}\r\n    the footer\r\n    {{#bs-button onClick=(action 'doSomething' target=modalTarget)}}Close{{/bs-button}}\r\n  {{/section.footer}}\r\n{{/bs-modal}}\r\n```\r\n"], ["loc", [null, [13, 0], [80, 2]]]]],
       locals: [],
       templates: []
     };
   })());
 });
-define('ember-cli-bscomponents-showcase/components/docs/bs-modal/test/component', ['exports', 'ember'], function (exports, _ember) {
+define('ember-bscomponents-showcase/components/docs/bs-modal/test/component', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Component.extend({
     modalManager: _ember['default'].inject.service(),
 
@@ -1746,7 +1746,7 @@ define('ember-cli-bscomponents-showcase/components/docs/bs-modal/test/component'
     }
   });
 });
-define("ember-cli-bscomponents-showcase/components/docs/bs-modal/test/template", ["exports"], function (exports) {
+define("ember-bscomponents-showcase/components/docs/bs-modal/test/template", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     var child0 = (function () {
       var child0 = (function () {
@@ -1765,7 +1765,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-modal/test/template",
                 "column": 2
               }
             },
-            "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-modal/test/template.hbs"
+            "moduleName": "ember-bscomponents-showcase/components/docs/bs-modal/test/template.hbs"
           },
           isEmpty: false,
           arity: 0,
@@ -1801,7 +1801,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-modal/test/template",
                 "column": 2
               }
             },
-            "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-modal/test/template.hbs"
+            "moduleName": "ember-bscomponents-showcase/components/docs/bs-modal/test/template.hbs"
           },
           isEmpty: false,
           arity: 0,
@@ -1838,7 +1838,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-modal/test/template",
                   "column": 89
                 }
               },
-              "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-modal/test/template.hbs"
+              "moduleName": "ember-bscomponents-showcase/components/docs/bs-modal/test/template.hbs"
             },
             isEmpty: false,
             arity: 0,
@@ -1873,7 +1873,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-modal/test/template",
                 "column": 2
               }
             },
-            "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-modal/test/template.hbs"
+            "moduleName": "ember-bscomponents-showcase/components/docs/bs-modal/test/template.hbs"
           },
           isEmpty: false,
           arity: 0,
@@ -1917,7 +1917,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-modal/test/template",
               "column": 0
             }
           },
-          "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-modal/test/template.hbs"
+          "moduleName": "ember-bscomponents-showcase/components/docs/bs-modal/test/template.hbs"
         },
         isEmpty: false,
         arity: 1,
@@ -1965,7 +1965,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-modal/test/template",
             "column": 0
           }
         },
-        "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-modal/test/template.hbs"
+        "moduleName": "ember-bscomponents-showcase/components/docs/bs-modal/test/template.hbs"
       },
       isEmpty: false,
       arity: 0,
@@ -1990,10 +1990,10 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-modal/test/template",
     };
   })());
 });
-define('ember-cli-bscomponents-showcase/components/docs/bs-pagination/component', ['exports', 'ember'], function (exports, _ember) {
+define('ember-bscomponents-showcase/components/docs/bs-pagination/component', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Component.extend({});
 });
-define("ember-cli-bscomponents-showcase/components/docs/bs-pagination/template", ["exports"], function (exports) {
+define("ember-bscomponents-showcase/components/docs/bs-pagination/template", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     return {
       meta: {
@@ -2013,7 +2013,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-pagination/template",
             "column": 2
           }
         },
-        "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-pagination/template.hbs"
+        "moduleName": "ember-bscomponents-showcase/components/docs/bs-pagination/template.hbs"
       },
       isEmpty: false,
       arity: 0,
@@ -2077,13 +2077,13 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-pagination/template",
         dom.insertBoundary(fragment, null);
         return morphs;
       },
-      statements: [["inline", "bs-pagination", [], ["totalLength", 333, "onItemSelected", ["subexpr", "action", [["subexpr", "mut", [["get", "currentPage", ["loc", [null, [5, 60], [5, 71]]]]], [], ["loc", [null, [5, 55], [5, 72]]]]], [], ["loc", [null, [5, 47], [5, 73]]]]], ["loc", [null, [5, 0], [5, 75]]]], ["content", "currentPage", ["loc", [null, [7, 0], [7, 15]]]], ["inline", "md-text", [], ["typographer", true, "linkify", false, "text", "\n#### Attributes\n**totalLength:** `number`, *default:* 0\n**itemsPerPage:** `number`, *default:* 10\n**itemsPerGroup:** `number`, *default:* 10\n**onItemSelected:** action executed on selection\n#### Example\n```handlebars\n{{bs-pagination totalLength=35 onItemSelected=(action (mut currentPage))}}\n<br>\n{{currentPage}}\n```"], ["loc", [null, [15, 0], [30, 2]]]]],
+      statements: [["inline", "bs-pagination", [], ["totalLength", 333, "onItemSelected", ["subexpr", "action", [["subexpr", "mut", [["get", "currentPage", ["loc", [null, [5, 60], [5, 71]]]]], [], ["loc", [null, [5, 55], [5, 72]]]]], [], ["loc", [null, [5, 47], [5, 73]]]]], ["loc", [null, [5, 0], [5, 75]]]], ["content", "currentPage", ["loc", [null, [7, 0], [7, 15]]]], ["inline", "md-text", [], ["typographer", true, "linkify", false, "text", "\r\n#### Attributes\r\n**totalLength:** `number`, *default:* 0\r\n**itemsPerPage:** `number`, *default:* 10\r\n**itemsPerGroup:** `number`, *default:* 10\r\n**onItemSelected:** action executed on selection\r\n#### Example\r\n```handlebars\r\n{{bs-pagination totalLength=35 onItemSelected=(action (mut currentPage))}}\r\n<br>\r\n{{currentPage}}\r\n```"], ["loc", [null, [15, 0], [30, 2]]]]],
       locals: [],
       templates: []
     };
   })());
 });
-define('ember-cli-bscomponents-showcase/components/docs/bs-popover/component', ['exports', 'ember'], function (exports, _ember) {
+define('ember-bscomponents-showcase/components/docs/bs-popover/component', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Component.extend({
     tabs: ['a', 'b', 'c'],
     tabComponents: {
@@ -2095,7 +2095,7 @@ define('ember-cli-bscomponents-showcase/components/docs/bs-popover/component', [
     })
   });
 });
-define("ember-cli-bscomponents-showcase/components/docs/bs-popover/template", ["exports"], function (exports) {
+define("ember-bscomponents-showcase/components/docs/bs-popover/template", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     return {
       meta: {
@@ -2115,7 +2115,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-popover/template", ["
             "column": 0
           }
         },
-        "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-popover/template.hbs"
+        "moduleName": "ember-bscomponents-showcase/components/docs/bs-popover/template.hbs"
       },
       isEmpty: false,
       arity: 0,
@@ -2197,7 +2197,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-popover/template", ["
     };
   })());
 });
-define("ember-cli-bscomponents-showcase/components/docs/bs-popover/test/template", ["exports"], function (exports) {
+define("ember-bscomponents-showcase/components/docs/bs-popover/test/template", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     return {
       meta: {
@@ -2214,7 +2214,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-popover/test/template
             "column": 6
           }
         },
-        "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-popover/test/template.hbs"
+        "moduleName": "ember-bscomponents-showcase/components/docs/bs-popover/test/template.hbs"
       },
       isEmpty: false,
       arity: 0,
@@ -2237,7 +2237,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-popover/test/template
     };
   })());
 });
-define('ember-cli-bscomponents-showcase/components/docs/bs-progress/component', ['exports', 'ember'], function (exports, _ember) {
+define('ember-bscomponents-showcase/components/docs/bs-progress/component', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Component.extend({
     currentProgress: 0,
     didInsertElement: function didInsertElement() {
@@ -2254,7 +2254,7 @@ define('ember-cli-bscomponents-showcase/components/docs/bs-progress/component', 
     }
   });
 });
-define("ember-cli-bscomponents-showcase/components/docs/bs-progress/template", ["exports"], function (exports) {
+define("ember-bscomponents-showcase/components/docs/bs-progress/template", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     return {
       meta: {
@@ -2274,7 +2274,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-progress/template", [
             "column": 2
           }
         },
-        "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-progress/template.hbs"
+        "moduleName": "ember-bscomponents-showcase/components/docs/bs-progress/template.hbs"
       },
       isEmpty: false,
       arity: 0,
@@ -2344,7 +2344,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-progress/template", [
     };
   })());
 });
-define('ember-cli-bscomponents-showcase/components/docs/bs-tabs/component', ['exports', 'ember'], function (exports, _ember) {
+define('ember-bscomponents-showcase/components/docs/bs-tabs/component', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Component.extend({
     tabs: ['a', 'b', 'c'],
     tabComponents: {
@@ -2356,7 +2356,7 @@ define('ember-cli-bscomponents-showcase/components/docs/bs-tabs/component', ['ex
     })
   });
 });
-define("ember-cli-bscomponents-showcase/components/docs/bs-tabs/template", ["exports"], function (exports) {
+define("ember-bscomponents-showcase/components/docs/bs-tabs/template", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     var child0 = (function () {
       var child0 = (function () {
@@ -2375,7 +2375,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-tabs/template", ["exp
                 "column": 2
               }
             },
-            "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-tabs/template.hbs"
+            "moduleName": "ember-bscomponents-showcase/components/docs/bs-tabs/template.hbs"
           },
           isEmpty: false,
           arity: 0,
@@ -2416,7 +2416,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-tabs/template", ["exp
               "column": 0
             }
           },
-          "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-tabs/template.hbs"
+          "moduleName": "ember-bscomponents-showcase/components/docs/bs-tabs/template.hbs"
         },
         isEmpty: false,
         arity: 1,
@@ -2464,7 +2464,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-tabs/template", ["exp
             "column": 0
           }
         },
-        "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-tabs/template.hbs"
+        "moduleName": "ember-bscomponents-showcase/components/docs/bs-tabs/template.hbs"
       },
       isEmpty: false,
       arity: 0,
@@ -2526,7 +2526,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-tabs/template", ["exp
     };
   })());
 });
-define('ember-cli-bscomponents-showcase/components/docs/bs-tooltip/component', ['exports', 'ember'], function (exports, _ember) {
+define('ember-bscomponents-showcase/components/docs/bs-tooltip/component', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Component.extend({
     tabs: ['a', 'b', 'c'],
     tabComponents: {
@@ -2537,7 +2537,7 @@ define('ember-cli-bscomponents-showcase/components/docs/bs-tooltip/component', [
     })
   });
 });
-define("ember-cli-bscomponents-showcase/components/docs/bs-tooltip/template", ["exports"], function (exports) {
+define("ember-bscomponents-showcase/components/docs/bs-tooltip/template", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     return {
       meta: {
@@ -2557,7 +2557,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-tooltip/template", ["
             "column": 0
           }
         },
-        "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-tooltip/template.hbs"
+        "moduleName": "ember-bscomponents-showcase/components/docs/bs-tooltip/template.hbs"
       },
       isEmpty: false,
       arity: 0,
@@ -2672,7 +2672,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-tooltip/template", ["
     };
   })());
 });
-define("ember-cli-bscomponents-showcase/components/docs/bs-tooltip/test/template", ["exports"], function (exports) {
+define("ember-bscomponents-showcase/components/docs/bs-tooltip/test/template", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     return {
       meta: {
@@ -2689,7 +2689,7 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-tooltip/test/template
             "column": 6
           }
         },
-        "moduleName": "ember-cli-bscomponents-showcase/components/docs/bs-tooltip/test/template.hbs"
+        "moduleName": "ember-bscomponents-showcase/components/docs/bs-tooltip/test/template.hbs"
       },
       isEmpty: false,
       arity: 0,
@@ -2712,11 +2712,11 @@ define("ember-cli-bscomponents-showcase/components/docs/bs-tooltip/test/template
     };
   })());
 });
-define('ember-cli-bscomponents-showcase/components/md-dummy', ['exports', 'ember'], function (exports, _ember) {
+define('ember-bscomponents-showcase/components/md-dummy', ['exports', 'ember'], function (exports, _ember) {
   var Component = _ember['default'].Component;
   exports['default'] = Component;
 });
-define('ember-cli-bscomponents-showcase/components/md-text', ['exports', 'ember-remarkable/components/md-text'], function (exports, _emberRemarkableComponentsMdText) {
+define('ember-bscomponents-showcase/components/md-text', ['exports', 'ember-remarkable/components/md-text'], function (exports, _emberRemarkableComponentsMdText) {
   Object.defineProperty(exports, 'default', {
     enumerable: true,
     get: function get() {
@@ -2724,15 +2724,15 @@ define('ember-cli-bscomponents-showcase/components/md-text', ['exports', 'ember-
     }
   });
 });
-define('ember-cli-bscomponents-showcase/helpers/is-equal', ['exports', 'ember-cli-bscomponents/helpers/is-equal'], function (exports, _emberCliBscomponentsHelpersIsEqual) {
+define('ember-bscomponents-showcase/helpers/is-equal', ['exports', 'ember-cli-bscomponents/helpers/is-equal'], function (exports, _emberCliBscomponentsHelpersIsEqual) {
   exports.isEqual = _emberCliBscomponentsHelpersIsEqual.isEqual;
   exports['default'] = _emberCliBscomponentsHelpersIsEqual.isEqualHelper;
 });
-define('ember-cli-bscomponents-showcase/helpers/is-in', ['exports', 'ember-cli-bscomponents/helpers/is-in'], function (exports, _emberCliBscomponentsHelpersIsIn) {
+define('ember-bscomponents-showcase/helpers/is-in', ['exports', 'ember-cli-bscomponents/helpers/is-in'], function (exports, _emberCliBscomponentsHelpersIsIn) {
   exports.isIn = _emberCliBscomponentsHelpersIsIn.isIn;
   exports['default'] = _emberCliBscomponentsHelpersIsIn.isInHelper;
 });
-define('ember-cli-bscomponents-showcase/helpers/not', ['exports', 'ember'], function (exports, _ember) {
+define('ember-bscomponents-showcase/helpers/not', ['exports', 'ember'], function (exports, _ember) {
   var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i['return']) _i['return'](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError('Invalid attempt to destructure non-iterable instance'); } }; })();
 
   exports.not = not;
@@ -2750,19 +2750,19 @@ define('ember-cli-bscomponents-showcase/helpers/not', ['exports', 'ember'], func
 /**
  * Created by Patrick on 02/06/2016.
  */
-define('ember-cli-bscomponents-showcase/helpers/pluralize', ['exports', 'ember-inflector/lib/helpers/pluralize'], function (exports, _emberInflectorLibHelpersPluralize) {
+define('ember-bscomponents-showcase/helpers/pluralize', ['exports', 'ember-inflector/lib/helpers/pluralize'], function (exports, _emberInflectorLibHelpersPluralize) {
   exports['default'] = _emberInflectorLibHelpersPluralize['default'];
 });
-define('ember-cli-bscomponents-showcase/helpers/singularize', ['exports', 'ember-inflector/lib/helpers/singularize'], function (exports, _emberInflectorLibHelpersSingularize) {
+define('ember-bscomponents-showcase/helpers/singularize', ['exports', 'ember-inflector/lib/helpers/singularize'], function (exports, _emberInflectorLibHelpersSingularize) {
   exports['default'] = _emberInflectorLibHelpersSingularize['default'];
 });
-define('ember-cli-bscomponents-showcase/initializers/app-version', ['exports', 'ember-cli-app-version/initializer-factory', 'ember-cli-bscomponents-showcase/config/environment'], function (exports, _emberCliAppVersionInitializerFactory, _emberCliBscomponentsShowcaseConfigEnvironment) {
+define('ember-bscomponents-showcase/initializers/app-version', ['exports', 'ember-cli-app-version/initializer-factory', 'ember-bscomponents-showcase/config/environment'], function (exports, _emberCliAppVersionInitializerFactory, _emberBscomponentsShowcaseConfigEnvironment) {
   exports['default'] = {
     name: 'App Version',
-    initialize: (0, _emberCliAppVersionInitializerFactory['default'])(_emberCliBscomponentsShowcaseConfigEnvironment['default'].APP.name, _emberCliBscomponentsShowcaseConfigEnvironment['default'].APP.version)
+    initialize: (0, _emberCliAppVersionInitializerFactory['default'])(_emberBscomponentsShowcaseConfigEnvironment['default'].APP.name, _emberBscomponentsShowcaseConfigEnvironment['default'].APP.version)
   };
 });
-define('ember-cli-bscomponents-showcase/initializers/container-debug-adapter', ['exports', 'ember-resolver/container-debug-adapter'], function (exports, _emberResolverContainerDebugAdapter) {
+define('ember-bscomponents-showcase/initializers/container-debug-adapter', ['exports', 'ember-resolver/container-debug-adapter'], function (exports, _emberResolverContainerDebugAdapter) {
   exports['default'] = {
     name: 'container-debug-adapter',
 
@@ -2774,7 +2774,7 @@ define('ember-cli-bscomponents-showcase/initializers/container-debug-adapter', [
     }
   };
 });
-define('ember-cli-bscomponents-showcase/initializers/data-adapter', ['exports', 'ember'], function (exports, _ember) {
+define('ember-bscomponents-showcase/initializers/data-adapter', ['exports', 'ember'], function (exports, _ember) {
 
   /*
     This initializer is here to keep backwards compatibility with code depending
@@ -2789,7 +2789,7 @@ define('ember-cli-bscomponents-showcase/initializers/data-adapter', ['exports', 
     initialize: _ember['default'].K
   };
 });
-define('ember-cli-bscomponents-showcase/initializers/ember-data', ['exports', 'ember-data/setup-container', 'ember-data/-private/core'], function (exports, _emberDataSetupContainer, _emberDataPrivateCore) {
+define('ember-bscomponents-showcase/initializers/ember-data', ['exports', 'ember-data/setup-container', 'ember-data/-private/core'], function (exports, _emberDataSetupContainer, _emberDataPrivateCore) {
 
   /*
   
@@ -2828,19 +2828,19 @@ define('ember-cli-bscomponents-showcase/initializers/ember-data', ['exports', 'e
     initialize: _emberDataSetupContainer['default']
   };
 });
-define('ember-cli-bscomponents-showcase/initializers/export-application-global', ['exports', 'ember', 'ember-cli-bscomponents-showcase/config/environment'], function (exports, _ember, _emberCliBscomponentsShowcaseConfigEnvironment) {
+define('ember-bscomponents-showcase/initializers/export-application-global', ['exports', 'ember', 'ember-bscomponents-showcase/config/environment'], function (exports, _ember, _emberBscomponentsShowcaseConfigEnvironment) {
   exports.initialize = initialize;
 
   function initialize() {
     var application = arguments[1] || arguments[0];
-    if (_emberCliBscomponentsShowcaseConfigEnvironment['default'].exportApplicationGlobal !== false) {
-      var value = _emberCliBscomponentsShowcaseConfigEnvironment['default'].exportApplicationGlobal;
+    if (_emberBscomponentsShowcaseConfigEnvironment['default'].exportApplicationGlobal !== false) {
+      var value = _emberBscomponentsShowcaseConfigEnvironment['default'].exportApplicationGlobal;
       var globalName;
 
       if (typeof value === 'string') {
         globalName = value;
       } else {
-        globalName = _ember['default'].String.classify(_emberCliBscomponentsShowcaseConfigEnvironment['default'].modulePrefix);
+        globalName = _ember['default'].String.classify(_emberBscomponentsShowcaseConfigEnvironment['default'].modulePrefix);
       }
 
       if (!window[globalName]) {
@@ -2862,7 +2862,7 @@ define('ember-cli-bscomponents-showcase/initializers/export-application-global',
     initialize: initialize
   };
 });
-define('ember-cli-bscomponents-showcase/initializers/injectStore', ['exports', 'ember'], function (exports, _ember) {
+define('ember-bscomponents-showcase/initializers/injectStore', ['exports', 'ember'], function (exports, _ember) {
 
   /*
     This initializer is here to keep backwards compatibility with code depending
@@ -2877,7 +2877,7 @@ define('ember-cli-bscomponents-showcase/initializers/injectStore', ['exports', '
     initialize: _ember['default'].K
   };
 });
-define('ember-cli-bscomponents-showcase/initializers/setup-boostrap', ['exports', 'ember-cli-bscomponents/keywords/bs-bind-tooltip', 'ember-cli-bscomponents/keywords/bs-bind-popover'], function (exports, _emberCliBscomponentsKeywordsBsBindTooltip, _emberCliBscomponentsKeywordsBsBindPopover) {
+define('ember-bscomponents-showcase/initializers/setup-boostrap', ['exports', 'ember-cli-bscomponents/keywords/bs-bind-tooltip', 'ember-cli-bscomponents/keywords/bs-bind-popover'], function (exports, _emberCliBscomponentsKeywordsBsBindTooltip, _emberCliBscomponentsKeywordsBsBindPopover) {
   var SetupAllInitializer, initialize;
 
   exports.initialize = initialize = function (application) {
@@ -2895,7 +2895,7 @@ define('ember-cli-bscomponents-showcase/initializers/setup-boostrap', ['exports'
   exports.initialize = initialize;
   exports['default'] = SetupAllInitializer;
 });
-define('ember-cli-bscomponents-showcase/initializers/store', ['exports', 'ember'], function (exports, _ember) {
+define('ember-bscomponents-showcase/initializers/store', ['exports', 'ember'], function (exports, _ember) {
 
   /*
     This initializer is here to keep backwards compatibility with code depending
@@ -2910,7 +2910,7 @@ define('ember-cli-bscomponents-showcase/initializers/store', ['exports', 'ember'
     initialize: _ember['default'].K
   };
 });
-define('ember-cli-bscomponents-showcase/initializers/transforms', ['exports', 'ember'], function (exports, _ember) {
+define('ember-bscomponents-showcase/initializers/transforms', ['exports', 'ember'], function (exports, _ember) {
 
   /*
     This initializer is here to keep backwards compatibility with code depending
@@ -2925,16 +2925,16 @@ define('ember-cli-bscomponents-showcase/initializers/transforms', ['exports', 'e
     initialize: _ember['default'].K
   };
 });
-define("ember-cli-bscomponents-showcase/instance-initializers/ember-data", ["exports", "ember-data/-private/instance-initializers/initialize-store-service"], function (exports, _emberDataPrivateInstanceInitializersInitializeStoreService) {
+define("ember-bscomponents-showcase/instance-initializers/ember-data", ["exports", "ember-data/-private/instance-initializers/initialize-store-service"], function (exports, _emberDataPrivateInstanceInitializersInitializeStoreService) {
   exports["default"] = {
     name: "ember-data",
     initialize: _emberDataPrivateInstanceInitializersInitializeStoreService["default"]
   };
 });
-define('ember-cli-bscomponents-showcase/mixins/bs-tooltipview-mixin', ['exports', 'ember-cli-bscomponents/mixins/bs-tooltipview-mixin'], function (exports, _emberCliBscomponentsMixinsBsTooltipviewMixin) {
+define('ember-bscomponents-showcase/mixins/bs-tooltipview-mixin', ['exports', 'ember-cli-bscomponents/mixins/bs-tooltipview-mixin'], function (exports, _emberCliBscomponentsMixinsBsTooltipviewMixin) {
   exports['default'] = _emberCliBscomponentsMixinsBsTooltipviewMixin['default'];
 });
-define('ember-cli-bscomponents-showcase/resolver', ['exports', 'ember-resolver', 'ember'], function (exports, _emberResolver, _ember) {
+define('ember-bscomponents-showcase/resolver', ['exports', 'ember-resolver', 'ember'], function (exports, _emberResolver, _ember) {
   exports['default'] = _emberResolver['default'].extend({
     //why do i need to do this?
 
@@ -2960,18 +2960,18 @@ define('ember-cli-bscomponents-showcase/resolver', ['exports', 'ember-resolver',
     })
   });
 });
-define('ember-cli-bscomponents-showcase/router', ['exports', 'ember', 'ember-cli-bscomponents-showcase/config/environment'], function (exports, _ember, _emberCliBscomponentsShowcaseConfigEnvironment) {
+define('ember-bscomponents-showcase/router', ['exports', 'ember', 'ember-bscomponents-showcase/config/environment'], function (exports, _ember, _emberBscomponentsShowcaseConfigEnvironment) {
 
   var Router = _ember['default'].Router.extend({
-    rootURL: _emberCliBscomponentsShowcaseConfigEnvironment['default'].baseURL,
-    location: _emberCliBscomponentsShowcaseConfigEnvironment['default'].locationType
+    rootURL: _emberBscomponentsShowcaseConfigEnvironment['default'].baseURL,
+    location: _emberBscomponentsShowcaseConfigEnvironment['default'].locationType
   });
 
   Router.map(function () {});
 
   exports['default'] = Router;
 });
-define('ember-cli-bscomponents-showcase/services/ajax', ['exports', 'ember-ajax/services/ajax'], function (exports, _emberAjaxServicesAjax) {
+define('ember-bscomponents-showcase/services/ajax', ['exports', 'ember-ajax/services/ajax'], function (exports, _emberAjaxServicesAjax) {
   Object.defineProperty(exports, 'default', {
     enumerable: true,
     get: function get() {
@@ -2979,13 +2979,13 @@ define('ember-cli-bscomponents-showcase/services/ajax', ['exports', 'ember-ajax/
     }
   });
 });
-define('ember-cli-bscomponents-showcase/services/modal-manager', ['exports', 'ember-cli-bscomponents/services/modal-manager'], function (exports, _emberCliBscomponentsServicesModalManager) {
+define('ember-bscomponents-showcase/services/modal-manager', ['exports', 'ember-cli-bscomponents/services/modal-manager'], function (exports, _emberCliBscomponentsServicesModalManager) {
   exports['default'] = _emberCliBscomponentsServicesModalManager['default'];
 });
-define('ember-cli-bscomponents-showcase/services/tooltip-box-manager', ['exports', 'ember-cli-bscomponents/services/tooltip-box-manager'], function (exports, _emberCliBscomponentsServicesTooltipBoxManager) {
+define('ember-bscomponents-showcase/services/tooltip-box-manager', ['exports', 'ember-cli-bscomponents/services/tooltip-box-manager'], function (exports, _emberCliBscomponentsServicesTooltipBoxManager) {
   exports['default'] = _emberCliBscomponentsServicesTooltipBoxManager['default'];
 });
-define("ember-cli-bscomponents-showcase/site/application/template", ["exports"], function (exports) {
+define("ember-bscomponents-showcase/site/application/template", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     var child0 = (function () {
       return {
@@ -3003,7 +3003,7 @@ define("ember-cli-bscomponents-showcase/site/application/template", ["exports"],
               "column": 0
             }
           },
-          "moduleName": "ember-cli-bscomponents-showcase/site/application/template.hbs"
+          "moduleName": "ember-bscomponents-showcase/site/application/template.hbs"
         },
         isEmpty: false,
         arity: 0,
@@ -3047,7 +3047,7 @@ define("ember-cli-bscomponents-showcase/site/application/template", ["exports"],
             "column": 0
           }
         },
-        "moduleName": "ember-cli-bscomponents-showcase/site/application/template.hbs"
+        "moduleName": "ember-bscomponents-showcase/site/application/template.hbs"
       },
       isEmpty: false,
       arity: 0,
@@ -3131,7 +3131,7 @@ define("ember-cli-bscomponents-showcase/site/application/template", ["exports"],
     };
   })());
 });
-define('ember-cli-bscomponents-showcase/site/index/controller', ['exports', 'ember'], function (exports, _ember) {
+define('ember-bscomponents-showcase/site/index/controller', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Controller.extend({
     docs: ['alert', 'button', 'list-group', 'breadcrumbs', 'btn-group', 'modal', 'tabs', 'tooltip', 'popover', 'pagination', 'progress'],
     selectedDoc: null,
@@ -3147,7 +3147,7 @@ define('ember-cli-bscomponents-showcase/site/index/controller', ['exports', 'emb
 /**
  * Created by Patrick on 01/06/2016.
  */
-define("ember-cli-bscomponents-showcase/site/index/template", ["exports"], function (exports) {
+define("ember-bscomponents-showcase/site/index/template", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     var child0 = (function () {
       var child0 = (function () {
@@ -3166,7 +3166,7 @@ define("ember-cli-bscomponents-showcase/site/index/template", ["exports"], funct
                 "column": 6
               }
             },
-            "moduleName": "ember-cli-bscomponents-showcase/site/index/template.hbs"
+            "moduleName": "ember-bscomponents-showcase/site/index/template.hbs"
           },
           isEmpty: false,
           arity: 0,
@@ -3203,7 +3203,7 @@ define("ember-cli-bscomponents-showcase/site/index/template", ["exports"], funct
                   "column": 8
                 }
               },
-              "moduleName": "ember-cli-bscomponents-showcase/site/index/template.hbs"
+              "moduleName": "ember-bscomponents-showcase/site/index/template.hbs"
             },
             isEmpty: false,
             arity: 0,
@@ -3244,7 +3244,7 @@ define("ember-cli-bscomponents-showcase/site/index/template", ["exports"], funct
                 "column": 6
               }
             },
-            "moduleName": "ember-cli-bscomponents-showcase/site/index/template.hbs"
+            "moduleName": "ember-bscomponents-showcase/site/index/template.hbs"
           },
           isEmpty: false,
           arity: 1,
@@ -3283,7 +3283,7 @@ define("ember-cli-bscomponents-showcase/site/index/template", ["exports"], funct
               "column": 4
             }
           },
-          "moduleName": "ember-cli-bscomponents-showcase/site/index/template.hbs"
+          "moduleName": "ember-bscomponents-showcase/site/index/template.hbs"
         },
         isEmpty: false,
         arity: 1,
@@ -3327,7 +3327,7 @@ define("ember-cli-bscomponents-showcase/site/index/template", ["exports"], funct
                 "column": 6
               }
             },
-            "moduleName": "ember-cli-bscomponents-showcase/site/index/template.hbs"
+            "moduleName": "ember-bscomponents-showcase/site/index/template.hbs"
           },
           isEmpty: false,
           arity: 0,
@@ -3370,7 +3370,7 @@ define("ember-cli-bscomponents-showcase/site/index/template", ["exports"], funct
                   "column": 8
                 }
               },
-              "moduleName": "ember-cli-bscomponents-showcase/site/index/template.hbs"
+              "moduleName": "ember-bscomponents-showcase/site/index/template.hbs"
             },
             isEmpty: false,
             arity: 0,
@@ -3412,7 +3412,7 @@ define("ember-cli-bscomponents-showcase/site/index/template", ["exports"], funct
                   "column": 8
                 }
               },
-              "moduleName": "ember-cli-bscomponents-showcase/site/index/template.hbs"
+              "moduleName": "ember-bscomponents-showcase/site/index/template.hbs"
             },
             isEmpty: false,
             arity: 0,
@@ -3467,7 +3467,7 @@ define("ember-cli-bscomponents-showcase/site/index/template", ["exports"], funct
                 "column": 6
               }
             },
-            "moduleName": "ember-cli-bscomponents-showcase/site/index/template.hbs"
+            "moduleName": "ember-bscomponents-showcase/site/index/template.hbs"
           },
           isEmpty: false,
           arity: 0,
@@ -3506,7 +3506,7 @@ define("ember-cli-bscomponents-showcase/site/index/template", ["exports"], funct
               "column": 4
             }
           },
-          "moduleName": "ember-cli-bscomponents-showcase/site/index/template.hbs"
+          "moduleName": "ember-bscomponents-showcase/site/index/template.hbs"
         },
         isEmpty: false,
         arity: 1,
@@ -3550,7 +3550,7 @@ define("ember-cli-bscomponents-showcase/site/index/template", ["exports"], funct
             "column": 0
           }
         },
-        "moduleName": "ember-cli-bscomponents-showcase/site/index/template.hbs"
+        "moduleName": "ember-bscomponents-showcase/site/index/template.hbs"
       },
       isEmpty: false,
       arity: 0,
@@ -3606,7 +3606,7 @@ define("ember-cli-bscomponents-showcase/site/index/template", ["exports"], funct
     };
   })());
 });
-define("ember-cli-bscomponents-showcase/templates/components/md-text", ["exports"], function (exports) {
+define("ember-bscomponents-showcase/templates/components/md-text", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
     var child0 = (function () {
       return {
@@ -3627,7 +3627,7 @@ define("ember-cli-bscomponents-showcase/templates/components/md-text", ["exports
               "column": 0
             }
           },
-          "moduleName": "ember-cli-bscomponents-showcase/templates/components/md-text.hbs"
+          "moduleName": "ember-bscomponents-showcase/templates/components/md-text.hbs"
         },
         isEmpty: false,
         arity: 0,
@@ -3669,7 +3669,7 @@ define("ember-cli-bscomponents-showcase/templates/components/md-text", ["exports
               "column": 0
             }
           },
-          "moduleName": "ember-cli-bscomponents-showcase/templates/components/md-text.hbs"
+          "moduleName": "ember-bscomponents-showcase/templates/components/md-text.hbs"
         },
         isEmpty: false,
         arity: 0,
@@ -3713,7 +3713,7 @@ define("ember-cli-bscomponents-showcase/templates/components/md-text", ["exports
             "column": 7
           }
         },
-        "moduleName": "ember-cli-bscomponents-showcase/templates/components/md-text.hbs"
+        "moduleName": "ember-bscomponents-showcase/templates/components/md-text.hbs"
       },
       isEmpty: false,
       arity: 0,
@@ -3770,8 +3770,8 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("ember-bscomponents-showcase/app")["default"].create({"name":"ember-cli-bscomponents-showcase","version":"0.0.0+c903d05b"});
+  require("ember-bscomponents-showcase/app")["default"].create({"name":"ember-bscomponents-showcase","version":"0.0.0+c903d05b"});
 }
 
 /* jshint ignore:end */
-//# sourceMappingURL=ember-cli-bscomponents-showcase.map
+//# sourceMappingURL=ember-bscomponents-showcase.map

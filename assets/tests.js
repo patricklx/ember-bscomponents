@@ -1,4 +1,4 @@
-define('ember-cli-bscomponents-showcase/tests/app.jshint', ['exports'], function (exports) {
+define('ember-bscomponents-showcase/tests/app.jshint', ['exports'], function (exports) {
   'use strict';
 
   QUnit.module('JSHint | app.js');
@@ -7,7 +7,7 @@ define('ember-cli-bscomponents-showcase/tests/app.jshint', ['exports'], function
     assert.ok(true, 'app.js should pass jshint.');
   });
 });
-define('ember-cli-bscomponents-showcase/tests/components/docs/bs-alert/component.jshint', ['exports'], function (exports) {
+define('ember-bscomponents-showcase/tests/components/docs/bs-alert/component.jshint', ['exports'], function (exports) {
   'use strict';
 
   QUnit.module('JSHint | components/docs/bs-alert/component.js');
@@ -16,7 +16,7 @@ define('ember-cli-bscomponents-showcase/tests/components/docs/bs-alert/component
     assert.ok(false, 'components/docs/bs-alert/component.js should pass jshint.\ncomponents/docs/bs-alert/component.js: line 1, col 26, Missing semicolon.\ncomponents/docs/bs-alert/component.js: line 5, col 3, Missing semicolon.\n\n2 errors');
   });
 });
-define('ember-cli-bscomponents-showcase/tests/components/docs/bs-breadcrumbs/component.jshint', ['exports'], function (exports) {
+define('ember-bscomponents-showcase/tests/components/docs/bs-breadcrumbs/component.jshint', ['exports'], function (exports) {
   'use strict';
 
   QUnit.module('JSHint | components/docs/bs-breadcrumbs/component.js');
@@ -25,7 +25,7 @@ define('ember-cli-bscomponents-showcase/tests/components/docs/bs-breadcrumbs/com
     assert.ok(false, 'components/docs/bs-breadcrumbs/component.js should pass jshint.\ncomponents/docs/bs-breadcrumbs/component.js: line 1, col 26, Missing semicolon.\ncomponents/docs/bs-breadcrumbs/component.js: line 5, col 3, Missing semicolon.\n\n2 errors');
   });
 });
-define('ember-cli-bscomponents-showcase/tests/components/docs/bs-btn-group/component.jshint', ['exports'], function (exports) {
+define('ember-bscomponents-showcase/tests/components/docs/bs-btn-group/component.jshint', ['exports'], function (exports) {
   'use strict';
 
   QUnit.module('JSHint | components/docs/bs-btn-group/component.js');
@@ -34,7 +34,7 @@ define('ember-cli-bscomponents-showcase/tests/components/docs/bs-btn-group/compo
     assert.ok(false, 'components/docs/bs-btn-group/component.js should pass jshint.\ncomponents/docs/bs-btn-group/component.js: line 1, col 26, Missing semicolon.\ncomponents/docs/bs-btn-group/component.js: line 6, col 3, Missing semicolon.\n\n2 errors');
   });
 });
-define('ember-cli-bscomponents-showcase/tests/components/docs/bs-list-group/component.jshint', ['exports'], function (exports) {
+define('ember-bscomponents-showcase/tests/components/docs/bs-list-group/component.jshint', ['exports'], function (exports) {
   'use strict';
 
   QUnit.module('JSHint | components/docs/bs-list-group/component.js');
@@ -43,7 +43,7 @@ define('ember-cli-bscomponents-showcase/tests/components/docs/bs-list-group/comp
     assert.ok(false, 'components/docs/bs-list-group/component.js should pass jshint.\ncomponents/docs/bs-list-group/component.js: line 1, col 26, Missing semicolon.\ncomponents/docs/bs-list-group/component.js: line 5, col 3, Missing semicolon.\n\n2 errors');
   });
 });
-define('ember-cli-bscomponents-showcase/tests/components/docs/bs-modal/component.jshint', ['exports'], function (exports) {
+define('ember-bscomponents-showcase/tests/components/docs/bs-modal/component.jshint', ['exports'], function (exports) {
   'use strict';
 
   QUnit.module('JSHint | components/docs/bs-modal/component.js');
@@ -52,7 +52,7 @@ define('ember-cli-bscomponents-showcase/tests/components/docs/bs-modal/component
     assert.ok(false, 'components/docs/bs-modal/component.js should pass jshint.\ncomponents/docs/bs-modal/component.js: line 1, col 26, Missing semicolon.\ncomponents/docs/bs-modal/component.js: line 21, col 3, Missing semicolon.\n\n2 errors');
   });
 });
-define('ember-cli-bscomponents-showcase/tests/components/docs/bs-modal/test/component.jshint', ['exports'], function (exports) {
+define('ember-bscomponents-showcase/tests/components/docs/bs-modal/test/component.jshint', ['exports'], function (exports) {
   'use strict';
 
   QUnit.module('JSHint | components/docs/bs-modal/test/component.js');
@@ -61,7 +61,7 @@ define('ember-cli-bscomponents-showcase/tests/components/docs/bs-modal/test/comp
     assert.ok(false, 'components/docs/bs-modal/test/component.js should pass jshint.\ncomponents/docs/bs-modal/test/component.js: line 1, col 26, Missing semicolon.\ncomponents/docs/bs-modal/test/component.js: line 12, col 3, Missing semicolon.\n\n2 errors');
   });
 });
-define('ember-cli-bscomponents-showcase/tests/components/docs/bs-pagination/component.jshint', ['exports'], function (exports) {
+define('ember-bscomponents-showcase/tests/components/docs/bs-pagination/component.jshint', ['exports'], function (exports) {
   'use strict';
 
   QUnit.module('JSHint | components/docs/bs-pagination/component.js');
@@ -70,7 +70,7 @@ define('ember-cli-bscomponents-showcase/tests/components/docs/bs-pagination/comp
     assert.ok(false, 'components/docs/bs-pagination/component.js should pass jshint.\ncomponents/docs/bs-pagination/component.js: line 1, col 26, Missing semicolon.\ncomponents/docs/bs-pagination/component.js: line 3, col 42, Missing semicolon.\n\n2 errors');
   });
 });
-define('ember-cli-bscomponents-showcase/tests/components/docs/bs-popover/component.jshint', ['exports'], function (exports) {
+define('ember-bscomponents-showcase/tests/components/docs/bs-popover/component.jshint', ['exports'], function (exports) {
   'use strict';
 
   QUnit.module('JSHint | components/docs/bs-popover/component.js');
@@ -79,7 +79,7 @@ define('ember-cli-bscomponents-showcase/tests/components/docs/bs-popover/compone
     assert.ok(false, 'components/docs/bs-popover/component.js should pass jshint.\ncomponents/docs/bs-popover/component.js: line 1, col 26, Missing semicolon.\ncomponents/docs/bs-popover/component.js: line 10, col 54, Missing semicolon.\ncomponents/docs/bs-popover/component.js: line 12, col 3, Missing semicolon.\n\n3 errors');
   });
 });
-define('ember-cli-bscomponents-showcase/tests/components/docs/bs-progress/component.jshint', ['exports'], function (exports) {
+define('ember-bscomponents-showcase/tests/components/docs/bs-progress/component.jshint', ['exports'], function (exports) {
   'use strict';
 
   QUnit.module('JSHint | components/docs/bs-progress/component.js');
@@ -88,7 +88,7 @@ define('ember-cli-bscomponents-showcase/tests/components/docs/bs-progress/compon
     assert.ok(false, 'components/docs/bs-progress/component.js should pass jshint.\ncomponents/docs/bs-progress/component.js: line 1, col 26, Missing semicolon.\ncomponents/docs/bs-progress/component.js: line 9, col 39, Missing semicolon.\ncomponents/docs/bs-progress/component.js: line 11, col 24, Missing semicolon.\ncomponents/docs/bs-progress/component.js: line 15, col 3, Missing semicolon.\n\n4 errors');
   });
 });
-define('ember-cli-bscomponents-showcase/tests/components/docs/bs-tabs/component.jshint', ['exports'], function (exports) {
+define('ember-bscomponents-showcase/tests/components/docs/bs-tabs/component.jshint', ['exports'], function (exports) {
   'use strict';
 
   QUnit.module('JSHint | components/docs/bs-tabs/component.js');
@@ -97,7 +97,7 @@ define('ember-cli-bscomponents-showcase/tests/components/docs/bs-tabs/component.
     assert.ok(false, 'components/docs/bs-tabs/component.js should pass jshint.\ncomponents/docs/bs-tabs/component.js: line 1, col 26, Missing semicolon.\ncomponents/docs/bs-tabs/component.js: line 10, col 54, Missing semicolon.\ncomponents/docs/bs-tabs/component.js: line 12, col 3, Missing semicolon.\n\n3 errors');
   });
 });
-define('ember-cli-bscomponents-showcase/tests/components/docs/bs-tooltip/component.jshint', ['exports'], function (exports) {
+define('ember-bscomponents-showcase/tests/components/docs/bs-tooltip/component.jshint', ['exports'], function (exports) {
   'use strict';
 
   QUnit.module('JSHint | components/docs/bs-tooltip/component.js');
@@ -106,14 +106,14 @@ define('ember-cli-bscomponents-showcase/tests/components/docs/bs-tooltip/compone
     assert.ok(false, 'components/docs/bs-tooltip/component.js should pass jshint.\ncomponents/docs/bs-tooltip/component.js: line 1, col 26, Missing semicolon.\ncomponents/docs/bs-tooltip/component.js: line 9, col 54, Missing semicolon.\ncomponents/docs/bs-tooltip/component.js: line 11, col 3, Missing semicolon.\n\n3 errors');
   });
 });
-define('ember-cli-bscomponents-showcase/tests/helpers/destroy-app', ['exports', 'ember'], function (exports, _ember) {
+define('ember-bscomponents-showcase/tests/helpers/destroy-app', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = destroyApp;
 
   function destroyApp(application) {
     _ember['default'].run(application, 'destroy');
   }
 });
-define('ember-cli-bscomponents-showcase/tests/helpers/destroy-app.jshint', ['exports'], function (exports) {
+define('ember-bscomponents-showcase/tests/helpers/destroy-app.jshint', ['exports'], function (exports) {
   'use strict';
 
   QUnit.module('JSHint | helpers/destroy-app.js');
@@ -122,13 +122,13 @@ define('ember-cli-bscomponents-showcase/tests/helpers/destroy-app.jshint', ['exp
     assert.ok(true, 'helpers/destroy-app.js should pass jshint.');
   });
 });
-define('ember-cli-bscomponents-showcase/tests/helpers/module-for-acceptance', ['exports', 'qunit', 'ember-cli-bscomponents-showcase/tests/helpers/start-app', 'ember-cli-bscomponents-showcase/tests/helpers/destroy-app'], function (exports, _qunit, _emberCliBscomponentsShowcaseTestsHelpersStartApp, _emberCliBscomponentsShowcaseTestsHelpersDestroyApp) {
+define('ember-bscomponents-showcase/tests/helpers/module-for-acceptance', ['exports', 'qunit', 'ember-bscomponents-showcase/tests/helpers/start-app', 'ember-bscomponents-showcase/tests/helpers/destroy-app'], function (exports, _qunit, _emberBscomponentsShowcaseTestsHelpersStartApp, _emberBscomponentsShowcaseTestsHelpersDestroyApp) {
   exports['default'] = function (name) {
     var options = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
 
     (0, _qunit.module)(name, {
       beforeEach: function beforeEach() {
-        this.application = (0, _emberCliBscomponentsShowcaseTestsHelpersStartApp['default'])();
+        this.application = (0, _emberBscomponentsShowcaseTestsHelpersStartApp['default'])();
 
         if (options.beforeEach) {
           options.beforeEach.apply(this, arguments);
@@ -140,12 +140,12 @@ define('ember-cli-bscomponents-showcase/tests/helpers/module-for-acceptance', ['
           options.afterEach.apply(this, arguments);
         }
 
-        (0, _emberCliBscomponentsShowcaseTestsHelpersDestroyApp['default'])(this.application);
+        (0, _emberBscomponentsShowcaseTestsHelpersDestroyApp['default'])(this.application);
       }
     });
   };
 });
-define('ember-cli-bscomponents-showcase/tests/helpers/module-for-acceptance.jshint', ['exports'], function (exports) {
+define('ember-bscomponents-showcase/tests/helpers/module-for-acceptance.jshint', ['exports'], function (exports) {
   'use strict';
 
   QUnit.module('JSHint | helpers/module-for-acceptance.js');
@@ -154,7 +154,7 @@ define('ember-cli-bscomponents-showcase/tests/helpers/module-for-acceptance.jshi
     assert.ok(true, 'helpers/module-for-acceptance.js should pass jshint.');
   });
 });
-define('ember-cli-bscomponents-showcase/tests/helpers/not.jshint', ['exports'], function (exports) {
+define('ember-bscomponents-showcase/tests/helpers/not.jshint', ['exports'], function (exports) {
   'use strict';
 
   QUnit.module('JSHint | helpers/not.js');
@@ -163,18 +163,18 @@ define('ember-cli-bscomponents-showcase/tests/helpers/not.jshint', ['exports'], 
     assert.ok(true, 'helpers/not.js should pass jshint.');
   });
 });
-define('ember-cli-bscomponents-showcase/tests/helpers/resolver', ['exports', 'ember-cli-bscomponents-showcase/resolver', 'ember-cli-bscomponents-showcase/config/environment'], function (exports, _emberCliBscomponentsShowcaseResolver, _emberCliBscomponentsShowcaseConfigEnvironment) {
+define('ember-bscomponents-showcase/tests/helpers/resolver', ['exports', 'ember-bscomponents-showcase/resolver', 'ember-bscomponents-showcase/config/environment'], function (exports, _emberBscomponentsShowcaseResolver, _emberBscomponentsShowcaseConfigEnvironment) {
 
-  var resolver = _emberCliBscomponentsShowcaseResolver['default'].create();
+  var resolver = _emberBscomponentsShowcaseResolver['default'].create();
 
   resolver.namespace = {
-    modulePrefix: _emberCliBscomponentsShowcaseConfigEnvironment['default'].modulePrefix,
-    podModulePrefix: _emberCliBscomponentsShowcaseConfigEnvironment['default'].podModulePrefix
+    modulePrefix: _emberBscomponentsShowcaseConfigEnvironment['default'].modulePrefix,
+    podModulePrefix: _emberBscomponentsShowcaseConfigEnvironment['default'].podModulePrefix
   };
 
   exports['default'] = resolver;
 });
-define('ember-cli-bscomponents-showcase/tests/helpers/resolver.jshint', ['exports'], function (exports) {
+define('ember-bscomponents-showcase/tests/helpers/resolver.jshint', ['exports'], function (exports) {
   'use strict';
 
   QUnit.module('JSHint | helpers/resolver.js');
@@ -183,17 +183,17 @@ define('ember-cli-bscomponents-showcase/tests/helpers/resolver.jshint', ['export
     assert.ok(true, 'helpers/resolver.js should pass jshint.');
   });
 });
-define('ember-cli-bscomponents-showcase/tests/helpers/start-app', ['exports', 'ember', 'ember-cli-bscomponents-showcase/app', 'ember-cli-bscomponents-showcase/config/environment'], function (exports, _ember, _emberCliBscomponentsShowcaseApp, _emberCliBscomponentsShowcaseConfigEnvironment) {
+define('ember-bscomponents-showcase/tests/helpers/start-app', ['exports', 'ember', 'ember-bscomponents-showcase/app', 'ember-bscomponents-showcase/config/environment'], function (exports, _ember, _emberBscomponentsShowcaseApp, _emberBscomponentsShowcaseConfigEnvironment) {
   exports['default'] = startApp;
 
   function startApp(attrs) {
     var application = undefined;
 
-    var attributes = _ember['default'].merge({}, _emberCliBscomponentsShowcaseConfigEnvironment['default'].APP);
+    var attributes = _ember['default'].merge({}, _emberBscomponentsShowcaseConfigEnvironment['default'].APP);
     attributes = _ember['default'].merge(attributes, attrs); // use defaults, but you can override;
 
     _ember['default'].run(function () {
-      application = _emberCliBscomponentsShowcaseApp['default'].create(attributes);
+      application = _emberBscomponentsShowcaseApp['default'].create(attributes);
       application.setupForTesting();
       application.injectTestHelpers();
     });
@@ -201,7 +201,7 @@ define('ember-cli-bscomponents-showcase/tests/helpers/start-app', ['exports', 'e
     return application;
   }
 });
-define('ember-cli-bscomponents-showcase/tests/helpers/start-app.jshint', ['exports'], function (exports) {
+define('ember-bscomponents-showcase/tests/helpers/start-app.jshint', ['exports'], function (exports) {
   'use strict';
 
   QUnit.module('JSHint | helpers/start-app.js');
@@ -210,7 +210,7 @@ define('ember-cli-bscomponents-showcase/tests/helpers/start-app.jshint', ['expor
     assert.ok(true, 'helpers/start-app.js should pass jshint.');
   });
 });
-define('ember-cli-bscomponents-showcase/tests/resolver.jshint', ['exports'], function (exports) {
+define('ember-bscomponents-showcase/tests/resolver.jshint', ['exports'], function (exports) {
   'use strict';
 
   QUnit.module('JSHint | resolver.js');
@@ -219,7 +219,7 @@ define('ember-cli-bscomponents-showcase/tests/resolver.jshint', ['exports'], fun
     assert.ok(true, 'resolver.js should pass jshint.');
   });
 });
-define('ember-cli-bscomponents-showcase/tests/router.jshint', ['exports'], function (exports) {
+define('ember-bscomponents-showcase/tests/router.jshint', ['exports'], function (exports) {
   'use strict';
 
   QUnit.module('JSHint | router.js');
@@ -228,7 +228,7 @@ define('ember-cli-bscomponents-showcase/tests/router.jshint', ['exports'], funct
     assert.ok(true, 'router.js should pass jshint.');
   });
 });
-define('ember-cli-bscomponents-showcase/tests/site/index/controller.jshint', ['exports'], function (exports) {
+define('ember-bscomponents-showcase/tests/site/index/controller.jshint', ['exports'], function (exports) {
   'use strict';
 
   QUnit.module('JSHint | site/index/controller.js');
@@ -237,11 +237,11 @@ define('ember-cli-bscomponents-showcase/tests/site/index/controller.jshint', ['e
     assert.ok(true, 'site/index/controller.js should pass jshint.');
   });
 });
-define('ember-cli-bscomponents-showcase/tests/test-helper', ['exports', 'ember-cli-bscomponents-showcase/tests/helpers/resolver', 'ember-qunit'], function (exports, _emberCliBscomponentsShowcaseTestsHelpersResolver, _emberQunit) {
+define('ember-bscomponents-showcase/tests/test-helper', ['exports', 'ember-bscomponents-showcase/tests/helpers/resolver', 'ember-qunit'], function (exports, _emberBscomponentsShowcaseTestsHelpersResolver, _emberQunit) {
 
-  (0, _emberQunit.setResolver)(_emberCliBscomponentsShowcaseTestsHelpersResolver['default']);
+  (0, _emberQunit.setResolver)(_emberBscomponentsShowcaseTestsHelpersResolver['default']);
 });
-define('ember-cli-bscomponents-showcase/tests/test-helper.jshint', ['exports'], function (exports) {
+define('ember-bscomponents-showcase/tests/test-helper.jshint', ['exports'], function (exports) {
   'use strict';
 
   QUnit.module('JSHint | test-helper.js');
