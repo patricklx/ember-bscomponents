@@ -13,7 +13,16 @@ BsPanelComponent = Ember.Component.extend(TypeSupport, {
   collapsible: false
   open: true
 
+  header: 'bs-panel/header',
+  body: 'bs-panel/body',
+  footer: 'bs-panel/footer'
+
   actions: {
+
+    toggleCollapsed: () ->
+      @toggleProperty('open')
+      return
+
     close: (event) ->
       @sendAction('onClose')
       @$().removeClass('in')
@@ -31,13 +40,7 @@ BsPanelComponent = Ember.Component.extend(TypeSupport, {
     @sendAction('clicked', event)
     return
 
-  collapsibleBodyId: (->
-    return "#{@get('elementId')}_body"
-  ).property('collapsible')
 
-  collapsibleBodyLink: (->
-    return "##{@get('elementId')}_body"
-  ).property('collapsibleBodyId')
 })
 
 `export default BsPanelComponent`

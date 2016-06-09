@@ -7,21 +7,25 @@ BsAlertComponent = Ember.Component.extend(TypeSupport,{
   classNameBindings: ['fade', 'fade:in']
   classTypePrefix: 'alert',
   layout: layout
-  attributeBindings: ['data-timeout']
   dismissAfter: 0
-  closedParam: null
   dismiss: true
+  type: 'info'
 
   didInsertElement: () ->
     if @dismissAfter > 0
-      send = () -> @send('dismiss')
-      Ember.run.later(this, send, @dismissAfter * 1000)
+      autoDismiss = () ->
+        if @isDestroyed then return
+        @attrs.onAutoDismiss?()
+        @remove()
+      Ember.run.later(this, autoDismiss, @dismissAfter * 1000)
     return
 
   actions: {
     dismiss: () ->
-      @sendAction('close', @get('closedParam'))
-      @remove()
+      p = @attrs.onDismiss?();
+      Ember.RSVP.resolve(p).then(() =>
+        @remove()
+      )
       return
   }
 })

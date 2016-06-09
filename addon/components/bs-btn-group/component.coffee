@@ -11,7 +11,7 @@ In its simple form, each item in the button group is a Button component,
 In case this is a Radio, each item is rendered as a label.
 ###
 BsBtnGroup = Ember.Component.extend(SizeSupport, ItemsSelection, {
-  template: template
+  layout: template
   classTypePrefix: ['btn-group']
   classNames: ['btn-group']
   classNameBindings: ['vertical:btn-group-vertical']

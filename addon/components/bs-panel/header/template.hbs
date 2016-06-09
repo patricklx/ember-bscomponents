@@ -1,0 +1,25 @@
+<div class="panel-heading">
+  {{#if withTitle}}
+      <h4 class="panel-title">
+        {{#if collapsible}}
+            <a class="accordion-toggle" role="button" href='#' aria-expanded="false" {{action 'toggleCollapsed'}}>
+              {{yield}}
+            </a>
+        {{else}}
+          {{yield}}
+        {{/if}}
+      </h4>
+  {{else}}
+    {{#if collapsible}}
+        <a class="accordion-toggle" role="button" href='#' aria-expanded="false" {{action 'toggleCollapsed'}}>
+          {{yield}}
+        </a>
+    {{else}}
+      {{yield}}
+    {{/if}}
+  {{/if}}
+
+  {{#if dismiss}}
+      <a class="close" {{action "close"}}>&times;</a>
+  {{/if}}
+</div>

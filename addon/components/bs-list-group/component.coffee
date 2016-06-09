@@ -3,12 +3,15 @@
 `import template from './template'`
 
 BsListGroupComponent = Ember.Component.extend(SelectableItems, {
-  template: template
+  layout: template
   withLinks: true
-  tagName: (() -> if @get('withLinks') then 'div' else 'ul').property()
   classNames: ['list-group']
+  itemComponent: 'bs-list-group/item'
 
-  content: []
+  init: () ->
+    @_super()
+    @tagName = if @get('withLinks') then 'div' else 'ul'
+    return
 })
 
 `export default BsListGroupComponent`

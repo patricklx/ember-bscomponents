@@ -23,9 +23,8 @@ BsPopoverComponent = Ember.Component.extend({
 
   $element: null
   $tip: null
-  inserted: false
 
-  styleUpdater: (->
+  updateStyle: () ->
     return  if not @$tip or not @get('isVisible')
     @$tip.css({
       top: 0
@@ -45,7 +44,11 @@ BsPopoverComponent = Ember.Component.extend({
       @styleUpdater()
       @firstTime = true
     return
-  ).observes('content', 'realPlacement', 'inserted', 'isVisible')
+
+  styleUpdater: (->
+    @updateStyle()
+    return
+  ).observes('content', 'realPlacement', 'isVisible')
 
   init: ->
     @_super()
@@ -61,9 +64,9 @@ BsPopoverComponent = Ember.Component.extend({
     name = @get('tooltipBoxManager.attribute')
     name = '[' + name + '=\'' + @get('tip_id') + '\']'
     @$element = $(name)
-    @set('inserted', true)
+    @updateStyle()
 
-    if @get('data.trigger') is 'hover' and @get('data.sticky')
+    if @get('data.trigger') in ['hover', undefined] and @get('data.sticky')
       @$().on('mouseenter', () =>
         clearTimeout(@get('tooltipBoxManager.timeout'))
         return
@@ -110,7 +113,7 @@ BsPopoverComponent = Ember.Component.extend({
                   else placement))))
 
     return placement
-  ).property('placement', 'inserted')
+  ).property('placement', 'content')
 
   hasContent: () ->
     return @get('title')

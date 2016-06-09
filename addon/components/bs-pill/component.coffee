@@ -4,7 +4,7 @@
 `import Ember from 'ember'`
 
 BsPill = Ember.Component.extend(NavItem, ItemSelection, {
-  template: template
+  layout: template
   content: null
 })
 

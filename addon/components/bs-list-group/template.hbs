@@ -1,7 +1,6 @@
 {{#each content as |item|}}
-  {{bs-list-group/item
-  content=item
-  withLinks=withLinks
-  isActive=(is-equal item selected)
-  }}
+  {{yield (hash
+    item-component=(component itemComponent withLinks=withLinks isActive=(is-equal item selected) onItemSelected=(action 'onItemSelected' item))
+    content=item
+  )}}
 {{/each}}

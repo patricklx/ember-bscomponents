@@ -1,5 +1,0 @@
-{{#each content as |pane|}}
-  {{#bs-tab-pane pane=pane target=targetObject isActive=(is-equal pane selected) as |panecontent|}}
-      {{yield panecontent}}
-  {{/bs-tab-pane}}
-{{/each}}

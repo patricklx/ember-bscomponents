@@ -1,8 +1,9 @@
+`import Ember from 'ember';`
 
-isIn = (leftSide, rightSide) ->
+isIn = ([leftSide, rightSide]) ->
   return leftSide in rightSide
 
-isInHelper = Ember.Handlebars.makeBoundHelper(isEqual)
+isInHelper = Ember.Helper.helper(isIn)
 
-`export {isIn}`
+`export {isIn, isInHelper}`
 `export default isInHelper`

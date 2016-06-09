@@ -1,5 +1,5 @@
-{{#each content as |tab|}}
-  {{bs-pill content=tab
-  isActive=(is-equal tab selected)
-  }}
-{{/each}}
+{{yield (hash
+  tabs=(component tabs content=content onItemSelected=(action (mut selected)))
+  pane=(component pane tagName='')
+  selected=selected
+)}}

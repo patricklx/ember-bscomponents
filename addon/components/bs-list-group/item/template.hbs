@@ -1,11 +1,4 @@
-{{#if content.badge}}
-  {{bs-badge content=content.badge}}
-{{/if}}
-{{#if content.subtext}}
-	<h4 class="list-group-item-heading">{{content.title}}</h4>
-	<p class="list-group-item-text">{{content.subtext}}</p>
-{{else if content.title}}
-  {{content.title}}
-{{else}}
-  {{content}}
-{{/if}}
+{{yield (hash
+  heading=(component heading tagName='')
+  text=(component text tagName='')
+)}}

@@ -5,7 +5,7 @@
 
 BsPaginationItem = Ember.Component.extend(ItemSelection, {
   tagName: 'li'
-  template: template
+  layout: template
   content: null
 })
 

@@ -7,28 +7,13 @@ BsButtonComponent = Ember.Component.extend(TypeSupport, SizeSupport, {
   layout: layout
   tagName: 'button'
   classNames: ['btn']
-  classNameBindings: ['blockClass']
+  classNameBindings: ['blockClass', 'isActive:active']
   classTypePrefix: 'btn'
-  clickedParam: null
   block: null
-  attributeBindings: ['disabled', 'dismiss:data-dismiss', '_type:type', 'style']
+  attributeBindings: ['disabled', '_type:type', 'style']
   _type: 'button'
   bubbles: true
-  allowedProperties: ['title', 'type', 'size', 'block', 'disabled', 'clicked', 'dismiss', 'class']
-  icon_active: undefined
-  icon_inactive: undefined
-
-  init: ->
-    @_super()
-    # If content is an object (may happen when a button is the view class of a collectionView), then assign allowed properties to the button component.
-    if @get('content')? and Ember.typeOf(@get('content')) is 'instance'
-      c = @get('content')
-      @set(key, c[key]) for key in @get('allowedProperties') when c[key]?
-    else
-      if not @get('title')?
-        @set('title', @get('content'))
-    @attributeBindings.pushObject(attr) for attr of this when attr.match(/^data-[\w-]*$/)?
-    return
+  isActive: false
 
   blockClass: (() ->
     return if @block then "#{@classTypePrefix}-block" else null
@@ -36,18 +21,8 @@ BsButtonComponent = Ember.Component.extend(TypeSupport, SizeSupport, {
 
   click: (evt) ->
     evt.stopPropagation() unless @get('bubbles')
-    @sendAction('clicked', @get('clickedParam'))
+    @attrs.onClick?()
     return
-
-  loadingChanged: (->
-    loading = if @get('loading') isnt null then @get('loading') else 'reset'
-    Ember.$("##{@elementId}").button(loading)
-    return
-  ).observes('loading')
-
-  icon: (->
-    return if @get('isActive') then @get('icon_active') else @get('icon_inactive')
-  ).property('isActive')
 })
 
 `export default BsButtonComponent`
