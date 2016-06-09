@@ -1,0 +1,26 @@
+<div class="page-header" style="margin-top: 0">
+  <h4>The Progress Component</h4>
+</div>
+
+{{bs-progress progress=currentProgress}}
+<br>
+{{currentPage}}
+
+<br>
+<div class="page-header" style="margin-top: 0">
+  <h4>Doc</h4>
+</div>
+
+
+{{md-text
+typographer = true
+linkify     = false
+text        = "
+#### Attributes
+**progress:** value from 0...100
+
+#### Example
+```handlebars
+{{bs-progress progress=currentProgress}}
+```"
+}}

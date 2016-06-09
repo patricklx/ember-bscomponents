@@ -13,35 +13,29 @@
 </div>
 
 
-
 {{md-text
 typographer = true
 linkify     = false
 text        = "
-- **type:** `default`|`danger`|`warning`|`success` *default:* `default`
-- **isActive:** toggle state `false`|`true` *default:* `false`
-- **onClick:** action to call on click/toggle
-- **title:** title of button for inline use
-### Examples
-Use as inline helper
+#### Attributes
+- **title:** title of the popover
+- **content:** body of the popover
+- **placement:** `top`|`bottom`|`right`|`left`
+- **html:** `true`|`false`, true for not escaping the title
+- **template:** a template to render in the popover body
+- **trigger:** `hover`|`click`|`focus`|`manual`
+- **show:** `true`|`false`, to be used together with trigger `manual`
+- **sticky:** `true`|`false`, to be used with `hover`, makes the tooltip to not dissappear when mouse is
+  over the tooltip.
+
+Or
+
+Just pass one object with all attributes
+
+#### Examples
 ```handlebars
-{{bs-button type='default' onClick=(action (mut buttonClicked) 'default') title='default'}}
-```
-Use as block helper
-```handlebars
-{{#bs-button type='success' onClick=(action (mut buttonClicked) 'success')}}
-    success
-{{/bs-button}}
-```
-Use as toggle button
-```handlebars
-{{bs-button type='default'
-            isActive=buttonActive
-            onClick=(action (mut buttonActive) (not buttonActive))
-            title='toggle button'
-}}
+<div {{bs-bind-popover title='a tooltip'}}></div>
+<div {{bs-bind-popover tooltipdata}}></div>
 ```
 "
-
-
 }}
