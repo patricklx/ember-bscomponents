@@ -2963,6 +2963,7 @@ define('ember-cli-bscomponents-showcase/resolver', ['exports', 'ember-resolver',
 define('ember-cli-bscomponents-showcase/router', ['exports', 'ember', 'ember-cli-bscomponents-showcase/config/environment'], function (exports, _ember, _emberCliBscomponentsShowcaseConfigEnvironment) {
 
   var Router = _ember['default'].Router.extend({
+    rootURL: _emberCliBscomponentsShowcaseConfigEnvironment['default'].baseURL,
     location: _emberCliBscomponentsShowcaseConfigEnvironment['default'].locationType
   });
 
