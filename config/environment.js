@@ -2,10 +2,10 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'ember-cli-bscomponents-showcase',
-    podModulePrefix: 'ember-cli-bscomponents-showcase/site',
+    modulePrefix: 'ember-bscomponents-showcase',
+    podModulePrefix: 'ember-bscomponents-showcase/site',
     environment: environment,
-    baseURL: '/',
+    baseURL: '/ember-bscomponents',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
