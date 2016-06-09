@@ -15,4 +15,5 @@ bower.json
 ember-cli-build.js
 testem.js
 .idea
-ember-cli-bscomponents.iml
+*.iml
+coffeelint.json
