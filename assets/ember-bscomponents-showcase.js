@@ -2963,7 +2963,7 @@ define('ember-bscomponents-showcase/resolver', ['exports', 'ember-resolver', 'em
 define('ember-bscomponents-showcase/router', ['exports', 'ember', 'ember-bscomponents-showcase/config/environment'], function (exports, _ember, _emberBscomponentsShowcaseConfigEnvironment) {
 
   var Router = _ember['default'].Router.extend({
-    rootURL: _emberBscomponentsShowcaseConfigEnvironment['default'].baseURL,
+    //rootURL: _emberBscomponentsShowcaseConfigEnvironment['default'].baseURL,
     location: _emberBscomponentsShowcaseConfigEnvironment['default'].locationType
   });
 
