@@ -3423,7 +3423,7 @@ define("ember-bscomponents-showcase/site/index/template", ["exports"], function 
               var el1 = dom.createTextNode("          ");
               dom.appendChild(el0, el1);
               var el1 = dom.createElement("h4");
-              var el2 = dom.createTextNode("Documentation for Ember Cli Bs Components 2.0");
+              var el2 = dom.createTextNode("Documentation for Ember Cli Bs Components 1.0");
               dom.appendChild(el1, el2);
               dom.appendChild(el0, el1);
               var el1 = dom.createTextNode("\n          ");
