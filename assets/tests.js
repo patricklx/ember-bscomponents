@@ -252,7 +252,7 @@ define('ember-cli-bscomponents-showcase/tests/test-helper.jshint', ['exports'], 
 });
 /* jshint ignore:start */
 
-require('ember-cli-bscomponents-showcase/tests/test-helper');
+require('ember-bscomponents-showcase/tests/test-helper');
 EmberENV.TESTS_FILE_LOADED = true;
 
 /* jshint ignore:end */
