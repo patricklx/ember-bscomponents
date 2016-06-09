@@ -17,13 +17,18 @@
   <div class="col-md-8">
     {{#bs-panel as |section|}}
       {{#section.header}}
-          {{if currentDoc currentDoc 'No doc'}}
+          {{if currentDoc currentDoc 'Intro'}}
       {{/section.header}}
       {{#section.body}}
         {{#if currentDoc}}
         {{component currentDoc}}
         {{else}}
-          <h4>Documentation for Ember Cli Bs Components</h4>
+          <h4>Documentation for Ember Cli Bs Components 2.0</h4>
+          <p>
+            Here you can find the supported components.<br>
+            The aim was to just support components that really gain from being implemented as an ember component: <br>
+            javascript components and components with dynamic content
+          </p>
         {{/if}}
       {{/section.body}}
     {{/bs-panel}}
