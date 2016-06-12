@@ -1,6 +1,6 @@
 {
   "name": "ember-bscomponents",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "an addon containing components for bootstrap.",
   "directories": {
     "doc": "doc",
@@ -36,7 +36,8 @@
     "coffeelint-no-implicit-returns": "0.0.5"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "bootstrap-components"
   ],
   "dependencies": {
     "ember-cli-babel": "^5.1.6",
