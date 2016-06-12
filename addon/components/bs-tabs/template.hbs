@@ -1,5 +1,5 @@
 {{yield (hash
-  tabs=(component tabs content=content onItemSelected=(action (mut selected)))
+  tabs=(component tabs selected=(readonly selected) content=content onItemSelected=(action (mut selected)))
   pane=(component pane tagName='')
   selected=selected
 )}}
