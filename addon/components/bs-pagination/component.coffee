@@ -35,6 +35,7 @@ BsPagination = Ember.Component.extend(SelectableItems, {
     onItemSelected: (item) ->
       item = @changeCurrentGroup(item)
       @_super(item)
+      return
   }
 
   changeCurrentGroup: (item) ->

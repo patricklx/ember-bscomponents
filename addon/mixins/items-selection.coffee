@@ -16,7 +16,8 @@ ItemsSelection = Ember.Mixin.create({
 
   init: () ->
     @_super()
-    @set('selected', [])
+    if not @get('selected')
+      @set('selected', [])
 
   actions: {
     onItemSelected: (item) ->

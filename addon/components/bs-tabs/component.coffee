@@ -12,6 +12,7 @@ BsTabs = Ember.Component.extend({
     onItemSelected: (item) ->
       @set('selected', item)
       @attrs.onItemSelected?(item)
+      return
   }
 })
 
