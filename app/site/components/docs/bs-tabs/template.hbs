@@ -2,7 +2,7 @@
   <h4>The Tabs Component</h4>
 </div>
 
-{{#bs-tabs content=tabs as |tabbing|}}
+{{#bs-tabs selected=(readonly tabs.lastObject) content=tabs as |tabbing|}}
   {{tabbing.tabs}}
   {{#tabbing.pane}}
     {{tabbing.selected}}
@@ -28,7 +28,7 @@ text        = "
 ### Examples
 Use as inline helper
 ```handlebars
-{{#bs-tabs content=tabs as |tabbing|}}
+{{#bs-tabs selected=(readonly tabs.lastObject) content=tabs as |tabbing|}}
   {{tabbing.tabs}}
   {{#tabbing.pane}}
     {{tabbing.selected}}

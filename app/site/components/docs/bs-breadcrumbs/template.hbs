@@ -2,7 +2,7 @@
   <h4>The Breadcrumbs Component</h4>
 </div>
 
-{{#bs-breadcrumbs onItemSelected=(action (mut selectedItem)) content=items as |crumb|}}
+{{#bs-breadcrumbs selected=(readonly items.lastObject) onItemSelected=(action (mut selectedItem)) content=items as |crumb|}}
   {{#crumb.item-component}}
     {{crumb.content}}
   {{/crumb.item-component}}
@@ -26,7 +26,7 @@ text        = "
 - **onItemSelected:** action to call when an item was selected
 #### Examples
 ```handlebars
-{{#bs-breadcrumbs onItemSelected=(action (mut selectedItem)) content=items as |crumb|}}
+{{#bs-breadcrumbs selected=(readonly items.lastObject) onItemSelected=(action (mut selectedItem)) content=items as |crumb|}}
   {{#crumb.item}}
     {{crumb.content}}
   {{/crumb.item}}

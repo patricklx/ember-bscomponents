@@ -33,6 +33,14 @@ Or
 Just pass one object with all attributes
 
 #### Examples
+
+at bottom of application.hbs:
+```handlebars
+{{bs-tooltipbox-handler}}
+```
+yes 'tooltip', since a popover is almost the same as a tooltip.
+
+in other templates
 ```handlebars
 <div {{bs-bind-popover title='a tooltip'}}></div>
 <div {{bs-bind-popover tooltipdata}}></div>
