@@ -1,2 +1,2 @@
-`import BsProgressComponent from 'ember-cli-bscomponents/components/bs-progress/component'`
+`import BsProgressComponent from 'ember-bscomponents/components/bs-progress/component'`
 `export default BsProgressComponent`

@@ -1,2 +1,2 @@
-`import mixin from 'ember-cli-bscomponents/mixins/bs-tooltipview-mixin'`
+`import mixin from 'ember-bscomponents/mixins/bs-tooltipview-mixin'`
 `export default mixin`

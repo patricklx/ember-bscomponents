@@ -1,2 +1,2 @@
-`import BsBtnGroupComponent from 'ember-cli-bscomponents/components/bs-btn-group/component'`
+`import BsBtnGroupComponent from 'ember-bscomponents/components/bs-btn-group/component'`
 `export default BsBtnGroupComponent`

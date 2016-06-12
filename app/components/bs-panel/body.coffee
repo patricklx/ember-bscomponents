@@ -1,4 +1,4 @@
-`import template from 'ember-cli-bscomponents/components/bs-panel/body/template'`
+`import template from 'ember-bscomponents/components/bs-panel/body/template'`
 `import Ember from 'ember';`
 
 Component = Ember.Component.extend({

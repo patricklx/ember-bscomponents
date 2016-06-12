@@ -1,2 +1,2 @@
-`import BsPopoverComponent from 'ember-cli-bscomponents/components/bs-popover/component'`
+`import BsPopoverComponent from 'ember-bscomponents/components/bs-popover/component'`
 `export default BsPopoverComponent`

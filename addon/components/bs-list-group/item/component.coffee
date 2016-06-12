@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import ItemSelection from 'ember-cli-bscomponents/mixins/item-selection'`
+`import ItemSelection from 'ember-bscomponents/mixins/item-selection'`
 `import template from './template'`
 
 Item = Ember.Component.extend(ItemSelection, {

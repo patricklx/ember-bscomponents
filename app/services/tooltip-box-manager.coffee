@@ -1,2 +1,2 @@
-`import TooltipBoxManagerService from 'ember-cli-bscomponents/services/tooltip-box-manager'`
+`import TooltipBoxManagerService from 'ember-bscomponents/services/tooltip-box-manager'`
 `export default TooltipBoxManagerService`

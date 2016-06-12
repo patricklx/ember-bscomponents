@@ -1,2 +1,2 @@
-`import BsTooltipComponent from 'ember-cli-bscomponents/components/bs-tooltip/component'`
+`import BsTooltipComponent from 'ember-bscomponents/components/bs-tooltip/component'`
 `export default BsTooltipComponent`

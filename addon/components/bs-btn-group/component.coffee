@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
-`import SizeSupport from 'ember-cli-bscomponents/mixins/size'`
-`import ItemsSelection from 'ember-cli-bscomponents/mixins/items-selection'`
+`import SizeSupport from 'ember-bscomponents/mixins/size'`
+`import ItemsSelection from 'ember-bscomponents/mixins/items-selection'`
 `import template from './template'`
 
 

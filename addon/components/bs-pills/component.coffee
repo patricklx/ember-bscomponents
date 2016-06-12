@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import Nav from 'ember-cli-bscomponents/mixins/nav'`
+`import Nav from 'ember-bscomponents/mixins/nav'`
 `import template from '../bs-common/template'`
 `import SelectableItems from '../../mixins/selectable-items'`
 

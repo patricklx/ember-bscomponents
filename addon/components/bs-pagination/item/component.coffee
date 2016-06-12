@@ -1,4 +1,4 @@
-`import ItemSelection from 'ember-cli-bscomponents/mixins/item-selection'`
+`import ItemSelection from 'ember-bscomponents/mixins/item-selection'`
 `import template from './template'`
 `import Ember from 'ember'`
 

@@ -1,2 +1,2 @@
-`import BsBreadcrumbsComponent from 'ember-cli-bscomponents/components/bs-breadcrumbs/component'`
+`import BsBreadcrumbsComponent from 'ember-bscomponents/components/bs-breadcrumbs/component'`
 `export default BsBreadcrumbsComponent`

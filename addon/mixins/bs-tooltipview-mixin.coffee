@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import TooltipBoxManager from 'ember-cli-bscomponents/services/tooltip-box-manager'`
+`import TooltipBoxManager from 'ember-bscomponents/services/tooltip-box-manager'`
 
 BsTooltipViewMixin = Ember.Mixin.create({
   attributeBindings: [TooltipBoxManager::attribute]

@@ -1,2 +1,2 @@
-`import component from 'ember-cli-bscomponents/components/bs-tabs/tabs/component'`
+`import component from 'ember-bscomponents/components/bs-tabs/tabs/component'`
 `export default component`

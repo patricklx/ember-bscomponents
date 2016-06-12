@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import TypeSupport from 'ember-cli-bscomponents/mixins/type'`
+`import TypeSupport from 'ember-bscomponents/mixins/type'`
 `import layout from './template'`
 
 BsProgressbarComponent = Ember.Component.extend(TypeSupport, {

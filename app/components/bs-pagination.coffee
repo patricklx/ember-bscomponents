@@ -1,2 +1,2 @@
-`import BsPagination from 'ember-cli-bscomponents/components/bs-pagination/component'`
+`import BsPagination from 'ember-bscomponents/components/bs-pagination/component'`
 `export default BsPagination`

@@ -1,5 +1,5 @@
-`import bsBindTooltip from 'ember-cli-bscomponents/keywords/bs-bind-tooltip'`
-`import bsBindPopover from 'ember-cli-bscomponents/keywords/bs-bind-popover'`
+`import bsBindTooltip from 'ember-bscomponents/keywords/bs-bind-tooltip'`
+`import bsBindPopover from 'ember-bscomponents/keywords/bs-bind-popover'`
 
 initialize = (application) ->
   registerKeyword  = Ember.__loader.require("ember-htmlbars/keywords").registerKeyword
