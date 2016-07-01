@@ -15,18 +15,20 @@
 {{currentPage}}
 
 <br>
-{{#bs-panel open=(eq fieldset.self form.self.fieldsets.firstObject) collapsible=true as |panel|}}
+<div class="panel-group">
+{{#bs-panel open=(eq panel 'panel1') onOpen=(action (mut panel) 'panel1') onCollapse=(action (mut panel) '') collapsible=true as |panel|}}
   {{#panel.header}}Header{{/panel.header}}
   {{#panel.body}}Body{{/panel.body}}
 {{/bs-panel}}
-{{#bs-panel as |panel|}}
+{{#bs-panel open=(eq panel 'panel2') onOpen=(action (mut panel) 'panel2') onCollapse=(action (mut panel) '') collapsible=true as |panel|}}
   {{#panel.header}}Header{{/panel.header}}
   {{#panel.body}}Body{{/panel.body}}
 {{/bs-panel}}
-{{#bs-panel as |panel|}}
+{{#bs-panel open=(eq panel 'panel3') onOpen=(action (mut panel) 'panel3') onCollapse=(action (mut panel) '') collapsible=true as |panel|}}
   {{#panel.header}}Header{{/panel.header}}
   {{#panel.body}}Body{{/panel.body}}
 {{/bs-panel}}
+</div>
 <div class="page-header" style="margin-top: 0">
   <h4>Doc</h4>
 </div>
@@ -38,10 +40,39 @@ linkify     = false
 text        = "
 #### Attributes
 **yields:** `x.header`|`x.body`
-#### Example
+**open:** `true`|`false` ***default:*** true, if this is set the auto open/close behaviour is disabled
+**collapsible:** `true`|`false` ***default:*** false
+**onOpen:** `action when opening`
+**onCollapse:** `action when collapsing`
+#### Examples
+
 ```handlebars
-{{bs-pagination totalLength=35 onItemSelected=(action (mut currentPage))}}
+{{#bs-panel as |panel|}}
+  {{#panel.header}}Header{{/panel.header}}
+  {{#panel.body}}Body{{/panel.body}}
+{{/bs-panel}}
 <br>
+
+{{#bs-panel as |panel|}}
+  {{#panel.header}}Header{{/panel.header}}
+  Body Without Body Wrapper
+{{/bs-panel}}
 {{currentPage}}
+
+<br>
+<div class='panel-group'>
+{{#bs-panel open=(eq panel 'panel1') onOpen=(action (mut panel) 'panel1') onCollapse=(action (mut panel) '') collapsible=true as |panel|}}
+  {{#panel.header}}Header{{/panel.header}}
+  {{#panel.body}}Body{{/panel.body}}
+{{/bs-panel}}
+{{#bs-panel open=(eq panel 'panel2') onOpen=(action (mut panel) 'panel2') onCollapse=(action (mut panel) '') collapsible=true as |panel|}}
+  {{#panel.header}}Header{{/panel.header}}
+  {{#panel.body}}Body{{/panel.body}}
+{{/bs-panel}}
+{{#bs-panel open=(eq panel 'panel3') onOpen=(action (mut panel) 'panel3') onCollapse=(action (mut panel) '') collapsible=true as |panel|}}
+  {{#panel.header}}Header{{/panel.header}}
+  {{#panel.body}}Body{{/panel.body}}
+{{/bs-panel}}
+</div>
 ```"
 }}
