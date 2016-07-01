@@ -12,7 +12,7 @@ Item = Ember.Component.extend(ItemSelection, {
     return if @get('withLinks') then '#' else undefined
   ).property('withLinks')
 
-  heading: 'bs-list-group/item/text'
+  heading: 'bs-list-group/item/heading'
   text: 'bs-list-group/item/text'
 
   content: null

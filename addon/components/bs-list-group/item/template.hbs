@@ -1,4 +1,8 @@
+{{#if hasBlock}}
 {{yield (hash
   heading=(component heading tagName='')
   text=(component text tagName='')
 )}}
+{{else}}
+  {{content}}
+{{/if}}

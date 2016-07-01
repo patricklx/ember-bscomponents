@@ -21,6 +21,7 @@ BsButtonComponent = Ember.Component.extend(TypeSupport, SizeSupport, {
 
   click: (evt) ->
     evt.stopPropagation() unless @get('bubbles')
+    evt.preventDefault()
     @attrs.onClick?()
     return
 })

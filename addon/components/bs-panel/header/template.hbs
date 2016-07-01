@@ -2,7 +2,7 @@
   {{#if withTitle}}
       <h4 class="panel-title">
         {{#if collapsible}}
-            <a class="accordion-toggle" role="button" href='#' aria-expanded="false" {{action 'toggleCollapsed'}}>
+            <a class="accordion-toggle" role="button" href='#' aria-expanded="false" {{action (action attrs.toggleCollapsed)}}>
               {{yield}}
             </a>
         {{else}}
@@ -11,7 +11,7 @@
       </h4>
   {{else}}
     {{#if collapsible}}
-        <a class="accordion-toggle" role="button" href='#' aria-expanded="false" {{action 'toggleCollapsed'}}>
+        <a class="accordion-toggle" role="button" href='#' aria-expanded="false" {{action (action attrs.toggleCollapsed)}}>
           {{yield}}
         </a>
     {{else}}

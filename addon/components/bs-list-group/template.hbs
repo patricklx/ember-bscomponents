@@ -1,6 +1,10 @@
 {{#each content as |item|}}
+  {{#if hasBlock}}
   {{yield (hash
-    item-component=(component itemComponent withLinks=withLinks isActive=(is-equal item selected) onItemSelected=(action 'onItemSelected' item))
+    item-component=(component itemComponent content=item withLinks=withLinks isActive=(is-equal item selected) onItemSelected=(action 'onItemSelected' item))
     content=item
   )}}
+  {{else}}
+    {{component itemComponent content=item withLinks=withLinks isActive=(is-equal item selected) onItemSelected=(action 'onItemSelected' item)}}
+  {{/if}}
 {{/each}}

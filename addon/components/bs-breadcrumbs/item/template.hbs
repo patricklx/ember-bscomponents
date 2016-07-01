@@ -1,7 +1,18 @@
-{{#unless isActive}}
+{{#if hasBlock}}
+  {{#unless isActive}}
     <a href="#">
       {{yield}}
     </a>
+  {{else}}
+    {{yield}}
+  {{/unless}}
 {{else}}
-  {{yield}}
-{{/unless}}
+  {{#unless isActive}}
+    <a href="#">
+      {{content}}
+    </a>
+  {{else}}
+    {{content}}
+  {{/unless}}
+{{/if}}
+
