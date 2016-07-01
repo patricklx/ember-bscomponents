@@ -10,19 +10,19 @@ BsDropdownMenuComponent = Ember.Component.extend({
   becameVisible: () ->
     id = @get('elementId')
     $(document).bind('click.dropdown' + id, (e) =>
-      container = @$();
+      container = @$()
       # if the target of the click isn't the container nor a descendant of the container
       if (!container.is(e.target) and container.has(e.target).length == 0)
         @set('isVisible', false)
       return
     )
-    @$().parent().addClass('open');
+    @$().parent().addClass('open')
     return
 
   becameHidden: () ->
     id = @get('elementId')
     $(document).unbind('click.dropdown' + id)
-    @$().parent().removeClass('open');
+    @$().parent().removeClass('open')
     return
 })
 

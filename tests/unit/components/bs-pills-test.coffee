@@ -3,13 +3,14 @@
 `import startApp from "../../helpers/start-app"`
 
 
-moduleForComponent('bs-pills',
+moduleForComponent('bs-pills', {
   needs: ['component:bs-pills']
-)
+})
 
 
 test('is it there?', (assert) ->
   component = @subject
   this.$()
   assert.ok(component?)
+  return
 )

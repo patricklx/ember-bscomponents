@@ -3,13 +3,14 @@
 `import startApp from "../../helpers/start-app"`
 
 
-moduleForComponent('bs-tooltipbox-handler',
+moduleForComponent('bs-tooltipbox-handler', {
   needs: ['component:bs-tooltipbox-handler']
-)
+})
 
 
 test('is it there?', (assert) ->
   component = @subject
   this.$()
   assert.ok(component?)
+  return
 )

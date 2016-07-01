@@ -3,13 +3,14 @@
 `import startApp from "../../helpers/start-app"`
 
 
-moduleForComponent('bs-pagination',
+moduleForComponent('bs-pagination', {
   needs: ['component:bs-pagination']
-)
+})
 
 
 test('is it there?', (assert) ->
   component = @subject
   this.$()
   assert.ok(component?)
+  return
 )

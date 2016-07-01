@@ -3,13 +3,14 @@
 `import startApp from "../../helpers/start-app"`
 
 
-moduleForComponent('bs-progress',
+moduleForComponent('bs-progress', {
   needs: ['component:bs-progress']
-)
+})
 
 
 test('is it there?', (assert) ->
   component = @subject
   this.$()
   assert.ok(component?)
+  return
 )

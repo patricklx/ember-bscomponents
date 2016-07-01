@@ -3,13 +3,14 @@
 `import startApp from "../../helpers/start-app"`
 
 
-moduleForComponent('bs-panel',
+moduleForComponent('bs-panel', {
   needs: ['component:bs-panel']
-)
+})
 
 
 test('is it there?', (assert) ->
   component = @subject
   this.$()
   assert.ok(component?)
+  return
 )

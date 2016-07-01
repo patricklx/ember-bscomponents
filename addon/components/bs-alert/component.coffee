@@ -17,14 +17,16 @@ BsAlertComponent = Ember.Component.extend(TypeSupport,{
         if @isDestroyed then return
         @attrs.onAutoDismiss?()
         @remove()
+        return
       Ember.run.later(this, autoDismiss, @dismissAfter * 1000)
     return
 
   actions: {
     dismiss: () ->
-      p = @attrs.onDismiss?();
+      p = @attrs.onDismiss?()
       Ember.RSVP.resolve(p).then(() =>
         @remove()
+        return
       )
       return
   }

@@ -16,5 +16,7 @@ test('is it there?', (assert) ->
   assert.ok(component?)
   Ember.run(() ->
     component.remove()
+    return
   )
+  return
 )

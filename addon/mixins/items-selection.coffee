@@ -24,6 +24,7 @@ ItemsSelection = Ember.Mixin.create({
     selected = @get('selected')
     if typeof selected == 'string'
       @set('selected', selected.split(','))
+    return
 
   actions: {
     onItemSelected: (item) ->

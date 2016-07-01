@@ -14,6 +14,7 @@ test('it works', (assert) ->
   env = {dom: {
     setAttribute: (element, attribute, value) ->
       assert.ok(true)
+      return
   }, data: {
     view: {
       container: {
@@ -22,11 +23,14 @@ test('it works', (assert) ->
             attribute: 'an-attribute'
             registerTip: (type, hash, options, env) ->
               assert.ok(true)
+              return
           }
       }
     }
   }}
   Ember.run(() ->
     bsBindPopover(params, hash, options, env)
+    return
   )
+  return
 )

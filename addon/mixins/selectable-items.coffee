@@ -9,6 +9,7 @@ SelectableItems = Ember.Mixin.create({
     content = @get('content')
     if typeof content == 'string'
       @set('content', content.split(','))
+    return
 
   actions: {
     onItemSelected: (item) ->

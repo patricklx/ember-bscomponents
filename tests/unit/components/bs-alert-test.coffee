@@ -3,9 +3,9 @@
 `import startApp from "../../helpers/start-app"`
 
 startApp()
-moduleForComponent('bs-alert',
+moduleForComponent('bs-alert', {
   needs: ['component:bs-alert']
-)
+})
 
 
 test('check has button', (assert) ->
@@ -52,13 +52,14 @@ test('trigger close action', (assert) ->
 
 test('auto dismiss', (assert) ->
   assert.expect(1)
-  component = @subject(
+  component = @subject({
     dismissAfter: 0.1
-  )
+  })
 
   @$()
   wait().then(() =>
     assert.ok(@$() == undefined, 'component should have been destroyed')
+    return
   )
   return
 )
