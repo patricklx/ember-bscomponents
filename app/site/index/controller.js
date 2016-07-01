@@ -5,7 +5,9 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   docs: ['alert', 'button', 'list-group', 'breadcrumbs',
-    'btn-group', 'modal', 'tabs', 'tooltip', 'popover', 'pagination', 'progress'],
+    'btn-group', 'modal', 'tabs', 'tooltip', 'popover', 'pagination', 'progress',
+    'panel'
+  ],
   selectedDoc: null,
 
   currentDoc: Ember.computed('selectedDoc', function () {

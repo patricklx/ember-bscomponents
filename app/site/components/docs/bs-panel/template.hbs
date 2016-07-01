@@ -1,0 +1,47 @@
+<div class="page-header" style="margin-top: 0">
+  <h4>The Panel Component</h4>
+</div>
+
+{{#bs-panel as |panel|}}
+  {{#panel.header}}Header{{/panel.header}}
+  {{#panel.body}}Body{{/panel.body}}
+{{/bs-panel}}
+<br>
+
+{{#bs-panel as |panel|}}
+  {{#panel.header}}Header{{/panel.header}}
+  Body Without Body Wrapper
+{{/bs-panel}}
+{{currentPage}}
+
+<br>
+{{#bs-panel open=(eq fieldset.self form.self.fieldsets.firstObject) collapsible=true as |panel|}}
+  {{#panel.header}}Header{{/panel.header}}
+  {{#panel.body}}Body{{/panel.body}}
+{{/bs-panel}}
+{{#bs-panel as |panel|}}
+  {{#panel.header}}Header{{/panel.header}}
+  {{#panel.body}}Body{{/panel.body}}
+{{/bs-panel}}
+{{#bs-panel as |panel|}}
+  {{#panel.header}}Header{{/panel.header}}
+  {{#panel.body}}Body{{/panel.body}}
+{{/bs-panel}}
+<div class="page-header" style="margin-top: 0">
+  <h4>Doc</h4>
+</div>
+
+
+{{md-text
+typographer = true
+linkify     = false
+text        = "
+#### Attributes
+**yields:** `x.header`|`x.body`
+#### Example
+```handlebars
+{{bs-pagination totalLength=35 onItemSelected=(action (mut currentPage))}}
+<br>
+{{currentPage}}
+```"
+}}
