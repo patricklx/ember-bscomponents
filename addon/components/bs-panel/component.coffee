@@ -6,10 +6,6 @@ BsPanelComponent = Ember.Component.extend(TypeSupport, {
   layout: layout
   classNames: ['panel']
   classTypePrefix: ['panel']
-  classNameBindings: ['fade', 'fade:in']
-  clicked: null
-  onClose: null
-  fade: true
   collapsible: false
   open: true
 
@@ -20,26 +16,10 @@ BsPanelComponent = Ember.Component.extend(TypeSupport, {
   actions: {
 
     toggleCollapsed: () ->
+      @attrs.onToggleCollapse?(@get('open'))
       @toggleProperty('open')
       return
-
-    close: (event) ->
-      @sendAction('onClose')
-      @$().removeClass('in')
-      #TODO: Causes ' Object #<HTMLDivElement> has no method 'destroyElement' '
-      #@$().one($.support.transition.end, @destroy).emulateTransitionEnd(150)
-      #Workaround
-      setTimeout((() ->
-        @destroy()
-        return
-      ).bind(this), 250)
-      return
   }
-
-  click: (event) ->
-    @sendAction('clicked', event)
-    return
-
 
 })
 
