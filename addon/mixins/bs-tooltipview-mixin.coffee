@@ -6,7 +6,7 @@ BsTooltipViewMixin = Ember.Mixin.create({
   didInsertElement: () ->
     data = this.get('bsTooltipData')
     type = this.get('bsTooltipType')
-    manager = @getOwner(this).lookup('service:tooltip-box-manager')
+    manager = Ember.getOwner(this).lookup('service:tooltip-box-manager')
     manager.addFromView(this, type, data)
     return
 })
