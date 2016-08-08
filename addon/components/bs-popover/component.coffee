@@ -7,7 +7,7 @@ BsPopoverComponent = Ember.Component.extend({
   layout: layout
   classNames: 'popover'
   classNameBindings: ['fade', 'in', 'realPlacement']
-  titleBinding: 'data.title'
+  title: Ember.computed.alias('data.title')
   content: Ember.computed.alias('data.content')
   html: false
   delay: 0

@@ -1,5 +1,8 @@
 `import Ember from 'ember'`
-StreamUtils = Ember.__loader.require('ember-metal/streams/utils')
+try
+  StreamUtils = Ember.__loader.require('ember-htmlbars/streams/utils')
+catch
+  StreamUtils = Ember.__loader.require('ember-metal/streams/utils')
 
 BsBindTooltipHelper = (node, env, scope, params, hash, template, inverse, visitor) ->
   view = env.view || env.data.view
@@ -9,7 +12,10 @@ BsBindTooltipHelper = (node, env, scope, params, hash, template, inverse, visito
   newHash = {}
   for k,v of hash
     if StreamUtils.isStream(v)
-      newHash[k+'Binding'] = v
+      newHash[k] = v.value()
+      v.subscribe((s) ->
+        newHash[k] = s.value()
+      )
     else
       newHash[k] = v
   hash = Ember.Object.create(newHash)

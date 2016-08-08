@@ -1,13 +1,15 @@
 `import Ember from 'ember'`
 `import SelectableItems from '../../mixins/selectable-items'`
 `import template from '../bs-common/itemlist/template'`
+`import SizeSupport from 'ember-bscomponents/mixins/size'`
 
-BsPagination = Ember.Component.extend(SelectableItems, {
+BsPagination = Ember.Component.extend(SelectableItems, SizeSupport, {
   layout: template
   itemComponent: 'bs-pagination/item'
 
   tagName: 'ul'
   classNames: ['pagination']
+  classTypePrefix: 'pagination'
 
   totalLength: 0
   itemsPerPage: 10
