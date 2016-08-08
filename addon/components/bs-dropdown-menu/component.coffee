@@ -10,16 +10,19 @@ BsDropdownMenuComponent = Ember.Component.extend({
 
   becameVisible: () ->
     id = @get('elementId')
-    $(document).bind('click.dropdown' + id, (e) =>
-      container = @$()
-      if @isDestroyed
+    Ember.run.next(() =>
+      $(document).bind('click.dropdown' + id, (e) =>
+        container = @$()
+        if @isDestroyed
+          return
+        # if the target of the click isn't the container nor a descendant of the container
+        if (!container.is(e.target) and container.has(e.target).length == 0)
+          @set('isVisible', false)
         return
-      # if the target of the click isn't the container nor a descendant of the container
-      if (!container.is(e.target) and container.has(e.target).length == 0)
-        @set('isVisible', false)
+      )
+      @$().parent().addClass('open')
       return
     )
-    @$().parent().addClass('open')
     return
 
   becameHidden: () ->
@@ -38,6 +41,11 @@ BsDropdownMenuComponent = Ember.Component.extend({
     if autoclose
       @attrs.onClose?()
     return
+
+    actions: {
+      onClose: (evt) ->
+
+    }
 })
 
 `export default BsDropdownMenuComponent`

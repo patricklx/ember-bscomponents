@@ -1,8 +1,8 @@
 `import Ember from 'ember'`
 try
-  StreamUtils = Ember.__loader.require('ember-htmlbars/streams/utils')
-catch
   StreamUtils = Ember.__loader.require('ember-metal/streams/utils')
+catch
+  StreamUtils = Ember.__loader.require('ember-htmlbars/streams/utils')
 
 BsBindPopoverHelper = (node, env, scope, params, hash, template, inverse, visitor) ->
   view = env.view || env.data.view
