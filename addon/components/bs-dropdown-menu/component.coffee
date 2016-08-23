@@ -38,7 +38,7 @@ BsDropdownMenuComponent = Ember.Component.extend({
     @$()?.parent().removeClass('open')
 
   click: () ->
-    if autoclose
+    if @autoclose
       @attrs.onClose?()
     return
 
