@@ -31,6 +31,10 @@ BsDropdownMenuComponent = Ember.Component.extend({
     @$().parent().removeClass('open')
     return
 
+  didInsertElement: () ->
+    if @isVisible
+      @$().parent().addClass('open')
+
   willDestroy: () ->
     @_super()
     id = @get('elementId')
