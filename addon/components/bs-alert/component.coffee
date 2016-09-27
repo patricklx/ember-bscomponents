@@ -25,7 +25,7 @@ BsAlertComponent = Ember.Component.extend(TypeSupport,{
     dismiss: () ->
       p = @attrs.onDismiss?()
       Ember.RSVP.resolve(p).then(() =>
-        @remove()
+        @destroy()
         return
       )
       return
