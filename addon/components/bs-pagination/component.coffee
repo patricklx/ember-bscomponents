@@ -11,9 +11,30 @@ BsPagination = Ember.Component.extend(SelectableItems, SizeSupport, {
   classNames: ['pagination']
   classTypePrefix: 'pagination'
 
-  totalLength: 0
-  itemsPerPage: 10
-  itemsPerGroup: 10
+  totalLength: Ember.computed(
+    get: () ->
+      return 0
+    set: (key, val) ->
+      if @selected > val
+        @send('onItemSelected', val)
+      return val
+  )
+  itemsPerPage: Ember.computed(
+    get: () ->
+      return 10
+    set: (key, val) ->
+      if @selected > val
+        @send('onItemSelected', val)
+      return val
+  )
+  itemsPerGroup: Ember.computed(
+    get: () ->
+      return 10
+    set: (key, val) ->
+      if @selected > val
+        @send('onItemSelected', val)
+      return val
+  )
 
   selected: 1
   currentPageGroup: 0
