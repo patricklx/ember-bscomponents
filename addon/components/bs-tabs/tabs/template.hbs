@@ -1,7 +1,7 @@
 {{#each content as |tab|}}
   {{#if hasBlock}}
     {{yield (hash
-              item-component=(component 'bs-pill' isActive=(is-equal tab selected))
+              item-component=(component 'bs-pill' isActive=(is-equal tab selected) onItemSelected=(action 'onItemSelected' tab))
               item=tab
             )
     }}
