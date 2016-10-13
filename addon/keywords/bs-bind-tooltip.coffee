@@ -1,6 +1,8 @@
 `import Ember from 'ember'`
 try
   StreamUtils = Ember.__loader.require('ember-metal/streams/utils')
+  if not StreamUtils.isStream
+    throw 'no isStream'
 catch
   StreamUtils = Ember.__loader.require('ember-htmlbars/streams/utils')
 
