@@ -57,6 +57,8 @@ BsPagination = Ember.Component.extend(SelectableItems, SizeSupport, {
   actions: {
     onItemSelected: (item) ->
       item = @changeCurrentGroup(item)
+      if not @get('rendered')
+        return
       @_super(item)
       return
   }
@@ -71,6 +73,13 @@ BsPagination = Ember.Component.extend(SelectableItems, SizeSupport, {
       @decrementProperty('currentPageGroup')
       return items[1] - 1
     return item
+
+  didInsertElement: () ->
+    Ember.run.next(() =>
+      @set('rendered', true)
+      return
+    )
+    return @_super(arguments...)
 })
 
 `export default BsPagination`
