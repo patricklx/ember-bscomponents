@@ -17,6 +17,10 @@ BsPanelComponent = Ember.Component.extend(TypeSupport, {
 
     toggleCollapsed: () ->
       @attrs.onToggleCollapse?(@get('open'))
+      if @get('open')
+        @attrs.onCollapse?()
+      else
+        @attrs.onOpen?()
       @toggleProperty('open')
       return
   }
