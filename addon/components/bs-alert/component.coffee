@@ -16,7 +16,7 @@ BsAlertComponent = Ember.Component.extend(TypeSupport,{
       autoDismiss = () ->
         if @isDestroyed then return
         @attrs.onAutoDismiss?()
-        @remove()
+        @set('isVisible', false)
         return
       Ember.run.later(this, autoDismiss, @dismissAfter * 1000)
     return
@@ -25,7 +25,7 @@ BsAlertComponent = Ember.Component.extend(TypeSupport,{
     dismiss: () ->
       p = @attrs.onDismiss?()
       Ember.RSVP.resolve(p).then(() =>
-        @destroy()
+        @set('isVisible', false)
         return
       )
       return

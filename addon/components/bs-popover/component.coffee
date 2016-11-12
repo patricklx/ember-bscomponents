@@ -78,7 +78,7 @@ BsPopoverComponent = Ember.Component.extend({
       )
 
     Ember.run.scheduleOnce('afterRender', this, @afterRender)
-    @$().find('img').load(() =>
+    @$().find('img').on('load', () =>
       @afterRender()
       return
     )

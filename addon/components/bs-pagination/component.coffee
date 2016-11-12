@@ -76,7 +76,8 @@ BsPagination = Ember.Component.extend(SelectableItems, SizeSupport, {
 
   didInsertElement: () ->
     Ember.run.next(() =>
-      @set('rendered', true)
+      if not @isDestroyed
+        @set('rendered', true)
       return
     )
     return @_super(arguments...)
