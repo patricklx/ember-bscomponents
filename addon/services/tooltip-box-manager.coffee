@@ -140,7 +140,7 @@ TooltipBoxManager = Ember.Service.extend({
       console.warn('TooltipBoxManager.addFromView: You need to add "TooltipBoxManager.attribute" to the attributeBindings!')
       return
 
-    element: view.$()
+    element = view.$()
 
     id = instance.registerTip(type, object, element, view)
     view.set(instance.attribute, id)
