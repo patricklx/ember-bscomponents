@@ -85,6 +85,7 @@ BsPopoverComponent = Ember.Component.extend({
     return
 
   afterRender: ->
+    this.set('isVisible', true)
     @notifyPropertyChange('content')
     return
 

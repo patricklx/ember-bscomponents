@@ -5,8 +5,18 @@ BsDropdownMenuComponent = Ember.Component.extend({
   layout: layout
   tagName: 'ul'
   classNames: ['dropdown-menu']
-  isVisible: false
   autoclose: true
+  isVisible: Ember.computed({
+    get: () -> return false
+    set: (key, val, cache) ->
+      if val == cache
+        return val
+      if val
+        Ember.run.scheduleOnce('afterRender', this, @becameVisible)
+      else
+        Ember.run.scheduleOnce('afterRender', this, @becameHidden)
+      return val
+  })
 
   becameVisible: () ->
     id = @get('elementId')

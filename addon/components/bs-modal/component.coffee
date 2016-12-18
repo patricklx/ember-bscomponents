@@ -29,7 +29,17 @@ BsModalComponent = Ember.Component.extend({
   action: null
   allowClose: true
   isVis: true
-  isVisible: true
+  isVisible: Ember.computed({
+    get: () -> return true
+    set: (key, val, cache) ->
+      if val == cache
+        return val
+      if val
+        Ember.run.scheduleOnce('afterRender', this, @becameVisible)
+      else
+        Ember.run.scheduleOnce('afterRender', this, @becameHidden)
+      return val
+  })
 
   didInsertElement: ->
     @._super()
@@ -63,7 +73,7 @@ BsModalComponent = Ember.Component.extend({
     return false
 
   keyPressed: (event) ->
-  #Handle ESC
+#Handle ESC
     if event.keyCode is 27
       @close(event)
     return
@@ -88,12 +98,12 @@ BsModalComponent = Ember.Component.extend({
     return
 
   removeHandlers: ->
-    #Remove key press
+#Remove key press
     jQuery(window.document).unbind('keyup', @_keyUpHandler)
     return
 
   setupBinders: ->
-    #Key press
+#Key press
     handler = (event) =>
       @keyPressed(event)
       return

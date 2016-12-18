@@ -4,7 +4,8 @@ try
   if not StreamUtils.isStream
     throw 'no isStream'
 catch
-  StreamUtils = Ember.__loader.require('ember-htmlbars/streams/utils')
+  try
+    StreamUtils = Ember.__loader.require('ember-htmlbars/streams/utils')
 
 BsBindPopoverHelper = (node, env, scope, params, hash, template, inverse, visitor) ->
   view = env.view || env.data.view
@@ -22,7 +23,7 @@ BsBindPopoverHelper = (node, env, scope, params, hash, template, inverse, visito
       newHash[k] = v
   hash = Ember.Object.create(newHash)
 
-  id = manager.registerTip('popover', params[0] or hash, node, env)
+  id = manager.registerTip('popover', params[0] or hash, node.element, view)
   env.dom.setAttribute(node.element, manager.attribute, id)
   return
 

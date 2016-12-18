@@ -17,12 +17,12 @@ TooltipBoxManager = Ember.Service.extend({
     instance = this
     return
 
-  registerTip: (type, object, options, env) ->
+  registerTip: (type, object, element, view) ->
     id = ++@uuid
     self = this
     @registeredTips[id] = {
       id: id
-      element: options.element
+      element: element
       data: object
       eventName: object.trigger or ((if type is 'popover' then 'click' else 'hover'))
       bound: false
@@ -48,7 +48,6 @@ TooltipBoxManager = Ember.Service.extend({
         return
       )
 
-    view = env.view || env.data.view
     view.on('willClearRender', () ->
       pop = instance.removeTip(id)
       if pop then $(pop.element).unbind()
@@ -140,16 +139,10 @@ TooltipBoxManager = Ember.Service.extend({
     unless view.attributeBindings.contains(instance.attribute)
       console.warn('TooltipBoxManager.addFromView: You need to add "TooltipBoxManager.attribute" to the attributeBindings!')
       return
-    options = {
-      element: view.$()
-    }
-    env = {
-      data: {
-        view: view
-      }
-    }
 
-    id = instance.registerTip(type, object, options, env)
+    element: view.$()
+
+    id = instance.registerTip(type, object, element, view)
     view.set(instance.attribute, id)
     return
 })
