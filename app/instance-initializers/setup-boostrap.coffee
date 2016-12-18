@@ -4,7 +4,7 @@
 initialize = (application) ->
   try
     glimmerEnv  = application.lookup('service:-glimmer-environment')
-    glimmerEnv.builtInModifiers['bs-bind-tooltip'] = new bsBindPopover()
+    glimmerEnv.builtInModifiers['bs-bind-tooltip'] = new bsBindTooltip()
     glimmerEnv.builtInModifiers['bs-bind-popover'] = new bsBindPopover()
 
   return
