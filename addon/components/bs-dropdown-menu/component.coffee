@@ -9,6 +9,8 @@ BsDropdownMenuComponent = Ember.Component.extend({
   isVisible: Ember.computed({
     get: () -> return false
     set: (key, val, cache) ->
+      if val == undefined
+        val = false
       if val == cache
         return val
       if val

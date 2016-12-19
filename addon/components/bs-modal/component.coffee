@@ -32,6 +32,8 @@ BsModalComponent = Ember.Component.extend({
   isVisible: Ember.computed({
     get: () -> return true
     set: (key, val, cache) ->
+      if val == undefined
+        val = false
       if val == cache
         return val
       if val
