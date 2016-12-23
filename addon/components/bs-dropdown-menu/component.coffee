@@ -6,6 +6,7 @@ BsDropdownMenuComponent = Ember.Component.extend({
   tagName: 'ul'
   classNames: ['dropdown-menu']
   autoclose: true
+  stayOpen: false
   isVisible: Ember.computed({
     get: () -> return false
     set: (key, val, cache) ->
@@ -28,7 +29,7 @@ BsDropdownMenuComponent = Ember.Component.extend({
         if @isDestroyed
           return
         # if the target of the click isn't the container nor a descendant of the container
-        if (!container.is(e.target) and container.has(e.target).length == 0)
+        if !container.is(e.target) and container.has(e.target).length == 0 and not @stayOpen
           @set('isVisible', false)
         return
       )
