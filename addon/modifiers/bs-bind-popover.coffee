@@ -19,7 +19,7 @@ bsBindPopover = (state) ->
   id = manager.registerTip('popover', hash, element, view)
   dom.setAttribute(element, manager.attribute, id)
   state.id = id
-  state.hash = hash
+  state.hashValues = hash
   return
 
 class TooltipModifierManager
@@ -43,20 +43,19 @@ class TooltipModifierManager
     bsBindPopover(state)
     return
 
-  update: (modifier, element, args, dom, dynamicScope) ->
+  update: (state) ->
 
-    { named, positional } = args
-    modifier.params = positional
-    keys = named.keys;
-    values = named.values;
+    { hash, params } = state
+    keys = hash.keys;
+    values = hash.values;
 
     for i in [0...keys.length]
       key = keys[i]
       ref = values[i]
-      modifier.hash[key] = ref.value()
+      state.hashValues[key] = ref.value()
 
     if params[0]
-      modifier.hash.content = params[0]
+      state.hashValues.content = params[0]
     return
 
   getDestructor: (modifier) ->
