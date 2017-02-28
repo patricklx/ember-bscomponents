@@ -11,7 +11,9 @@ BsModalComponent = Ember.Component.extend({
   classNameBindings: ['fade', 'isVis:in']
   attributeBindings: ['role', 'aria-labelledby', 'isAriaHidden:aria-hidden', 'ariaLabelledBy:aria-labelledby', 'style']
   style: (() ->
-    return Ember.String.htmlSafe('display: block')
+    if this.get('isVisible')
+      return Ember.String.htmlSafe('display: block;')
+    return
   ).property('isVisible')
   isAriaHidden: (() ->
     return "#{!@get('isVisible')}"
@@ -28,12 +30,22 @@ BsModalComponent = Ember.Component.extend({
   fade: true
   action: null
   allowClose: true
-  isVis: true
+  animation: false
+  isVis: Ember.computed('isVisible', 'animation', {
+    get: () ->
+      if not @get('animation')
+        return @get('isVisible')
+      meta = Ember.meta(this);
+      cache = meta.readableCache();
+      return cache[key] || false
+    set: (key, val) ->
+      return val
+  })
   isVisible: Ember.computed({
     get: () -> return true
     set: (key, val, cache) ->
       if val == undefined
-        val = false
+        val = true
       if val == cache
         return val
       if val
@@ -45,34 +57,52 @@ BsModalComponent = Ember.Component.extend({
 
   didInsertElement: ->
     @._super()
-    @setupBinders()
     if @get('isVisible')
-      @becameVisible()
+      Ember.run.scheduleOnce('afterRender', this, @becameVisible)
     return
 
   becameVisible: ->
     Em.$('body').addClass('modal-open')
     @appendBackdrop() if @get('backdrop')
+    @setupBinders()
+    @show()
     return
 
   becameHidden: ->
     Em.$('body').removeClass('modal-open')
-    @_backdrop.remove() if @_backdrop
+    @removeHandlers()
+    if @_backdrop
+      @_backdrop.remove()
+      @_backdrop = null
     return
 
   appendBackdrop: ->
-    parentElement = @$().parent()
-    @_backdrop = Em.$(@modalBackdrop).appendTo(parentElement)
+    if not @_backdrop
+      parentElement = @$().parent()
+      @_backdrop = Em.$(@modalBackdrop).appendTo(parentElement)
     return
 
-  hide: ->
-    @set('isVis', false)
-    current = this
-    @$().one('webkitTransitionEnd', (e) ->
-      current.set('isVisible', false)
-      return
+  show: () ->
+    return new Ember.RSVP.Promise((resolve) =>
+      if not @get('animation')
+        @set('isVis', true)
+        resolve()
+        return
     )
-    return false
+
+  hide: () ->
+    return new Ember.RSVP.Promise((resolve) =>
+      @set('isVis', false)
+      if not @get('animation')
+        @set('isVisible', false)
+        resolve()
+        return
+
+      @$().one('webkitTransitionEnd', (e) =>
+        @set('isVisible', false)
+        resolve()
+      )
+    )
 
   keyPressed: (event) ->
 #Handle ESC
@@ -81,8 +111,11 @@ BsModalComponent = Ember.Component.extend({
     return
 
   close: (event) ->
-    @attrs.onClose?()
-    @get('modalManager').close()
+    @hide().then(() =>
+      @attrs.onClose?()
+      @get('modalManager').close()
+      return
+    )
     return
 
   actions: {
@@ -91,21 +124,22 @@ BsModalComponent = Ember.Component.extend({
       return
   }
 
-
 #Invoked automatically by ember when the view is destroyed, giving us a chance to perform cleanups
   willDestroyElement: () ->
-    Em.$('body').removeClass('modal-open')
-    @removeHandlers()
-    @_backdrop.remove() if @_backdrop
+    @_super(arguments...)
+    @becameHidden()
     return
 
   removeHandlers: ->
 #Remove key press
     jQuery(window.document).unbind('keyup', @_keyUpHandler)
+    @_keyUpHandler = null
     return
 
   setupBinders: ->
 #Key press
+    if @_keyUpHandler
+      return
     handler = (event) =>
       @keyPressed(event)
       return
