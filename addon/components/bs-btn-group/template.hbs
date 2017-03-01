@@ -1,6 +1,6 @@
 {{#each content as |item|}}
   {{yield (hash
-    item-component=(component itemComponent onClick=(action "onItemSelected" item) isActive=(is-in item selected))
+    item-component=(component itemComponent onClick=(action "onItemSelected" item) isActive=(ember-bscomponents/is-in item selected))
     content=item
   )}}
 {{/each}}
