@@ -7,7 +7,7 @@ BsTooltipComponent = BsPopoverComponent.extend({
   layout: layout
   init: () ->
     @_super()
-    @classNames.removeObject('popover')
+    @classNames = @classNames.map((a) -> a).removeObject('popover')
     @set('content', @get('content') or @get('title'))
     return
 })

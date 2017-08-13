@@ -16,9 +16,8 @@ ModalManager = Ember.Service.extend({
 
   close: () ->
     @set('modal', null)
-    @set('target', null)
+    @set('modalTarget', null)
     @set('properties', null)
-    Ember.run.sync()
     return
 
   actions: {
