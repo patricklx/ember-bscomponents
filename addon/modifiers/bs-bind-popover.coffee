@@ -5,13 +5,10 @@ bsBindPopover = (state) ->
   if dom.getAttribute? and dom.getAttribute(element, manager.attribute)
     return
 
-  keys = hash.keys;
-  values = hash.values;
-
   out = {};
-  for i in [0...keys.length]
-    key = keys[i]
-    ref = values[i]
+  for i in [0...hash.names.length]
+    key = hash.names[i]
+    ref = hash.get(key)
     out[key] = ref.value()
   hash = out
   if params[0]
@@ -24,10 +21,11 @@ bsBindPopover = (state) ->
 
 class TooltipModifierManager
   create: (element, args, dynamicScope, dom) ->
-    { named, positional } = args
+    { named, positional, tag } = args.capture()
     return {
       element: element
       dom: dom
+      tag: tag
       view: dynamicScope.view
       params: positional
       hash: named
@@ -38,6 +36,9 @@ class TooltipModifierManager
         delete @manager.registeredTips[@id]
         return
     }
+
+  getTag: (state) ->
+    return state.tag
 
   install: (state) ->
     bsBindPopover(state)
