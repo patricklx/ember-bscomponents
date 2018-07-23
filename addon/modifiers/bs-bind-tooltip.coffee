@@ -48,7 +48,7 @@ class TooltipModifierManager
 
     { hash, params } = state
     keys = hash.keys;
-    values = hash.values;
+    values = hash.references;
 
     for i in [0...keys.length]
       key = keys[i]
