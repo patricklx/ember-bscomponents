@@ -136,7 +136,7 @@ TooltipBoxManager = Ember.Service.extend({
     return pop
 
   addFromView: (view, type, object) ->
-    unless view.attributeBindings.contains(instance.attribute)
+    unless view.attributeBindings.includes(instance.attribute)
       console.warn('TooltipBoxManager.addFromView: You need to add "TooltipBoxManager.attribute" to the attributeBindings!')
       return
 
