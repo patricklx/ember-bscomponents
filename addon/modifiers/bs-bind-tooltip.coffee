@@ -20,7 +20,7 @@ bsBindPopover = (state) ->
   return
 
 class TooltipModifierManager
-  create: (element, args, dynamicScope, dom) ->
+  create: (element, state, args, dynamicScope, dom) ->
     { named, positional, tag } = args.capture()
     return {
       element: element
