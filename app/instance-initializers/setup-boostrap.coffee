@@ -3,7 +3,7 @@
 
 initialize = (application) ->
   try
-    container = Ember.__loader.require('container')
+    container = Ember.__loader.require('@ember/-internals/container')
     options = application.lookup(container.privatize(['template-compiler:main']))
     options.resolver.resolver.builtInModifiers['bs-bind-tooltip'] = {
       manager: new bsBindTooltip()
