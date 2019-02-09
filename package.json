@@ -1,6 +1,6 @@
 {
   "name": "ember-bscomponents",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "an addon containing components for bootstrap.",
   "directories": {
     "doc": "doc",
@@ -24,7 +24,6 @@
     "ember-ajax": "^4.0.1",
     "ember-cli": "^3.6.1",
     "ember-cli-app-version": "^3.2.0",
-    "ember-cli-babel": "^7.2.0",
     "ember-cli-dependency-checker": "^3.1.0",
     "ember-cli-inject-live-reload": "^2.0.1",
     "ember-cli-qunit": "^4.4.0",
@@ -49,6 +48,7 @@
   "dependencies": {
     "ember-cli-coffeescript": "*",
     "ember-cli-htmlbars": "*",
+    "ember-cli-babel": "*",
     "ember-cli-htmlbars-inline-precompile": "*"
   },
   "ember-addon": {

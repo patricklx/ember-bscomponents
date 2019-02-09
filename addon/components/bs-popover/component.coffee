@@ -7,6 +7,7 @@ BsPopoverComponent = Ember.Component.extend({
   layout: layout
   classNames: 'popover'
   classNameBindings: ['fade', 'in', 'realPlacement']
+  attributeBindings: ['style']
   title: Ember.computed.alias('data.title')
   content: Ember.computed.alias('data.content')
   html: false
@@ -24,8 +25,8 @@ BsPopoverComponent = Ember.Component.extend({
   $element: null
   $tip: null
 
-  updateStyle: () ->
-    return  if not @$tip or not @get('isVisible')
+  style: Ember.computed('content', 'realPlacement', 'isVisible', () ->
+    return if not @$tip or not @get('isVisible')
     @$tip.css({
       top: 0
       left: 0
@@ -36,19 +37,8 @@ BsPopoverComponent = Ember.Component.extend({
     actualWidth = @$tip[0].offsetWidth
     actualHeight = @$tip[0].offsetHeight
     calculatedOffset = @getCalculatedOffset(placement, pos, actualWidth, actualHeight)
-    @$tip.css('top', calculatedOffset.top)
-    @$tip.css('left', calculatedOffset.left)
-
-    if @firstTime
-      @firstTime = false
-      @styleUpdater()
-      @firstTime = true
-    return
-
-  styleUpdater: (->
-    @updateStyle()
-    return
-  ).observes('content', 'realPlacement', 'isVisible')
+    return Ember.String.htmlSafe("top: #{calculatedOffset.top}px; left: #{calculatedOffset.left}px; display: block")
+  )
 
   init: ->
     @_super()
@@ -64,7 +54,6 @@ BsPopoverComponent = Ember.Component.extend({
     name = @get('tooltipBoxManager.attribute')
     name = '[' + name + '=\'' + @get('tip_id') + '\']'
     @$element = $(name)
-    @updateStyle()
 
     if @get('data.trigger') in ['hover', undefined] and @get('data.sticky')
       @$().on('mouseenter', () =>
@@ -108,10 +97,10 @@ BsPopoverComponent = Ember.Component.extend({
       parentLeft = 0
 
       placement = (if placement is 'bottom' and pos.top + pos.height + actualHeight - docScroll > parentHeight then 'top' \
-                  else (if placement is 'top' and pos.top - docScroll - actualHeight < 0 then 'bottom' \
-                  else (if placement is 'right' and pos.right + actualWidth > parentWidth then 'left' \
-                  else (if placement is 'left' and pos.left - actualWidth < parentLeft then 'right'\
-                  else placement))))
+      else (if placement is 'top' and pos.top - docScroll - actualHeight < 0 then 'bottom' \
+        else (if placement is 'right' and pos.right + actualWidth > parentWidth then 'left' \
+          else (if placement is 'left' and pos.left - actualWidth < parentLeft then 'right'\
+            else placement))))
 
     return placement
   ).property('placement', 'content')
