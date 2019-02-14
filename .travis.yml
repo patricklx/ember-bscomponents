@@ -9,7 +9,7 @@ cache:
 
 before_install:
   - "npm config set spin false"
-  - "npm install -g npm@^2"
+  - "npm install -g npm"
 
 install:
   - npm install -g bower
