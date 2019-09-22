@@ -13,9 +13,9 @@ TooltipBoxManager = Ember.Service.extend({
   attribute: 'bootstrap-tip-id'
   willSetup: false
   registeredTips: {}
-  init: () ->
+  init: (args...) ->
     instance = this
-    return
+    return this._super(args...)
 
   registerTip: (type, object, element, view) ->
     id = ++@uuid
