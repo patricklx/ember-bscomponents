@@ -15,7 +15,17 @@ TooltipBoxManager = Ember.Service.extend({
   registeredTips: {}
   init: (args...) ->
     instance = this
+    this.onShowTipCallbacks = [];
     return this._super(args...)
+
+  onShowTip: (cb) ->
+    this.onShowTipCallbacks.push(cb)
+
+  removeCallback: (cb) ->
+    i = this.onShowTipCallbacks.findIndex(cb)
+    if i >= 0
+      this.onShowTipCallbacks.splice(i, 1)
+
 
   registerTip: (type, object, element, view) ->
     id = ++@uuid
@@ -102,6 +112,8 @@ TooltipBoxManager = Ember.Service.extend({
         @tooltips.pushObject(obj)
       else
         @popovers.pushObject(obj)
+
+        this.onShowTipCallbacks.forEach(cb -> cb(id))
     return
 
   hideTip: (id, allowTimer) ->

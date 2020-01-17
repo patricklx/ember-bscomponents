@@ -42,6 +42,7 @@ BsPopoverComponent = Ember.Component.extend({
 
   init: ->
     @_super()
+    @afterRender = @afterRender.bind(this)
     @set('html', @get('data.html') or false)
     @set('template', @get('data.template') isnt `undefined`)
     if @get('template')

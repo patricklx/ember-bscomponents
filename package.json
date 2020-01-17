@@ -20,6 +20,7 @@
   "devDependencies": {
     "bower": "^1.8.2",
     "broccoli-asset-rev": "^2.4.2",
+    "ember-did-resize-modifier": "^1.0.0",
     "coffeelint-no-implicit-returns": "^0.0.6",
     "ember-ajax": "^4.0.1",
     "ember-cli": "^3.6.1",

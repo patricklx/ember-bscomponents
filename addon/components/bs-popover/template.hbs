@@ -1,6 +1,6 @@
 <div class="arrow"></div>
 {{#if title}}<h3 class="popover-title">{{title}}</h3>{{/if}}
-<div class="popover-content">
+<div class="popover-content" {{did-resize this.afterRender}}>
   {{#if template}}
     {{partial partialTemplateName}}
   {{else}}
@@ -11,7 +11,7 @@
         {{content}}
       {{/if}}
     {{else}}
-      {{yield}}
+      {{yield this}}
     {{/if}}
   {{/if}}
 </div>
