@@ -32,6 +32,7 @@ TooltipBoxManager = Ember.Service.extend({
     self = this
     @registeredTips[id] = {
       id: id
+      view: view
       element: element
       data: object
       eventName: object.trigger or ((if type is 'popover' then 'click' else 'hover'))
@@ -105,8 +106,10 @@ TooltipBoxManager = Ember.Service.extend({
     unless @showing[id]
       @showing[id] = true
       obj = Ember.Object.create({
-        data: data
-        tip_id: id
+        data: data,
+        tip_id: id,
+        didInsert: ->
+          Ember.set(@registeredTips[id].view, 'isReady', true)
       })
       if type is 'tooltip'
         @tooltips.pushObject(obj)

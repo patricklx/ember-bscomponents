@@ -68,14 +68,13 @@ BsPopoverComponent = Ember.Component.extend({
       )
 
     Ember.run.scheduleOnce('afterRender', this, @afterRender)
-    @$().find('img').on('load', () =>
-      @afterRender()
-      return
-    )
+    this.didInsertElementCallback()
+    return
+
+  didInsertElementCallback: ->
     return
 
   afterRender: ->
-    this.set('isVisible', true)
     @notifyPropertyChange('content')
     return
 
