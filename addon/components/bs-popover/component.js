@@ -8,7 +8,6 @@ const BsPopoverComponent = Ember.Component.extend({
 
   didInsertElement: function () {
     this.popoverId = this.tooltipBoxManager.registerTip('popover', this.options, this.target, this);
-    this.tooltipBoxManager.onShowTip()
   },
 
   willDestroyElement: function () {
