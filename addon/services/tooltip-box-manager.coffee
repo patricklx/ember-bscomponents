@@ -17,6 +17,13 @@ TooltipBoxManager = Ember.Service.extend({
     instance = this
     return this._super(args...)
 
+  unregisterTip: (id) ->
+    elem = @registeredTips[id].element
+    @removeTip(id)
+    $(elem).unbind()
+    delete @registeredTips[id]
+    return
+
   registerTip: (type, object, target, view) ->
     id = ++@uuid
     self = this
@@ -76,7 +83,7 @@ TooltipBoxManager = Ember.Service.extend({
             elem.on('focusin', $.proxy(pop.show, pop))
             elem.on('focusout', $.proxy(pop.hide, pop))
           when 'manual'
-            pop.data.addObserver('show', pop, (sender, key) ->
+            Ember.addObserver(pop.data, 'show', pop, (sender, key) ->
               value = sender.get(key)
               if value
                 pop.show()

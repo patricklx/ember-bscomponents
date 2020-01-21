@@ -4,6 +4,7 @@ import Ember from 'ember';
 const BsPopoverComponent = Ember.Component.extend({
   tooltipBoxManager: Ember.inject.service('tooltip-box-manager'),
   tagName: '',
+  type: 'popover',
   popoverId: null,
   wormholeId: null,
   targetId: null,
@@ -55,16 +56,22 @@ const BsPopoverComponent = Ember.Component.extend({
   },
 
   addTooltip: function () {
+    if (this.currentTarget === this.getTargetElement()) {
+      return;
+    }
     if (this.popoverId) {
-      this.tooltipBoxManager.removeTip(this.popoverId);
+      this.tooltipBoxManager.unregisterTip(this.popoverId);
+      this.popoverId = null;
     }
     if (!this.getTargetElement()) return;
-    this.popoverId = this.tooltipBoxManager.registerTip('popover', this.options, this.getTargetElement(), this);
+    this.currentTarget = this.getTargetElement();
+    this.popoverId = this.tooltipBoxManager.registerTip(this.type, this.options, this.getTargetElement(), this);
   },
 
-  willDestroyElement: function () {
+  willDestroyElement: function (...args) {
+    this._super(...args);
     this.set('wormholeId', null);
-    this.tooltipBoxManager.removeTip(this.popoverId);
+    this.tooltipBoxManager.unregisterTip(this.popoverId);
   }
 });
 
