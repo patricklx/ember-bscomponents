@@ -3,11 +3,9 @@
 
 
 BsPopoverComponent = Ember.Component.extend({
+  tagName: '',
   tooltipBoxManager: Ember.inject.service('tooltip-box-manager')
   layout: layout
-  classNames: 'popover'
-  classNameBindings: ['fade', 'in', 'realPlacement']
-  attributeBindings: ['style']
   title: Ember.computed.alias('data.title')
   content: Ember.computed.alias('data.content')
   html: false
@@ -23,10 +21,17 @@ BsPopoverComponent = Ember.Component.extend({
   ).property('data.placement')
 
   $element: null
-  $tip: null
+  tipElement: null,
+  $tip: Ember.computed({
+    get: -> return this._tipElement
+    set: (n, v) -> this._tipElement = $(v)
+  })
 
-  style: Ember.computed('content', 'realPlacement', 'isVisible', () ->
+
+
+  style: Ember.computed('content', 'realPlacement', 'receivedContent', 'isVisible', () ->
     return if not @$tip or not @get('isVisible')
+    opacity = if this.receivedContent then 1 else 0
     @$tip.css({
       top: 0
       left: 0
@@ -37,12 +42,13 @@ BsPopoverComponent = Ember.Component.extend({
     actualWidth = @$tip[0].offsetWidth
     actualHeight = @$tip[0].offsetHeight
     calculatedOffset = @getCalculatedOffset(placement, pos, actualWidth, actualHeight)
-    return Ember.String.htmlSafe("top: #{calculatedOffset.top}px; left: #{calculatedOffset.left}px; display: block")
+    return Ember.String.htmlSafe("top: #{calculatedOffset.top}px; left: #{calculatedOffset.left}px; display: block; opacity: #{opacity}")
   )
 
   init: ->
     @_super()
     @afterRender = @afterRender.bind(this)
+    @afterResize = @afterResize.bind(this)
     @set('html', @get('data.html') or false)
     @set('template', @get('data.template') isnt `undefined`)
     if @get('template')
@@ -51,10 +57,7 @@ BsPopoverComponent = Ember.Component.extend({
     return
 
   didInsertElement: ->
-    @$tip = @$()
-    name = @get('tooltipBoxManager.attribute')
-    name = '[' + name + '=\'' + @get('tip_id') + '\']'
-    @$element = $(name)
+    @$element = $(this.data.target)
 
     if @get('data.trigger') in ['hover', undefined] and @get('data.sticky')
       @$().on('mouseenter', () =>
@@ -74,7 +77,16 @@ BsPopoverComponent = Ember.Component.extend({
   didInsertElementCallback: ->
     return
 
+  afterResize: ->
+    if @isDestroyed
+      return
+    @notifyPropertyChange('content')
+    @set('receivedContent', true)
+
   afterRender: ->
+    if @isDestroyed
+      return
+    @set('isVisible', true)
     @notifyPropertyChange('content')
     return
 

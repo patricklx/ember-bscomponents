@@ -1,17 +1,6 @@
-<div class="arrow"></div>
-{{#if title}}<h3 class="popover-title">{{title}}</h3>{{/if}}
-<div class="popover-content" {{did-resize this.afterRender}}>
-  {{#if template}}
-    {{partial partialTemplateName}}
-  {{else}}
-    {{#if content}}
-      {{#if html}}
-        {{{content}}}
-      {{else}}
-        {{content}}
-      {{/if}}
-    {{else}}
-      {{yield this}}
-    {{/if}}
-  {{/if}}
+<div {{ref this '$tip'}} style={{this.style}} class="popover {{if this.fade 'fade'}} {{if this.in 'in'}} {{this.realPlacement}}" {{did-resize this.afterResize}}>
+  <div class="arrow"></div>
+  {{#if title}}<h3 class="popover-title">{{title}}</h3>{{/if}}
+  <div id={{this.data.elementId}} class="popover-content"></div>
 </div>
+

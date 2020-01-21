@@ -1,6 +1,8 @@
 {{import Wormhole from 'ember-wormhole/components/ember-wormhole'}}
 
-{{#if this.isReady}}
+{{unbound this._findParent}}
+
+{{#if this.wormholeId}}
   <Wormhole @to={{this.wormholeId}} >
     {{yield}}
   </Wormhole>

@@ -15,25 +15,17 @@ TooltipBoxManager = Ember.Service.extend({
   registeredTips: {}
   init: (args...) ->
     instance = this
-    this.onShowTipCallbacks = [];
     return this._super(args...)
 
-  onShowTip: (cb) ->
-    this.onShowTipCallbacks.push(cb)
-
-  removeCallback: (cb) ->
-    i = this.onShowTipCallbacks.findIndex(cb)
-    if i >= 0
-      this.onShowTipCallbacks.splice(i, 1)
-
-
-  registerTip: (type, object, element, view) ->
+  registerTip: (type, object, target, view) ->
     id = ++@uuid
     self = this
+    object.elementId = 'bs-tip-' + id;
+    object.target = target;
     @registeredTips[id] = {
       id: id
       view: view
-      element: element
+      element: target
       data: object
       eventName: object.trigger or ((if type is 'popover' then 'click' else 'hover'))
       bound: false
@@ -87,12 +79,12 @@ TooltipBoxManager = Ember.Service.extend({
             pop.data.addObserver('show', pop, (sender, key) ->
               value = sender.get(key)
               if value
-                @show()
+                pop.show()
               else
-                @hide()
+                pop.hide()
               return
             )
-            @show()  if pop.data.show
+        pop.show()  if pop.data.show
     @willSetup = false
     return
 
@@ -106,17 +98,15 @@ TooltipBoxManager = Ember.Service.extend({
     unless @showing[id]
       @showing[id] = true
       obj = Ember.Object.create({
-        data: data,
-        tip_id: id,
-        didInsert: ->
-          Ember.set(@registeredTips[id].view, 'isReady', true)
+        data: data
+        tip_id: id
+        didInsert: () => Ember.set(@registeredTips[id].view, 'wormholeId', @registeredTips[id].data.elementId)
+        didRemove: () => Ember.set(@registeredTips[id].view, 'wormholeId', null)
       })
       if type is 'tooltip'
         @tooltips.pushObject(obj)
       else
         @popovers.pushObject(obj)
-
-        this.onShowTipCallbacks.forEach(cb -> cb(id))
     return
 
   hideTip: (id, allowTimer) ->
@@ -145,6 +135,8 @@ TooltipBoxManager = Ember.Service.extend({
 
   removeTip: (id) ->
     pop = @popovers.findBy('tip_id', id) or @tooltips.findBy('tip_id')
+    if pop
+      pop.didRemove()
     @popovers.removeObject(pop)
     @tooltips.removeObject(pop)
     delete @showing[id]
