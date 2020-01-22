@@ -18,6 +18,8 @@ TooltipBoxManager = Ember.Service.extend({
     return this._super(args...)
 
   unregisterTip: (id) ->
+    if not id or not @registeredTips[id]
+      return
     elem = @registeredTips[id].element
     @removeTip(id)
     $(elem).unbind()

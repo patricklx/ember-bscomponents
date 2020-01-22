@@ -1,15 +1,21 @@
-import Ember from 'ember';
+import { action } from '@ember/object';
+import { addObserver } from "@ember/object/observers";
+import Component from '@ember/component';
+import { inject as service } from '@ember/service';
+import template from './template';
 
 
-const BsPopoverComponent = Ember.Component.extend({
-  tooltipBoxManager: Ember.inject.service('tooltip-box-manager'),
+const BsPopoverComponent = Component.extend({
+  tooltipBoxManager: service('tooltip-box-manager'),
   tagName: '',
+  layout: template,
   type: 'popover',
   popoverId: null,
   wormholeId: null,
   targetId: null,
   triggerOn: null,
   sticky: null,
+  parentElement: null,
 
   get options() {
     return {
@@ -23,16 +29,22 @@ const BsPopoverComponent = Ember.Component.extend({
 
   init(...args) {
     this._super(...args);
-    this._findParent = document.createTextNode('');
-    Ember.addObserver(this, 'targetElement', this.addTooltip);
-    Ember.addObserver(this, 'targetId', this.addTooltip);
-    Ember.addObserver(this, 'targetSibling', this.addTooltip);
-    Ember.addObserver(this, 'options', this.addTooltip);
+    addObserver(this, 'targetElement', this.addTooltip);
+    addObserver(this, 'targetId', this.addTooltip);
+    addObserver(this, 'targetSibling', this.addTooltip);
+    addObserver(this, 'options', this.addTooltip);
+    addObserver(this, 'parentElement', this.addTooltip);
   },
 
   didInsertElement(...args) {
     this._super(...args);
     this.addTooltip();
+  },
+
+  @action
+  setParent(elem) {
+    this.set('parentElement', elem.parentElement);
+    elem.remove();
   },
 
   getTargetElement() {
@@ -52,7 +64,7 @@ const BsPopoverComponent = Ember.Component.extend({
     if (this.targetElement) {
       return this.targetElement;
     }
-    return this._findParent.parentElement;
+    return this.parentElement;
   },
 
   addTooltip: function () {
