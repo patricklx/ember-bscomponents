@@ -1,8 +1,9 @@
-<div class="tooltip-arrow"></div>
-<div class="tooltip-inner">
-  {{#if html}}
-    {{{content}}}
-  {{else}}
-    {{content}}
-  {{/if}}
-</div>
+{{import Wormhole from 'ember-wormhole/components/ember-wormhole'}}
+
+{{unbound this._findParent}}
+
+{{#if this.wormholeId}}
+  <Wormhole @to={{this.wormholeId}} >
+    {{yield}}
+  </Wormhole>
+{{/if}}

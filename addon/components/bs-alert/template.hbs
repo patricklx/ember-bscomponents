@@ -1,5 +1,7 @@
-{{#if dismiss}}
-	<a class="close" href="#" {{action 'dismiss'}}>&times;</a>
+{{#if this.isVisible}}
+  {{#if this.dismiss}}
+    <a class="close" href="#" {{action 'dismiss'}}>&times;</a>
+  {{/if}}
+  {{message}}
+  {{yield}}
 {{/if}}
-{{message}}
-{{yield}}

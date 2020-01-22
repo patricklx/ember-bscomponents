@@ -9,6 +9,7 @@ BsAlertComponent = Ember.Component.extend(TypeSupport,{
   layout: layout
   dismissAfter: 0
   dismiss: true
+  isVisible: true
   type: 'info'
 
   didInsertElement: () ->

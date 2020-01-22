@@ -1,0 +1,5 @@
+<div {{ref this '$tip'}} style={{this.style}} class="tooltip {{if this.fade 'fade'}} {{if this.in 'in'}} {{this.realPlacement}}" {{did-resize this.afterResize}}>
+  <div class="tooltip-arrow"></div>
+  <div id={{this.data.elementId}} class="tooltip-inner"></div>
+</div>
+

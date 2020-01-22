@@ -1,12 +1,17 @@
+{{import Popover from 'ember-bscomponents/components/-bs-popover'}}
+{{import Tooltip from 'ember-bscomponents/components/-bs-tooltip'}}
+
 {{#each popovers as |pop|}}
-  {{bs-popover
-  tip_id=pop.tip_id
-  data=pop.data
-  }}
+  <Popover
+    @didInsertElementCallback={{fn pop.didInsert pop}}
+    @tip_id={{pop.tip_id}}
+    @data={{pop.data}}
+  />
 {{/each}}
 {{#each tooltips as |pop|}}
-  {{bs-tooltip
-  tip_id=pop.tip_id
-  data=pop.data
-  }}
+  <Tooltip
+    @didInsertElementCallback={{fn pop.didInsert pop}}
+    @tip_id={{pop.tip_id}}
+    @data={{pop.data}}
+  />
 {{/each}}
