@@ -9,10 +9,10 @@ module('Integration | Component | bs-alert', (hooks) => {
   test('check has button', async function(assert) {
     this.set('dismiss', true);
 
-    await render(hbs`<BsAlert @dismiss={{this.dismiss}}/>`);
+    await render(hbs`<BsAlert @dismissible={{this.dismissible}}/>`);
     assert.equal(this.element.querySelector('a') !== null, true, 'no close button');
 
-    this.set('dismiss', false);
+    this.set('dismissible', false);
     assert.equal(this.element.querySelector('a') , null, 'dismiss is false and close button is not displayed');
   });
 
@@ -21,7 +21,7 @@ module('Integration | Component | bs-alert', (hooks) => {
       assert.ok(true, 'external Action was called!');
     });
 
-    await render(hbs`<BsAlert @dismiss={{true}} @onDismiss={{fn this.dismissed}} />`);
+    await render(hbs`<BsAlert @dismissible={{true}} @onDismiss={{fn this.dismissed}} />`);
     await settled();
     await click('a.close');
 
