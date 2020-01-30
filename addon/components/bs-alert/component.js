@@ -7,7 +7,7 @@ class BsAlertComponent extends Component {
   layout = layout;
   dismissAfter = 0;
   dismissible = true;
-  isVisible = true;
+  show = true;
   type = 'info';
 
   didInsertElement() {
@@ -21,7 +21,7 @@ class BsAlertComponent extends Component {
         if (typeof (base = this.attrs).onAutoDismiss === "function") {
           base.onAutoDismiss();
         }
-        this.set('isVisible', false);
+        this.set('show', false);
       };
       later(this, autoDismiss, this.dismissAfter * 1000);
     }
@@ -31,7 +31,7 @@ class BsAlertComponent extends Component {
   dismiss() {
     const p = typeof this.attrs.onDismiss === "function" && this.attrs.onDismiss();
     return Ember.RSVP.resolve(p).finally(() => {
-      this.set('isVisible', false);
+      this.set('show', false);
     });
   }
 }
