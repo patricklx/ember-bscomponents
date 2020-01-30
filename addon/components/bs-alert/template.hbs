@@ -1,7 +1,11 @@
-{{#if this.isVisible}}
-  {{#if this.dismiss}}
-    <a class="close" href="#" {{action 'dismiss'}}>&times;</a>
+<div class="alert alert-{{this.type}}
+  {{if this.fade 'fade'}}
+  {{if this.isVisible 'in'}}
+  {{if this.dismissible 'alert-dismissible'}}"
+  role="alert">
+  {{#if this.dismissible }}
+    <a class="close" href="#" {{on 'click' this.dismiss}}>&times;</a>
   {{/if}}
   {{message}}
   {{yield}}
-{{/if}}
+</div>
