@@ -11,6 +11,7 @@ module('Integration | Component | bs-alert', (hooks) => {
 
     await render(hbs`<BsAlert @dismissible={{this.dismissible}}/>`);
     assert.equal(this.element.querySelector('a') !== null, true, 'no close button');
+    assert.equal(this.element.querySelector('div.alert.in') !== null, true, 'alert is showing');
 
     this.set('dismissible', false);
     assert.equal(this.element.querySelector('a') , null, 'dismiss is false and close button is not displayed');
@@ -25,7 +26,7 @@ module('Integration | Component | bs-alert', (hooks) => {
     await settled();
     await click('a.close');
 
-    assert.equal(this.element.querySelector('a'), null, 'component should have been destroyed');
+    assert.equal(this.element.querySelector('div.alert.in'), null, 'alert should not show');
   });
 
   test('auto dismiss', async function(assert) {
@@ -33,6 +34,6 @@ module('Integration | Component | bs-alert', (hooks) => {
     await render(hbs`<BsAlert @dismissAfter={{0.1}} />`);
     await settled();
 
-    assert.ok(this.element.querySelector('a') === null, 'component should have been destroyed');
+    assert.ok(this.element.querySelector('div.alert.in') === null, 'alert should not show');
   });
 });
