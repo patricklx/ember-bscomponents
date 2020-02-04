@@ -1,0 +1,8 @@
+{{import ItemList from 'ember-bscomponents/components/bs-common/itemlist'}}
+{{import Item from './item'}}
+{{import noop from 'ember-bscomponents/helpers/noop'}}
+{{import or from 'ember-bscomponents/helpers/or'}}
+
+<ol class="breadcrumb">
+  <ItemList @itemComponent={{Item}} @content={{@items}} @onItemSelected={{fn (or @onItemSelected (noop))}} />
+</ol>

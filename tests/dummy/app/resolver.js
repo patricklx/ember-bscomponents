@@ -16,6 +16,10 @@ export default Resolver.extend({
       return registry.get(path2).default;
     }
 
-    return undefined;
+    const res = this.resolveOther(parsedName);
+    if (res) {
+      return res;
+    }
+    return Ember.Component.extend({});
   }
 });
