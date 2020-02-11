@@ -1,5 +1,5 @@
 <div class="modal-header">
-  <button type="button" class="close {{unless allowClose 'hide'}}" {{action onClose}}
+  <button type="button" class="close {{unless allowClose 'hide'}}" {{fn @onClose}}
       aria-hidden="true">&times;</button>
   <h4 class="modal-title">
     {{yield}}

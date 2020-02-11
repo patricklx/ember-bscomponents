@@ -1,104 +1,88 @@
-import { action } from '@ember/object';
-import { addObserver } from "@ember/object/observers";
-import Component from '@ember/component';
+import EmberObject, { action, setProperties } from '@ember/object';
+import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 import template from './template';
+import {defaultArgs} from "../../decorators";
 
 
-const BsPopoverComponent = Component.extend({
-  tooltipBoxManager: service('tooltip-box-manager'),
-  tagName: '',
-  layout: template,
-  type: 'popover',
-  popoverId: null,
-  wormholeId: null,
-  targetId: null,
-  triggerOn: null,
-  sticky: null,
-  parentElement: null,
-  placement: null,
+class BsPopoverComponent extends Component {
+  @service('ember-bscomponents@tooltip-box-manager') tooltipBoxManager;
+  @tracked wormholeId = null;
+  @tracked parentElement = null;
+  tagName = '';
+  layout = template;
+  type = 'popover';
 
-  get options() {
-    return {
-      trigger: this.triggerOn,
-      sticky: this.sticky,
-      title: this.title,
-      show: this.show,
-      content: this.content,
-      placement: this.placement
-    }
-  },
+  _options = EmberObject.create({});
 
-  init(...args) {
-    this._super(...args);
-    addObserver(this, 'targetElement', this.addTooltip);
-    addObserver(this, 'targetId', this.addTooltip);
-    addObserver(this, 'targetSibling', this.addTooltip);
-    addObserver(this, 'show', this.addTooltip);
-    addObserver(this, 'triggerOn', this.addTooltip);
-    addObserver(this, 'sticky', this.addTooltip);
-    addObserver(this, 'title', this.addTooltip);
-    addObserver(this, 'content', this.addTooltip);
-    addObserver(this, 'placement', this.addTooltip);
-    addObserver(this, 'parentElement', this.addTooltip);
-  },
-
-  didInsertElement(...args) {
-    this._super(...args);
-    this.addTooltip();
-  },
+  @defaultArgs
+  args = {
+    popoverId: null,
+    targetId: null,
+    triggerOn: null,
+    sticky: null,
+    placement: null,
+    targetSibling: null,
+    show: null
+  }
 
   @action
   setParent(elem) {
-    this.set('parentElement', elem.parentElement);
+    this.parentElement = elem.parentElement;
     elem.remove();
-  },
+    this.addTooltip();
+  }
 
   getTargetElement() {
-    if (this.targetSibling) {
-      if (this.targetSibling) {
-        if (this.targetSibling === 'up') {
-          return this._findParent.previousElementSibling;
-        }
-        if (this.targetSibling === 'down') {
-          return this._findParent.nextElementSibling;
-        }
+    if (this.args.targetSibling) {
+      if (this.args.targetSibling === 'up') {
+        return this.parentElement.previousElementSibling;
+      }
+      if (this.args.targetSibling === 'down') {
+        return this.parentElement.nextElementSibling;
       }
     }
-    if (this.targetId) {
-      return document.getElementById(this.targetId);
+    if (this.args.targetId) {
+      return document.getElementById(this.args.targetId);
     }
-    if (this.targetElement) {
-      return this.targetElement;
+    if (this.args.targetElement) {
+      return this.args.targetElement;
     }
     return this.parentElement;
-  },
+  }
 
-  addTooltip: function () {
-    if (this.options.show === false && this.popoverId) {
-      if (this.popoverId) {
-        this.tooltipBoxManager.unregisterTip(this.popoverId);
-        this.popoverId = null;
-        this.currentTarget = null;
-        this.set('wormholeId', null);
-      }
-      return;
-    }
+  @action
+  updateOptions() {
+    setProperties(this._options, {
+      trigger: this.args.triggerOn,
+      sticky: this.args.sticky,
+      title: this.args.title,
+      show: this.args.show,
+      content: this.args.content,
+      placement: this.args.placement
+    });
+  }
 
+  @action
+  addTooltip() {
     if (this.currentTarget === this.getTargetElement()) {
       return;
     }
-
+    if (this.popoverId) {
+      this.tooltipBoxManager.unregisterTip(this.popoverId);
+      this.popoverId = null;
+    }
     if (!this.getTargetElement()) return;
     this.currentTarget = this.getTargetElement();
-    this.popoverId = this.tooltipBoxManager.registerTip(this.type, this.options, this.getTargetElement(), this);
-  },
+    this.popoverId = this.tooltipBoxManager.registerTip(this.type, this._options, this.getTargetElement(), this);
+  }
 
-  willDestroyElement: function (...args) {
-    this._super(...args);
-    this.set('wormholeId', null);
+  willDestroyElement(...args) {
+    this.wormholeId = null;
+    super.willDestroyElement(...args);
     this.tooltipBoxManager.unregisterTip(this.popoverId);
   }
-});
+}
 
 export default BsPopoverComponent;

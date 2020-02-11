@@ -1,10 +1,3 @@
-var EmberHtmlbars = require('ember-cli-htmlbars/lib/ember-addon-main');
-EmberHtmlbars._shouldColocateTemplates = function() {
-  return false;
-};
-EmberHtmlbars._cachedShouldColocateTemplates = false;
-console.log(EmberHtmlbars);
-
 module.exports = {
   /**
     Ember CLI sends analytics information by default. The data is completely

@@ -1,19 +1,26 @@
-{{import eq from 'ember-bscomponents/helpers/is-equal'}}
+{{import BsPill from 'ember-bscomponents/components/bs-pill'}}
+{{import is-equal from 'ember-bscomponents/helpers/is-equal'}}
 
-{{#each content as |tab|}}
+<div class='{{class-bind "justified:nav-justified" this.args}}' ...attributes>
+{{#each @content as |tab|}}
   {{#if hasBlock}}
     {{yield (hash
-              item-component=(component 'bs-pill' isActive=(eq tab selected) onItemSelected=(action 'onItemSelected' tab))
+              item-component=(component BsPill isActive=(is-equal tab @selected) onItemSelected=@onItemSelected)
               item=tab
             )
     }}
   {{else}}
-    {{#if contentPath}}
-      {{bs-pill content=(get tab contentPath)
-        isActive=(eq tab selected)
-        onItemSelected=(action 'onItemSelected' tab)}}
+    {{#if @contentPath}}
+      <BsPill @content={{get tab @contentPath}}
+              @isActive={{is-equal tab @selected}}
+              @onItemSelected={{fn @onItemSelected tab}}
+      />
     {{else}}
-      {{bs-pill content=tab isActive=(eq tab selected) onItemSelected=(action 'onItemSelected' tab)}}
+      <BsPill @content={{tab}}
+              @isActive={{is-equal tab @selected}}
+              @onItemSelected={{fn @onItemSelected tab}}
+      />
     {{/if}}
   {{/if}}
 {{/each}}
+</div>

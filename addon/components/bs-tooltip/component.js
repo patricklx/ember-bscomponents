@@ -1,8 +1,8 @@
 import Ember from 'ember';
 import BsPopoverComponent from "../bs-popover/component";
 
-const BsTooltipComponent = BsPopoverComponent.extend({
-  type: 'tooltip'
-});
+class BsTooltipComponent extends BsPopoverComponent {
+  type = 'tooltip';
+}
 
 export default BsTooltipComponent;

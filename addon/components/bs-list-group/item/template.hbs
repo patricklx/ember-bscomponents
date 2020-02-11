@@ -1,8 +1,15 @@
-{{#if hasBlock}}
-{{yield (hash
-  heading=(component heading tagName='')
-  text=(component text tagName='')
-)}}
-{{else}}
-  {{content}}
-{{/if}}
+{{import Heading from './heading'}}
+{{import Text from './text'}}
+
+{{#with this.tag as |Elem|}}
+  <Elem class="list-group-item {{if @isActive 'active'}} {{if @disabled 'disabled'}}" href={{this.href}}>
+    {{#if hasBlock}}
+      {{yield (hash
+        heading=(component Heading)
+        text=(component Text)
+      )}}
+    {{else}}
+      {{content}}
+    {{/if}}
+  </Elem>
+{{/with}}

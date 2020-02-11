@@ -1,0 +1,13 @@
+{{import BsPill from '../bs-pill'}}
+{{import class-bind from 'ember-bscomponents/helpers/class-bind'}}
+{{import or from 'ember-bscomponents/helpers/or'}}
+{{import is-equal from 'ember-bscomponents/helpers/is-equal'}}
+
+<div class={{class-bind "stacked:nav-stacked justified:nav-justified" this.args}} ...attributes>
+  {{#each @content as |pill|}}
+    <BsPill @content={{if @contentPath (get pill @contentPath) pill}}
+            @isActive={{is-equal tab @selected}}
+            @onItemSelected={{fn @onItemSelected pill}}
+    />
+  {{/each}}
+</div>

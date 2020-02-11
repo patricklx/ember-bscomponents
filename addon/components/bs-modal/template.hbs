@@ -1,10 +1,22 @@
+{{import Header from './header'}}
+{{import Body from './body'}}
+{{import Footer from './footer'}}
+
+<div class="modal {{if this.fade 'face'}} {{if this.isVis 'in'}}"
+     role={{this.role}}
+     aria-labelledby={{this.ariaLabelledBy}}
+     aria-hidden={{this.isAriaHidden}}
+     style={{this.style}}
+        {{did-insert this.didInsert}}
+>
 <div class="modal-dialog">
   <div class="modal-content">
     {{yield (hash
-      header=(component header tagName='' onClose=(action 'onClose') allowClose=allowClose)
-      body=(component body tagName='')
-      footer=(component footer tagName='')
-      onClose=(action 'onClose')
+      header=(component Header tagName='' onClose=(fn this.doClose) allowClose=allowClose)
+      body=(component Body tagName='')
+      footer=(component Footer tagName='')
+      onClose=(fn this.doClose)
     )}}
   </div>
+</div>
 </div>

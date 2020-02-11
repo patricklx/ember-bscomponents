@@ -1,0 +1,14 @@
+{{import Item from './item'}}
+{{import ItemList from '../bs-common/itemlist'}}
+
+<ul class="pagination pagination-{{@size}}"
+  {{did-insert this.didInsert}}
+  {{did-update this.updateSelectedItem @totalLength @itemsPerPage @itemsPerGroup}}
+>
+  <ItemList
+          @content={{@content}}
+          @itemComponent={{Item}}
+          @selected={{this.selected}}
+          @onItemSelected={{@onItemSelected}}
+  />
+</ul>

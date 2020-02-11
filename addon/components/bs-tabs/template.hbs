@@ -1,10 +1,12 @@
+{{import Tabs from './tabs'}}
+{{import Pane from './pane'}}
+
 {{yield (hash
-  tabs=(component tabs
-          selected=(readonly selected)
-          content=content
-          onItemSelected=(action 'onItemSelected')
-          contentPath=contentPath
+  tabs=(component Tabs
+          selected=@selected
+          content=@content
+          onItemSelected=@onItemSelected
+          contentPath=@contentPath
   )
-  pane=(component pane tagName='')
-  selected=selected
+  pane=(component Pane tagName='')
 )}}

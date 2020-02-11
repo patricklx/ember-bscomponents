@@ -1,6 +1,6 @@
-{{#if collapsible}}
-    <div id={{collapsibleBodyId}} class="panel-collapse collapse {{if open 'in'}}">
-    {{#if open}}
+{{#if @collapsible}}
+    <div id={{@collapsibleBodyId}} class="panel-collapse collapse {{if @open 'in'}}">
+    {{#if @open}}
       <div class="panel-body">{{yield}}</div>
     {{/if}}
     </div>

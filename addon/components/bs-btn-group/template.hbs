@@ -1,6 +1,10 @@
-{{#each content as |item|}}
-  {{yield (hash
-    item-component=(component itemComponent onClick=(action "onItemSelected" item) isActive=(ember-bscomponents/is-in item selected))
-    content=item
-  )}}
-{{/each}}
+{{import Button from '../bs-button'}}
+{{import ItemList from 'ember-bscomponents/components/bs-common/itemlist'}}
+{{import noop from 'ember-bscomponents/helpers/noop'}}
+{{import or from 'ember-bscomponents/helpers/or'}}
+{{import size from 'ember-bscomponents/helpers/size-support'}}
+
+<div class="btn-group {{size 'btn-group' this.args}}">
+    <ItemList @itemComponent={{Button}} @content={{@items}} @onItemSelected={{fn (or @onItemSelected (noop))}} />
+</div>
+
