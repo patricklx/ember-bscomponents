@@ -13,11 +13,5 @@ module('Integration | Component | bs-tooltip', (hooks) => {
 
     assert.ok(this.element.querySelector('.tooltip') !== null , 'should display tooltip');
     assert.equal(this.element.children.length, 1);
-
-    this.set('show', false);
-    await settled();
-
-    assert.equal(this.element.querySelector('.tooltip'), null , 'should not display tooltip');
-    assert.equal(this.element.children.length, 0);
   });
 });
