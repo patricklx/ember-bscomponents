@@ -28,7 +28,8 @@ class BsAlertComponent extends Component {
   }
 
   @action
-  dismiss() {
+  dismiss(event) {
+    event.preventDefault();
     const p = typeof this.attrs.onDismiss === "function" && this.attrs.onDismiss();
     return Ember.RSVP.resolve(p).finally(() => {
       this.set('show', false);
