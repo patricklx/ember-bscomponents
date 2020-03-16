@@ -16,10 +16,20 @@ export default Resolver.extend({
       return registry.get(path2).default;
     }
 
-    const res = this.resolveOther(parsedName);
-    if (res) {
-      return res;
+    return this.resolveOther(parsedName);
+  },
+
+  resolveTemplate(parsedName) {
+    let path = parsedName.fullNameWithoutType.replace('components/', '');
+    path = `${path}/template`;
+    if (this._moduleRegistry.has(path)) {
+      return this._moduleRegistry.get(path).default;
     }
-    return Ember.Component.extend({});
+    const prefix = this.namespace.modulePrefix;
+    path = `${prefix}/ui/routes/${parsedName.fullNameWithoutType}/template`;
+    if (this._moduleRegistry.has(path)) {
+      return this._moduleRegistry.get(path).default;
+    }
+    return this.resolveOther(parsedName);
   }
 });

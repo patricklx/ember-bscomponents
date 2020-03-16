@@ -9,6 +9,7 @@
   "scripts": {
     "start": "ember server",
     "build": "ember build",
+    "test-server": "ember test --serve",
     "test": "ember try:each"
   },
   "repository": "https://github.com/patricklx/ember-bscomponents.git",

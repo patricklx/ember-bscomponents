@@ -32,7 +32,11 @@ const BsPopoverComponent = Component.extend({
     addObserver(this, 'targetElement', this.addTooltip);
     addObserver(this, 'targetId', this.addTooltip);
     addObserver(this, 'targetSibling', this.addTooltip);
-    addObserver(this, 'options', this.addTooltip);
+    addObserver(this, 'show', this.addTooltip);
+    addObserver(this, 'triggerOn', this.addTooltip);
+    addObserver(this, 'sticky', this.addTooltip);
+    addObserver(this, 'title', this.addTooltip);
+    addObserver(this, 'content', this.addTooltip);
     addObserver(this, 'parentElement', this.addTooltip);
   },
 
@@ -68,13 +72,20 @@ const BsPopoverComponent = Component.extend({
   },
 
   addTooltip: function () {
+    if (this.options.show === false && this.popoverId) {
+      if (this.popoverId) {
+        this.tooltipBoxManager.unregisterTip(this.popoverId);
+        this.popoverId = null;
+        this.currentTarget = null;
+        this.set('wormholeId', null);
+      }
+      return;
+    }
+
     if (this.currentTarget === this.getTargetElement()) {
       return;
     }
-    if (this.popoverId) {
-      this.tooltipBoxManager.unregisterTip(this.popoverId);
-      this.popoverId = null;
-    }
+
     if (!this.getTargetElement()) return;
     this.currentTarget = this.getTargetElement();
     this.popoverId = this.tooltipBoxManager.registerTip(this.type, this.options, this.getTargetElement(), this);

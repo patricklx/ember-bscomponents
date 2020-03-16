@@ -15,6 +15,8 @@ TooltipBoxManager = Ember.Service.extend({
   registeredTips: {}
   init: (args...) ->
     instance = this
+    @tooltips = [];
+    @popovers = [];
     return this._super(args...)
 
   unregisterTip: (id) ->
