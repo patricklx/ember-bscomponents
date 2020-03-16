@@ -1,11 +1,9 @@
-{{import eq from 'ember-bscomponents/is-equal'}}
-
-{{#each @content as |item|}}
+{{#each content as |item|}}
   {{#if hasBlock}}
     {{yield (hash
-      item-component=(component @itemComponent isActive=(eq item selected) onItemSelected=(fn @onItemSelected item))
+      item-component=(component itemComponent isActive=(ember-bscomponents/helpers/is-equal item selected) onItemSelected=(action 'onItemSelected' item))
       content=item)}}
   {{else}}
-    {{component itemComponent content=item isActive=(eq item selected) onItemSelected=(fn @onItemSelected item)}}
+    {{component itemComponent content=item isActive=(ember-bscomponents/helpers/is-equal item selected) onItemSelected=(action 'onItemSelected' item)}}
   {{/if}}
 {{/each}}

@@ -23,7 +23,6 @@ module('Integration | Component | bs-alert', (hooks) => {
     });
 
     await render(hbs`<BsAlert @dismissible={{true}} @onDismiss={{fn this.dismissed}} />`);
-    await settled();
     await click('a.close');
 
     assert.equal(this.element.querySelector('div.alert.in'), null, 'alert should not show');
