@@ -1,5 +1,6 @@
 `import Ember from 'ember'`
 `import layout from './template'`
+`import $ from 'jquery'`
 
 ###
 Modal component.
@@ -62,14 +63,14 @@ BsModalComponent = Ember.Component.extend({
     return
 
   becameVisible: ->
-    Em.$('body').addClass('modal-open')
+    $('body').addClass('modal-open')
     @appendBackdrop() if @get('backdrop')
     @setupBinders()
     @show()
     return
 
   becameHidden: ->
-    Em.$('body').removeClass('modal-open')
+    $('body').removeClass('modal-open')
     @removeHandlers()
     if @_backdrop
       @_backdrop.remove()
@@ -98,7 +99,7 @@ BsModalComponent = Ember.Component.extend({
         resolve()
         return
 
-      @$().one('webkitTransitionEnd', (e) =>
+      $(this.element).one('webkitTransitionEnd', (e) =>
         @set('isVisible', false)
         resolve()
       )

@@ -1,7 +1,9 @@
+{{import eq from 'ember-bscomponents/helpers/is-equal'}}
+
 {{#each content as |tab|}}
   {{#if hasBlock}}
     {{yield (hash
-              item-component=(component 'bs-pill' isActive=(ember-bscomponents/helpers/is-equal tab selected) onItemSelected=(action 'onItemSelected' tab))
+              item-component=(component 'bs-pill' isActive=(eq tab selected) onItemSelected=(action 'onItemSelected' tab))
               item=tab
             )
     }}
@@ -11,7 +13,7 @@
         isActive=(ember-bscomponents/is-equal tab selected)
         onItemSelected=(action 'onItemSelected' tab)}}
     {{else}}
-      {{bs-pill content=tab isActive=(ember-bscomponents/helpers/is-equal tab selected) onItemSelected=(action 'onItemSelected' tab)}}
+      {{bs-pill content=tab isActive=(eq tab selected) onItemSelected=(action 'onItemSelected' tab)}}
     {{/if}}
   {{/if}}
 {{/each}}

@@ -1,5 +1,6 @@
 `import Ember from 'ember'`
 `import layout from './template'`
+`import $ from 'jquery'`
 
 BsDropdownMenuComponent = Ember.Component.extend({
   layout: layout
@@ -25,7 +26,7 @@ BsDropdownMenuComponent = Ember.Component.extend({
     id = @get('elementId')
     Ember.run.next(() =>
       $(document).bind('click.dropdown' + id, (e) =>
-        container = @$()
+        container = $(this.element)
         if @isDestroyed
           return
         # if the target of the click isn't the container nor a descendant of the container
@@ -33,7 +34,7 @@ BsDropdownMenuComponent = Ember.Component.extend({
           @set('isVisible', false)
         return
       )
-      @$().parent().addClass('open')
+      $(this.element).parent().addClass('open')
       return
     )
     return
@@ -41,18 +42,18 @@ BsDropdownMenuComponent = Ember.Component.extend({
   becameHidden: () ->
     id = @get('elementId')
     $(document).unbind('click.dropdown' + id)
-    @$().parent().removeClass('open')
+    $(this.element).parent().removeClass('open')
     return
 
   didInsertElement: () ->
     if @isVisible
-      @$().parent().addClass('open')
+      $(this.element).parent().addClass('open')
 
   willDestroy: () ->
     @_super()
     id = @get('elementId')
     $(document).unbind('click.dropdown' + id)
-    @$()?.parent().removeClass('open')
+    $(this.element)?.parent().removeClass('open')
 
   click: () ->
     if @autoclose

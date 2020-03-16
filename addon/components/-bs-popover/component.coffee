@@ -1,5 +1,6 @@
 `import Ember from 'ember'`
 `import layout from './template'`
+`import $ from 'jquery'`
 
 
 BsPopoverComponent = Ember.Component.extend({
@@ -60,12 +61,12 @@ BsPopoverComponent = Ember.Component.extend({
     @$element = $(this.data.target)
 
     if @get('data.trigger') in ['hover', undefined] and @get('data.sticky')
-      @$().on('mouseenter', () =>
+      $(this.element).on('mouseenter', () =>
         clearTimeout(@get('tooltipBoxManager.timeout'))
         return
       )
 
-      @$().on('mouseleave', () =>
+      $(this.element).on('mouseleave', () =>
         @get('tooltipBoxManager').removeTip(@get('tip_id'))
         return
       )
