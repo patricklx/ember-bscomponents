@@ -10,7 +10,7 @@
   {{else}}
     {{#if contentPath}}
       {{bs-pill content=(get tab contentPath)
-        isActive=(ember-bscomponents/is-equal tab selected)
+        isActive=(eq tab selected)
         onItemSelected=(action 'onItemSelected' tab)}}
     {{else}}
       {{bs-pill content=tab isActive=(eq tab selected) onItemSelected=(action 'onItemSelected' tab)}}
