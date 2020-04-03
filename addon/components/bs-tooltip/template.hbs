@@ -1,6 +1,6 @@
 {{import Wormhole from 'ember-wormhole/components/ember-wormhole'}}
 
-{{unbound this._findParent}}
+<div {{did-insert (fn this.setParent)}}></div>
 
 {{#if this.wormholeId}}
   <Wormhole @to={{this.wormholeId}} >
