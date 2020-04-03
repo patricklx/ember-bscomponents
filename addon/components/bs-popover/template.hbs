@@ -1,9 +1,10 @@
 {{import Wormhole from 'ember-wormhole/components/ember-wormhole'}}
 
-<div {{did-insert (fn this.setParent)}}></div>
+<div style="display: none" {{did-insert (fn this.setParent)}}></div>
 
 {{#if this.wormholeId}}
-  <Wormhole @to={{this.wormholeId}} >
+  <Wormhole style="display: none" @to={{this.wormholeId}} >
     {{yield}}
   </Wormhole>
 {{/if}}
+

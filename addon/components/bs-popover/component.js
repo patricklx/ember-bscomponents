@@ -16,6 +16,7 @@ const BsPopoverComponent = Component.extend({
   triggerOn: null,
   sticky: null,
   parentElement: null,
+  placement: null,
 
   get options() {
     return {
@@ -23,7 +24,8 @@ const BsPopoverComponent = Component.extend({
       sticky: this.sticky,
       title: this.title,
       show: this.show,
-      content: this.content
+      content: this.content,
+      placement: this.placement
     }
   },
 
@@ -37,6 +39,7 @@ const BsPopoverComponent = Component.extend({
     addObserver(this, 'sticky', this.addTooltip);
     addObserver(this, 'title', this.addTooltip);
     addObserver(this, 'content', this.addTooltip);
+    addObserver(this, 'placement', this.addTooltip);
     addObserver(this, 'parentElement', this.addTooltip);
   },
 

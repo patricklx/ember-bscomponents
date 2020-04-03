@@ -1,7 +1,6 @@
 {{import Popover from 'ember-bscomponents/components/-bs-popover'}}
 {{import Tooltip from 'ember-bscomponents/components/-bs-tooltip'}}
 
-{{log this.tooltips}}
 {{#each this.popovers as |pop|}}
   <Popover
     @didInsertElementCallback={{fn pop.didInsert pop}}
@@ -10,7 +9,6 @@
   />
 {{/each}}
 {{#each this.tooltips as |pop|}}
-  {{log this.tooltips}}
   <Tooltip
     @didInsertElementCallback={{fn pop.didInsert pop}}
     @tip_id={{pop.tip_id}}
