@@ -1,0 +1,12 @@
+{
+  "experimentalDecorators": true,
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "target": "ES2018",
+    "allowJs": true,
+    "checkJs": true
+  },
+  "include": [
+    "node_modules/@glimmer/component/dist/types"
+  ]
+}

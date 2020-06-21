@@ -7,7 +7,7 @@ module('Integration | Component | bs-button', (hooks) => {
   setupRenderingTest(hooks);
 
   test('render', async function(assert) {
-    await render(hbs`<BsButton/>`);
+    await render(hbs`<BsButton @small="true" />`);
     assert.equal(this.element.children.length, 1);
   });
 });

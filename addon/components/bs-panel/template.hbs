@@ -1,5 +1,11 @@
-{{yield (hash
-  header=(component header tagName='' collapsible=collapsible withTitle=withTitle toggleCollapsed=(action 'toggleCollapsed'))
-  body=(component body tagName='' collapsible=collapsible open=open)
-  footer=(component footer tagName='')
-)}}
+{{import Header from './header'}}
+{{import Body from './body'}}
+{{import Footer from './footer'}}
+
+<div class='panel'>
+  {{yield (hash
+            header=(component Header tagName='' collapsible=@collapsible withTitle=@withTitle toggleCollapsed=(fn this.toggleCollapsed))
+            body=(component Body tagName='' collapsible=@collapsible open=@open)
+            footer=(component Footer tagName='')
+          )}}
+</div>

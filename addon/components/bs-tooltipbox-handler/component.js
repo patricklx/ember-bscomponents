@@ -5,7 +5,7 @@ import layout from './template';
 
 export default class BsTooltipBoxComponent extends Component {
   layout = layout;
-  @service('tooltip-box-manager') manager;
+  @service('ember-bscomponents@tooltip-box-manager') manager;
 
   @computed('this.manager.popovers')
   get popovers() {

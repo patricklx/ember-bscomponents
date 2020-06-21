@@ -1,12 +1,17 @@
-{{import eq from 'ember-bscomponents/helpers/is-equal'}}
+{{import Item from './item'}}
+{{import is-equal from 'ember-bscomponents/helpers/is-equal'}}
 
-{{#each content as |item|}}
-  {{#if hasBlock}}
-  {{yield (hash
-    item-component=(component itemComponent content=item withLinks=withLinks isActive=(eq item selected) onItemSelected=(action 'onItemSelected' item))
-    content=item
-  )}}
-  {{else}}
-    {{component itemComponent content=item withLinks=withLinks isActive=(eq item selected) onItemSelected=(action 'onItemSelected' item)}}
-  {{/if}}
-{{/each}}
+{{#with (component (-element this.tag)) as |Elem|}}
+  <Elem class="list-group">
+    {{#each this.items as |item|}}
+      {{#if hasBlock}}
+        {{yield (hash
+          item-component=(component Item content=item withLinks=withLinks isActive=(is-equal item selected) onItemSelected=(fn this.onItemSelected item))
+          content=item
+        )}}
+      {{else}}
+        {{component itemComponent content=item withLinks=withLinks isActive=(is-equal item selected) onItemSelected=(fn this.onItemSelected item)}}
+      {{/if}}
+    {{/each}}
+  </Elem>
+{{/with}}

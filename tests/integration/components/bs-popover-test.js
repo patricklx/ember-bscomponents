@@ -7,9 +7,15 @@ module('Integration | Component | bs-popover', (hooks) => {
   setupRenderingTest(hooks);
 
   test('render', async function(assert) {
-    await render(hbs`<BsTooltipboxHandler /> <div><BsPopover @triggerOn="manual" @show={{true}}>Test</BsPopover></div>`);
+    this.set('show', true);
+    await render(hbs`<BsTooltipboxHandler /> <div><BsPopover @triggerOn="manual" @show={{this.show}}>Test</BsPopover></div>`);
     await settled();
+    assert.equal($('.popover').length, 1);
     assert.ok(this.element.querySelector('.popover') !== null , 'should display popover');
-    assert.equal(this.element.children.length, 2);
+
+    this.set('show', false);
+    await settled();
+    assert.equal($('.popover').length, 0);
+
   });
 });

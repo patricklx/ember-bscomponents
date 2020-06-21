@@ -1,3 +1,10 @@
-{{#if isVisible}}
-  {{yield this}}
-{{/if}}
+{{import BasicDropdown from 'ember-basic-dropdown/components/basic-dropdown'}}
+{{import Item from './item'}}
+
+<BasicDropdown as |dd|>
+    {{yield (hash
+            Trigger=(component dd.Trigger class="dropdown")
+            Content=(component dd.Content class="dropdown-menu")
+            Item=(component Item)
+    )}}
+</BasicDropdown>

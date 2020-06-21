@@ -1,10 +1,13 @@
 {{import Wormhole from 'ember-wormhole/components/ember-wormhole'}}
+{{import didUpdate from 'ember-bscomponents/helpers/did-update'}}
+
 
 <div style="display: none" {{did-insert (fn this.setParent)}}></div>
+{{didUpdate (fn this.addTooltip) @targetElement @targetId @targetSibling this.parentElement}}
+{{didUpdate this.updateOptions @show @triggerOn @sticky @title @content @placement}}
 
 {{#if this.wormholeId}}
   <Wormhole style="display: none" @to={{this.wormholeId}} >
     {{yield}}
   </Wormhole>
 {{/if}}
-

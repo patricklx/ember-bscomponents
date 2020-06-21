@@ -1,9 +1,5 @@
-{{#if currentModal}}
-  {{#if isComponent}}
-    {{component currentModal modalTarget=modalManager.modalTarget content=modalManager.properties}}
-  {{else}}
-    {{log "views/controllers not supported anymore"}}
-  {{/if}}
+{{#if this.currentModal}}
+  {{component this.currentModal modalTarget=this.modalManager.modalTarget content=this.modalManager.properties}}
 {{/if}}
 
 
