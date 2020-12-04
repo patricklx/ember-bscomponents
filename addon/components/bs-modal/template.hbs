@@ -12,7 +12,7 @@
 <div class="modal-dialog">
   <div class="modal-content">
     {{yield (hash
-      header=(component Header tagName='' onClose=(fn this.doClose) allowClose=allowClose)
+      header=(component Header tagName='' onClose=(fn this.doClose) allowClose=@allowClose)
       body=(component Body tagName='')
       footer=(component Footer tagName='')
       onClose=(fn this.doClose)

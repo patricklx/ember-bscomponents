@@ -1,8 +1,8 @@
 {{import Button from '../bs-button'}}
-{{import ItemList from 'ember-bscomponents/components/bs-common/itemlist'}}
-{{import noop from 'ember-bscomponents/helpers/noop'}}
-{{import or from 'ember-bscomponents/helpers/or'}}
-{{import size from 'ember-bscomponents/helpers/size-support'}}
+{{import ItemList from '~/components/bs-common/itemlist'}}
+{{import noop from '~/helpers/noop'}}
+{{import or from '~/helpers/or'}}
+{{import size from '~/helpers/size-support'}}
 
 <div class="btn-group {{size 'btn-group' this.args}}">
     <ItemList @itemComponent={{Button}} @content={{@items}} @onItemSelected={{fn (or @onItemSelected (noop))}} />

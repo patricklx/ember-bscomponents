@@ -1,6 +1,6 @@
-{{import or from 'ember-bscomponents/helpers/or'}}
-{{import noop from 'ember-bscomponents/helpers/noop'}}
-{{import size from 'ember-bscomponents/helpers/size-support'}}
+{{import or from '~/helpers/or'}}
+{{import noop from '~/helpers/noop'}}
+{{import size from '~/helpers/size-support'}}
 
 <button {{on 'click' (or @onClick (noop))}} type="{{if @btnType @btnType 'button'}}" class="btn {{size 'btn' this.args}} {{if @type @type 'default'}} {{if @isBlock 'btn-block'}} {{if @isActive 'active'}}" ...attributes>
   {{#if icon}}

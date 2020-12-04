@@ -1,7 +1,7 @@
 {{import BsPill from '../bs-pill'}}
-{{import class-bind from 'ember-bscomponents/helpers/class-bind'}}
-{{import or from 'ember-bscomponents/helpers/or'}}
-{{import is-equal from 'ember-bscomponents/helpers/is-equal'}}
+{{import class-bind from '~/helpers/class-bind'}}
+{{import or from '~/helpers/or'}}
+{{import is-equal from '~/helpers/is-equal'}}
 
 <div class={{class-bind "stacked:nav-stacked justified:nav-justified" this.args}} ...attributes>
   {{#each @content as |pill|}}
