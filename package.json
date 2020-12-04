@@ -1,6 +1,6 @@
 {
   "name": "ember-bscomponents",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "an addon containing components for bootstrap.",
   "directories": {
     "doc": "doc",
@@ -38,9 +38,6 @@
     "ember-qunit": "^4.6.0",
     "ember-resolver": "^8.0.0",
     "ember-source": "^3.19.0",
-    "ember-template-component-import": "^1.3.2",
-    "ember-template-helper-import": "^0.3.4",
-    "ember-template-styles-import": "github:patricklx/ember-template-styles-import#use-string-transform",
     "ember-try": "^1.4.0",
     "loader.js": "^4.7.0"
   },
@@ -54,7 +51,7 @@
     "@types/ember": "^3.1.2",
     "ember-basic-dropdown": "^3.0.5",
     "ember-cli-coffeescript": "*",
-    "ember-cli-emblem": "^0.12.0",
+    "ember-cli-babel": "^7.23.0",
     "ember-cli-htmlbars": "^5.3.1",
     "ember-did-resize-modifier": "^1.0.0",
     "ember-maybe-import-regenerator": "^0.1.6",
