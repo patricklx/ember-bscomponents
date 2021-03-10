@@ -39,7 +39,8 @@
     "ember-resolver": "^8.0.0",
     "ember-source": "^3.19.0",
     "ember-try": "^1.4.0",
-    "loader.js": "^4.7.0"
+    "loader.js": "^4.7.0",
+    "md5-hex": "^2.0.0"
   },
   "keywords": [
     "ember-addon",
