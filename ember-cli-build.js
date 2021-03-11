@@ -6,12 +6,7 @@ var EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 
 
 module.exports = function(defaults) {
-  var app = new EmberAddon(defaults, {
-    // Add options here
-    'ember-cli-babel': {
-      includeExternalHelpers: true
-    }
-  });
+  var app = new EmberAddon(defaults, {});
 
   /*
     This build file specifies the options for the dummy test app of this
