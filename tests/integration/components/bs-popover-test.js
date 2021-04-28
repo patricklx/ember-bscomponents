@@ -8,8 +8,8 @@ module('Integration | Component | bs-popover', (hooks) => {
 
   test('render', async function(assert) {
     this.set('show', true);
-    await render(hbs`<BsTooltipboxHandler /> <div><BsPopover @triggerOn="manual" @show={{this.show}}>Test</BsPopover></div>`);
-    await settled();
+    await render(hbs`<Bs::TooltipboxHandler /> <div><Bs::Popover @triggerOn="manual" @show={{this.show}}>Test</Bs::Popover></div>`);
+
     assert.equal($('.popover').length, 1);
     assert.ok(this.element.querySelector('.popover') !== null , 'should display popover');
 

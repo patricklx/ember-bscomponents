@@ -2,11 +2,11 @@
 {{import Pane from './pane'}}
 
 {{yield (hash
-  tabs=(component Tabs
+  Tabs=(component Tabs
           selected=@selected
           content=@content
           onItemSelected=@onItemSelected
           contentPath=@contentPath
   )
-  pane=(component Pane tagName='')
+  Pane=(component Pane tagName='')
 )}}

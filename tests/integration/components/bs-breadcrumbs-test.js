@@ -7,7 +7,7 @@ module('Integration | Component | bs-breadcrumbs', (hooks) => {
   setupRenderingTest(hooks);
 
   test('render', async function(assert) {
-    await render(hbs`<BsBreadcrumbs/>`);
+    await render(hbs`<Bs::Breadcrumbs/>`);
     assert.equal(this.element.children.length, 1);
   });
 });

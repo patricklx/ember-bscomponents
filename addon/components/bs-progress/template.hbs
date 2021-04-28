@@ -1,6 +1,6 @@
-{{import Progressbar from '../bs-progressbar'}}
+{{import Progressbar from './bs-progressbar'}}
 {{import class-bind from '~/helpers/class-bind'}}
 
 <div class="{{class-bind 'animated:active stripped:progress-striped' this.args}}">
-  <Progressbar @progress={{@progress}} @type={{@progress}} />
+  <Progressbar @progress={{@progress}} @type={{@type}} />
 </div>

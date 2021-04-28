@@ -7,7 +7,7 @@ module('Integration | Component | bs-list-group', (hooks) => {
   setupRenderingTest(hooks);
 
   test('render', async function(assert) {
-    await render(hbs`<BsListGroup/>`);
+    await render(hbs`<Bs::ListGroup/>`);
     assert.equal(this.element.children.length, 1);
   });
 });

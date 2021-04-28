@@ -1,17 +1,18 @@
 module.exports = {
-  "parserOptions": {
-    "sourceType": "module",
-    "allowImportExportEverywhere": false,
-    "codeFrame": true
-  },
   plugins: [
-    'ember'
+    'ember',
+    '@typescript-eslint'
   ],
   extends: [
-    'eslint:recommended',
-    'plugin:ember/recommended' // or 'plugin:ember/base'
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:ember/recommended',
   ],
-  parser: "babel-eslint",
+  'parserOptions': {
+    'sourceType': 'module',
+    'ecmaVersion': 2018
+  },
+  'parser': '@typescript-eslint/parser',
   env: {
     browser: true
   },
@@ -48,7 +49,7 @@ module.exports = {
     "import/no-extraneous-dependencies": "off",
     "node/no-unpublished-require": "off",
 
-    "prefer-template": "off",
+    "prefer-template": "error",
     "prefer-spread": "off",
     "object-curly-spacing": ["error", "always"],
     "space-before-blocks": ["error", "always"],

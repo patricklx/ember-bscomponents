@@ -1,8 +1,7 @@
 import Component from '@glimmer/component';
-import layout from './template';
 
+// eslint-disable-next-line ember/no-empty-glimmer-component-classes
 class BsButtonComponent extends Component {
-  layout = layout;
 }
 
 export default BsButtonComponent;

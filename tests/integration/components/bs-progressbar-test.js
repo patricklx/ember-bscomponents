@@ -7,7 +7,7 @@ module('Integration | Component | bs-progress-bar', (hooks) => {
   setupRenderingTest(hooks);
 
   test('render', async function(assert) {
-    await render(hbs`<BsButton/>`);
+    await render(hbs`<Bs::Button/>`);
     assert.equal(this.element.children.length, 1);
   });
 });

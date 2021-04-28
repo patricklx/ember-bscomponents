@@ -1,12 +1,6 @@
 import Component from '@glimmer/component';
-import template from './template';
-import {defaultArgs} from '../../decorators';
 
+// eslint-disable-next-line ember/no-empty-glimmer-component-classes
 export default class BsPill extends Component {
-  layout = template;
 
-  @defaultArgs
-  args = {
-    content: null
-  }
 }

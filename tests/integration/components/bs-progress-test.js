@@ -7,7 +7,7 @@ module('Integration | Component | bs-progress', (hooks) => {
   setupRenderingTest(hooks);
 
   test('render', async function(assert) {
-    await render(hbs`<BsProgress/>`);
+    await render(hbs`<Bs::Progress/>`);
     assert.equal(this.element.children.length, 1);
   });
 });

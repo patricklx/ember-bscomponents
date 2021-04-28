@@ -7,7 +7,7 @@ module('Integration | Component | bs-pagination', (hooks) => {
   setupRenderingTest(hooks);
 
   test('render', async function(assert) {
-    await render(hbs`<BsPagination/>`);
+    await render(hbs`<Bs::Pagination/>`);
     assert.equal(this.element.children.length, 1);
   });
 });

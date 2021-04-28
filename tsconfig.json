@@ -1,12 +1,24 @@
 {
-  "experimentalDecorators": true,
   "compilerOptions": {
+    "moduleResolution": "Node",
     "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "declaration": true,
     "target": "ES2018",
-    "allowJs": true,
-    "checkJs": true
+    "baseUrl": ".",
+    "typeRoots": [
+      "types"
+    ],
+    "paths": {
+      "ember-bscomponents/*": ["./addon/*"],
+      "*": [
+        "types/*"
+      ]
+    }
   },
   "include": [
-    "node_modules/@glimmer/component/dist/types"
+    "addon",
+    "types/**/*"
   ]
 }

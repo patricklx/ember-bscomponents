@@ -1,6 +1,7 @@
 {{import Header from './header'}}
 {{import Body from './body'}}
 {{import Footer from './footer'}}
+{{import will-destroy from '@ember/render-modifiers/modifiers/will-destroy'}}
 
 <div class="modal {{if this.fade 'face'}} {{if this.isVis 'in'}}"
      role={{this.role}}
@@ -8,15 +9,22 @@
      aria-hidden={{this.isAriaHidden}}
      style={{this.style}}
         {{did-insert this.didInsert}}
+    {{will-destroy this.becameHidden}}
 >
 <div class="modal-dialog">
   <div class="modal-content">
-    {{yield (hash
-      header=(component Header tagName='' onClose=(fn this.doClose) allowClose=@allowClose)
-      body=(component Body tagName='')
-      footer=(component Footer tagName='')
-      onClose=(fn this.doClose)
-    )}}
+    <div class="modal-header">
+      <button {{on 'click' (fn this.doClose)}} type="button" class="close {{unless @allowClose 'hide'}}" aria-hidden="true">&times;</button>
+      <h4 class="modal-title">
+        {{yield to="header"}}
+      </h4>
+    </div>
+    <div class="modal-body">
+      {{yield to='body'}}
+    </div>
+    <div class="modal-footer {{if @fullFooter 'modal-footer-full'}}">
+      {{yield to='footer'}}
+    </div>
   </div>
 </div>
 </div>

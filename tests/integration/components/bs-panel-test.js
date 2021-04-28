@@ -7,7 +7,7 @@ module('Integration | Component | bs-panel', (hooks) => {
   setupRenderingTest(hooks);
 
   test('render', async function(assert) {
-    await render(hbs`<BsPanel/>`);
+    await render(hbs`<Bs::Panel/>`);
     assert.equal(this.element.children.length, 1);
   });
 });

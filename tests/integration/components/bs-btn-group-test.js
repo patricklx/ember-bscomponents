@@ -7,7 +7,7 @@ module('Integration | Component | bs-btn-group', (hooks) => {
   setupRenderingTest(hooks);
 
   test('render', async function(assert) {
-    await render(hbs`<BsBtnGroup/>`);
+    await render(hbs`<Bs::BtnGroup/>`);
     assert.equal(this.element.children.length, 1);
   });
 });

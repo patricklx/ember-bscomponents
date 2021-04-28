@@ -7,7 +7,7 @@ module('Integration | Component | bs-modal', (hooks) => {
   setupRenderingTest(hooks);
 
   test('render', async function(assert) {
-    await render(hbs`<BsModal/>`);
-    assert.equal(this.element.children.length, 2);
+    await render(hbs`<Bs::Modal/>`);
+    assert.equal(this.element.children.length, 1);
   });
 });

@@ -1,11 +1,17 @@
-<div class="alert alert-{{this.type}}
+{{import or from '~/helpers/or'}}
+{{import noop from '~/helpers/noop'}}
+
+<div class="alert alert-{{or @type 'info'}}
   {{if this.fade 'fade'}}
   {{if this.show 'in'}}
-  {{if this.dismissible 'alert-dismissible'}}"
-  role="alert">
-  {{#if this.dismissible }}
+  {{if @dismissible 'alert-dismissible'}}"
+  {{did-insert this.setupDismiss}}
+  {{did-update this.setupDismiss @dismissAfter}}
+     role="alert">
+  {{#if @dismissible }}
     <a class="close" href="#" {{on 'click' this.dismiss}}>&times;</a>
   {{/if}}
-  {{message}}
+  {{@message}}
   {{yield}}
 </div>
+

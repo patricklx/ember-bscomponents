@@ -11,7 +11,7 @@ export default class BsListGroupComponent extends Component {
     content: [],
     selected: null,
     isSelectable: true,
-    onItemSelected: function () {}
+    onItemSelected: function() {}
   };
 
   get tag() {

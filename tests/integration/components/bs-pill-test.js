@@ -7,7 +7,7 @@ module('Integration | Component | bs-pill', (hooks) => {
   setupRenderingTest(hooks);
 
   test('render', async function(assert) {
-    await render(hbs`<BsPill/>`);
+    await render(hbs`<Bs::Pill/>`);
     assert.equal(this.element.children.length, 1);
   });
 });

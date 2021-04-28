@@ -7,7 +7,7 @@ module('Integration | Component | bs-tabs-pane', (hooks) => {
   setupRenderingTest(hooks);
 
   test('render', async function(assert) {
-    await render(hbs`<BsTabs::Pane/>`);
+    await render(hbs`<Bs::Tabs as |tab|><tab.Pane/></Bs::Tabs>`);
     assert.equal(this.element.children.length, 1);
   });
 });

@@ -3,9 +3,10 @@
 {{import size from '~/helpers/size-support'}}
 
 <button {{on 'click' (or @onClick (noop))}} type="{{if @btnType @btnType 'button'}}" class="btn {{size 'btn' this.args}} {{if @type @type 'default'}} {{if @isBlock 'btn-block'}} {{if @isActive 'active'}}" ...attributes>
-  {{#if icon}}
-    <i class={{icon}}></i>
+  {{#if @icon}}
+    <i class={{@icon}}></i>
   {{/if}}
-  {{title}}{{yield}}
+  {{@title}}
+  {{yield}}
 </button>
 
