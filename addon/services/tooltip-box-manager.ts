@@ -1,6 +1,7 @@
+/* eslint-disable ember/no-jquery */
 import { addObserver } from '@ember/object/observers';
 import Service from '@ember/service';
-import { next, scheduleOnce } from '@ember/runloop';
+import { later, next, scheduleOnce } from '@ember/runloop';
 import EmberObject, { set, get } from '@ember/object';
 import { A } from '@ember/array';
 import jQuery from 'jquery';
@@ -26,7 +27,7 @@ class TooltipBoxManager extends Service {
     }
     const elem = this.registeredTips[id].element as Element;
     this.removeTip(id);
-    jQuery(elem).unbind();
+    jQuery(elem).off();
     delete this.registeredTips[id];
   }
 
@@ -151,7 +152,8 @@ class TooltipBoxManager extends Service {
   }
 
   timedRemove(id) {
-    this.timeout = setTimeout(() => {
+    this.timeout[id] = later(() => {
+      delete this.timeout[id];
       this.removeTip(id);
     }, 100);
   }

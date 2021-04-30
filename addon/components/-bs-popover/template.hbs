@@ -1,7 +1,7 @@
 
-<div {{did-insert (fn (mut this.$tip))}} style={{this.style}} class="popover {{if this.fade 'fade'}} {{if this.in 'in'}} {{this.realPlacement}}" {{did-resize this.afterResize}}>
+<div {{did-insert this.didInsert}} style={{this.style}} class="popover {{if this.fade 'fade'}} {{if this.in 'in'}} {{this.realPlacement}}" {{did-resize this.afterResize}}>
   <div class="arrow"></div>
-  {{#if this.title}}<h3 class="popover-title">{{this.title}}</h3>{{/if}}
-  <div id={{this.data.elementId}} class="popover-content"></div>
+  {{#if @title}}<h3 class="popover-title">{{@title}}</h3>{{/if}}
+  <div id={{@data.elementId}} class="popover-content"></div>
 </div>
 

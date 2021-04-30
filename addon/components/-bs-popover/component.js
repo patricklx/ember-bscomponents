@@ -1,31 +1,36 @@
-import Component from '@ember/component';
+/* eslint-disable ember/no-jquery */
+import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
-import { alias, readOnly } from '@ember/object/computed';
 import { action } from '@ember/object';
 import { htmlSafe } from '@ember/string';
-import template from './template';
+import { cancel, bind } from '@ember/runloop';
 import jQuery from 'jquery';
 import { tracked } from "@glimmer/tracking";
 
 
 export default class InternalPopoverComponent extends Component {
-  tagName = '';
-  layout = template;
-
   @service('ember-bscomponents@tooltip-box-manager') tooltipBoxManager;
-  @alias('data.title') title;
-  @alias('data.content') content;
   @tracked receivedContent = false;
   @tracked resized = 0;
-  @readOnly('animation') fade;
-  @readOnly('receivedContent') in;
+  fade = true;
   delay = 0;
-  animation = true;
   $element = null;
   tipElement = null;
 
+  get title() {
+    return this.args.data.title;
+  }
+
+  get content() {
+    return this.args.data.content;
+  }
+
+  get in() {
+    return this.receivedContent;
+  }
+
   get placement() {
-    return (this.data && this.data.placement) || 'top';
+    return (this.args.data && this.args.data.placement) || 'top';
   }
 
   get $tip() {
@@ -36,40 +41,40 @@ export default class InternalPopoverComponent extends Component {
   }
 
   get style() {
-    let actualHeight, actualWidth, calculatedOffset, opacity, placement, pos;
     if (!this.$tip) {
       return htmlSafe('');
     }
-    opacity = this.receivedContent ? 1 : 0;
+    const opacity = this.receivedContent ? 1 : 0;
     this.$tip.css({
       top: 0,
       left: 0,
       display: 'block'
     }).addClass(this.realPlacement);
 
-    placement = this.realPlacement;
-    pos = this.getPosition();
-    actualWidth = this.$tip[0].offsetWidth;
-    actualHeight = this.$tip[0].offsetHeight;
-    calculatedOffset = this.getCalculatedOffset(placement, pos, actualWidth, actualHeight);
+    const placement = this.realPlacement;
+    const pos = this.getPosition();
+    const actualWidth = this.$tip[0].offsetWidth;
+    const actualHeight = this.$tip[0].offsetHeight;
+    const calculatedOffset = this.getCalculatedOffset(placement, pos, actualWidth, actualHeight);
     return htmlSafe(`top: ${calculatedOffset.top}px; left: ${calculatedOffset.left}px; display: block; opacity: ${opacity}`);
   }
 
-  didInsertElement() {
-    let ref = this.get('data.trigger');
-    this.$element = jQuery(this.data.target);
-    if ((ref === 'hover' || !ref) && this.get('data.sticky')) {
+  @action
+  didInsert(elem) {
+    this.$tip = elem;
+    const ref = this.args.data.trigger;
+    this.$element = jQuery(this.args.data.target);
+    if ((ref === 'hover' || !ref) && this.args.data.sticky) {
       jQuery(this.element).on('mouseenter', () => {
-        clearTimeout(this.get('tooltipBoxManager.timeout'));
+        cancel(this.tooltipBoxManager.timeout);
       });
-      jQuery(this.element).on('mouseleave', () => {
-        this.get('tooltipBoxManager').removeTip(this.get('tip_id'));
-      });
+      jQuery(this.element).on(
+        'mouseleave',
+        bind(this.tooltipBoxManager, this.tooltipBoxManager.removeTip, this.args.tip_id)
+      );
     }
-    this.didInsertElementCallback();
+    this.args.didInsertElementCallback?.();
   }
-
-  didInsertElementCallback() {}
 
   @action
   afterResize() {
