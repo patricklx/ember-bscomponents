@@ -1,6 +1,6 @@
 {
   "name": "ember-bscomponents",
-  "version": "3.0.3",
+  "version": "4.0.0",
   "description": "an addon containing components for bootstrap.",
   "directories": {
     "doc": "doc",
@@ -8,6 +8,8 @@
   },
   "types": "types.d.ts",
   "scripts": {
+    "ts:build": "tsc",
+    "prepublishOnly": "npm run ts:build",
     "lint": "eslint addon",
     "start": "ember server",
     "build": "ember build",
