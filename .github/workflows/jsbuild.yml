@@ -99,6 +99,7 @@ jobs:
             echo "tag exists";
           else
             echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+            npm install
             npm publish || echo "already published"
           fi
         env:
