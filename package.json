@@ -65,7 +65,7 @@
     "ember-did-resize-modifier": "^1.0.0",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-power-select": "^4.1.4",
-    "ember-hbs-imports": "^0.4.4",
+    "ember-hbs-imports": "^0.4.5",
     "ember-wormhole": "^0.5.5"
   },
   "ember-addon": {
