@@ -11,7 +11,7 @@
       "types"
     ],
     "paths": {
-      "ember-bscomponents/*": [".","./addon/*"],
+      "ember-bscomponents/*": ["./*","./addon/*"],
       "*": [
         "types/*"
       ]
