@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 
 type Args = {
-  type: 'primary'|'secondary'|'default';
+  type: 'primary'|'secondary'|'default'|'warning';
   size: 'sm'|'lg'|'md'|'xs';
 }
 
