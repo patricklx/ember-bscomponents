@@ -2,8 +2,6 @@
 {{import Body from './body'}}
 {{import Footer from './footer'}}
 
-{{yield (hash doClose=this.doClose)}}
-
 <div class="modal {{if this.fade 'face'}} {{if this.isVis 'in'}}"
      role={{this.role}}
      aria-labelledby={{this.ariaLabelledBy}}
@@ -17,14 +15,14 @@
     <div class="modal-header">
       <button {{on 'click' (fn this.doClose)}} type="button" class="close {{unless @allowClose 'hide'}}" aria-hidden="true">&times;</button>
       <h4 class="modal-title">
-        {{yield to="header"}}
+        {{yield (hash doClose=this.doClose) to="header" }}
       </h4>
     </div>
     <div class="modal-body">
-      {{yield to='body'}}
+      {{yield (hash doClose=this.doClose) to='body'}}
     </div>
     <div class="modal-footer {{if @fullFooter 'modal-footer-full'}}">
-      {{yield to='footer'}}
+      {{yield (hash doClose=this.doClose) to='footer'}}
     </div>
   </div>
 </div>
