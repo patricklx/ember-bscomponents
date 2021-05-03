@@ -2,6 +2,8 @@
 {{import Body from './body'}}
 {{import Footer from './footer'}}
 
+{{yield (hash doClose=this.doClose)}}
+
 <div class="modal {{if this.fade 'face'}} {{if this.isVis 'in'}}"
      role={{this.role}}
      aria-labelledby={{this.ariaLabelledBy}}
