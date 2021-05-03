@@ -6,7 +6,7 @@
 !app/**/*.js
 !app/**/*.d.ts
 !app/**/*.scss
-!types
+!types/**/*.d.ts
 !config
 !index.js
 !package.json
