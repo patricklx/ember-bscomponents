@@ -1,6 +1,6 @@
 import '@ember/service';
-import ModalManager from "ember-bscomponents/services/modal-manager";
-import TooltipBoxManager from "ember-bscomponents/services/tooltip-box-manager";
+import ModalManager from "ember-bscomponents/addon/services/modal-manager";
+import TooltipBoxManager from "ember-bscomponents/addon/services/tooltip-box-manager";
 
 declare module '@ember/service' {
   interface Registry {
