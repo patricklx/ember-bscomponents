@@ -1,5 +1,6 @@
 {{import BsPill from '~/components/bs-pill'}}
 {{import is-equal from '~/helpers/is-equal'}}
+{{import class-bind from '~/helpers/class-bind'}}
 
 <div class='{{class-bind "justified:nav-justified" this.args}}' ...attributes>
 {{#each @content as |tab|}}
