@@ -2,7 +2,7 @@
 {{import is-equal from '~/helpers/is-equal'}}
 {{import class-bind from '~/helpers/class-bind'}}
 
-<div class='{{class-bind "justified:nav-justified" this.args}}' ...attributes>
+<ul class='{{class-bind "justified:nav-justified" this.args}} nav nav-pills' ...attributes>
 {{#each @content as |tab|}}
   {{#if hasBlock}}
     {{yield (hash
@@ -24,4 +24,4 @@
     {{/if}}
   {{/if}}
 {{/each}}
-</div>
+</ul>
