@@ -2,7 +2,7 @@
 {{import Text from './text'}}
 
 {{#with (-element this.tag) as |Elem|}}
-  <Elem onclick="return false;" class="list-group-item {{if @isActive 'active'}} {{if @disabled 'disabled'}}" href={{this.href}} {{on 'click' @onItemSelected}}>
+  <Elem onclick="event.preventDefault();return false;" class="list-group-item {{if @isActive 'active'}} {{if @disabled 'disabled'}}" href={{this.href}} {{on 'click' @onItemSelected}}>
     {{#if hasBlock}}
       {{yield (hash
         heading=(component Heading)
