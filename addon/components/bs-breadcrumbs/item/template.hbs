@@ -1,7 +1,7 @@
 <li class={{if @isActive 'active'}} >
   {{#if hasBlock}}
     {{#unless @isActive}}
-      <a href="#" onclick="return false;" {{on 'click' (fn @onItemSelected @content)}}>
+      <a href="#" onclick="event.preventDefault();return false;" {{on 'click' (fn @onItemSelected @content)}}>
         {{yield}}
       </a>
     {{else}}
@@ -9,7 +9,7 @@
     {{/unless}}
   {{else}}
     {{#unless @isActive}}
-      <a href="#" onclick="return false;" {{on 'click' (fn @onItemSelected @content)}}>
+      <a href="#" onclick="event.preventDefault();return false;" {{on 'click' (fn @onItemSelected @content)}}>
         {{@content}}
       </a>
     {{else}}
