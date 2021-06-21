@@ -1,6 +1,6 @@
 {{import or from 'ember-bscomponents/helpers/or'}}
 {{import noop from 'ember-bscomponents/helpers/noop'}}
 <li>
-  <a class="{{if @isActive 'active'}}" onclick="return false;" href="#" {{on 'click' this.onItemSelected}}>{{yield}}{{@content}}</a>
+  <a class="{{if @isActive 'active'}}" onclick="event.preventDefault();return false;" href="#" {{on 'click' this.onItemSelected}}>{{yield}}{{@content}}</a>
 </li>
 
