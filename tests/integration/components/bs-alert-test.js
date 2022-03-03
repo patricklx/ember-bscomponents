@@ -1,7 +1,7 @@
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 import { hbs } from 'ember-cli-htmlbars';
-import { click, render, settled } from '@ember/test-helpers';
+import { click, render } from '@ember/test-helpers';
 
 module('Integration | Component | bs-alert', (hooks) => {
   setupRenderingTest(hooks);

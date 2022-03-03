@@ -1,7 +1,7 @@
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 import { hbs } from 'ember-cli-htmlbars';
-import { render, settled } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 
 module('Integration | Component | bs-tooltip', (hooks) => {
   setupRenderingTest(hooks);

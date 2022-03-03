@@ -1,7 +1,7 @@
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 import { hbs } from 'ember-cli-htmlbars';
-import { render, settled, waitUntil } from '@ember/test-helpers';
+import { render, waitUntil } from '@ember/test-helpers';
 
 module('Integration | Component | bs-popover', (hooks) => {
   setupRenderingTest(hooks);

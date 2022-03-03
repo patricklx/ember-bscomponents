@@ -31,6 +31,7 @@
     "@glimmer/component": "^1.0.4",
     "@glimmer/tracking": "^1.0.4",
     "@types/ember": "^4.0.0",
+    "@types/ember__destroyable": "^4.0.0",
     "@types/ember__test-helpers": "^2.6.1",
     "@types/jquery": "^3.5.5",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
