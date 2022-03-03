@@ -4,7 +4,7 @@ import jQuery from 'jquery';
 import { tracked } from "@glimmer/tracking";
 import { scheduleOnce } from "@ember/runloop";
 import { action } from "@ember/object";
-import { htmlSafe } from '@ember/string'
+import { htmlSafe } from '@ember/template';
 import ModalManager from "../../services/modal-manager";
 
 type Args = {

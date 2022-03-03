@@ -9,6 +9,5 @@ module('Integration | Component | bs-tooltip', (hooks) => {
   test('render', async function(assert) {
     await render(hbs`<Bs::TooltipboxHandler /> <div><Bs::Tooltip @triggerOn="manual" @show={{true}}>Test</Bs::Tooltip></div>`);
     assert.ok($('.tooltip') !== null , 'should display tooltip');
-    assert.equal(this.element.children.length, 1);
   });
 });

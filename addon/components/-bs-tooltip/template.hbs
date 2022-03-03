@@ -1,4 +1,4 @@
-<div {{did-insert this.didInsert}} style={{this.style}} class="tooltip {{if this.fade 'fade'}} {{if this.in 'in'}} {{this.realPlacement}}" {{did-resize this.afterResize}}>
+<div {{did-insert this.didInsert}} style={{this.style}} class="tooltip {{if this.fade 'fade'}} {{if this.in 'in'}} {{this.realPlacement}}" {{on-resize this.afterResize}}>
   <div class="tooltip-arrow"></div>
   <div id={{@data.elementId}} class="tooltip-inner"></div>
 </div>

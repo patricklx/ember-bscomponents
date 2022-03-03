@@ -1,7 +1,7 @@
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 import { hbs } from 'ember-cli-htmlbars';
-import { render, settled } from '@ember/test-helpers';
+import { render, settled, waitUntil } from '@ember/test-helpers';
 
 module('Integration | Component | bs-popover', (hooks) => {
   setupRenderingTest(hooks);
@@ -14,7 +14,7 @@ module('Integration | Component | bs-popover', (hooks) => {
     assert.ok(this.element.querySelector('.popover') !== null , 'should display popover');
 
     this.set('show', false);
-    await settled();
+    await waitUntil(() => $('.popover').length === 0, { timeout: 100 });
     assert.equal($('.popover').length, 0);
 
   });
