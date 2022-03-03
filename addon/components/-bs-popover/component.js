@@ -74,6 +74,9 @@ export default class InternalPopoverComponent extends Component {
       );
     }
     this.args.didInsertElementCallback?.();
+    if (jQuery(elem).find('.popover-content').html().length) {
+      this.afterResize();
+    }
   }
 
   @action
@@ -85,7 +88,7 @@ export default class InternalPopoverComponent extends Component {
     return this.receivedContent = true;
   }
 
-  realPlacement() {
+  get realPlacement() {
     let actualHeight, actualWidth, autoPlace, autoToken, docScroll, parentHeight, parentLeft,
       parentWidth, placement, pos;
     if (!this.$tip) {

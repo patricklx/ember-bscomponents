@@ -1,8 +1,9 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import { defaultArgs } from '../../decorators';
+
 
 type Args = {
+  type: "primary" | "success" | "info" | "warning" | "danger"
   collapsible: boolean;
   open: boolean;
   withTitle: boolean;

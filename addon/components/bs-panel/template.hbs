@@ -2,7 +2,7 @@
 {{import Body from './body'}}
 {{import Footer from './footer'}}
 
-<div class='panel'>
+<div class='panel {{if @type (concat "panel-" @type) ""}}'>
   {{yield (hash
             header=(component Header tagName='' collapsible=@collapsible withTitle=@withTitle toggleCollapsed=(fn this.toggleCollapsed))
             body=(component Body tagName='' collapsible=@collapsible open=@open)

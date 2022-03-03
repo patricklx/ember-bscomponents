@@ -164,9 +164,7 @@ class TooltipBoxManager extends Service {
     this.tooltips.removeObject(pop);
     delete this.showing[id];
     if (pop) {
-      next(() => {
-        return pop.didRemove();
-      });
+      pop.didRemove();
     }
     return pop;
   }
