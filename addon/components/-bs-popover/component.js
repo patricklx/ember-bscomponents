@@ -3,7 +3,7 @@ import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 import { htmlSafe } from '@ember/string';
-import { cancel, bind } from '@ember/runloop';
+import { cancel, bind, next } from '@ember/runloop';
 import jQuery from 'jquery';
 import { tracked } from "@glimmer/tracking";
 
@@ -12,6 +12,7 @@ export default class InternalPopoverComponent extends Component {
   @service('ember-bscomponents@tooltip-box-manager') tooltipBoxManager;
   @tracked receivedContent = false;
   @tracked resized = 0;
+  @tracked _tipElement;
   fade = true;
   delay = 0;
   $element = null;
@@ -61,22 +62,24 @@ export default class InternalPopoverComponent extends Component {
 
   @action
   didInsert(elem) {
-    this.$tip = elem;
-    const ref = this.args.data.trigger;
-    this.$element = jQuery(this.args.data.target);
-    if ((ref === 'hover' || !ref) && this.args.data.sticky) {
-      jQuery(this.element).on('mouseenter', () => {
-        cancel(this.tooltipBoxManager.timeout);
-      });
-      jQuery(this.element).on(
-        'mouseleave',
-        bind(this.tooltipBoxManager, this.tooltipBoxManager.removeTip, this.args.tip_id)
-      );
-    }
-    this.args.didInsertElementCallback?.();
-    if (jQuery(elem).find('.popover-content').html().length) {
-      this.afterResize();
-    }
+    next(() => {
+      this.$tip = elem;
+      const ref = this.args.data.trigger;
+      this.$element = jQuery(this.args.data.target);
+      if ((ref === 'hover' || !ref) && this.args.data.sticky) {
+        jQuery(this.element).on('mouseenter', () => {
+          cancel(this.tooltipBoxManager.timeout);
+        });
+        jQuery(this.element).on(
+          'mouseleave',
+          bind(this.tooltipBoxManager, this.tooltipBoxManager.removeTip, this.args.tip_id)
+        );
+      }
+      this.args.didInsertElementCallback?.();
+      if (jQuery(elem).find('#' + this.args.data?.elementId)?.html().length) {
+        this.afterResize();
+      }
+    })
   }
 
   @action

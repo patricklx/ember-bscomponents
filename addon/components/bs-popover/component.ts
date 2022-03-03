@@ -25,6 +25,8 @@ class BsPopoverComponent<T extends Args> extends Component<T> {
   _options = EmberObject.create({});
   private currentTarget: Element;
   private popoverId: any;
+  siblingUpElement: Element;
+  siblingDownElement: Element;
 
   constructor(...args: [any, any]) {
     super(...args);
@@ -33,6 +35,8 @@ class BsPopoverComponent<T extends Args> extends Component<T> {
 
   @action
   setParent(elem: Element) {
+    this.siblingUpElement = elem.previousElementSibling;
+    this.siblingDownElement = elem.nextElementSibling;
     this.parentElement = elem.parentElement;
     elem.remove();
     this.addTooltip();
@@ -41,10 +45,10 @@ class BsPopoverComponent<T extends Args> extends Component<T> {
   getTargetElement() {
     if (this.args.targetSibling) {
       if (this.args.targetSibling === 'up') {
-        return this.parentElement.previousElementSibling;
+        return this.siblingUpElement;
       }
       if (this.args.targetSibling === 'down') {
-        return this.parentElement.nextElementSibling;
+        return this.siblingDownElement;
       }
     }
     if (this.args.targetId) {
