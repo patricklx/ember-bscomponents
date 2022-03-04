@@ -49,10 +49,10 @@ jobs:
       - name: Install dependencies (npm)
         run: |
           npm install
-      - name: Setup ember-try scenario
-        run: ./node_modules/.bin/ember try:one ember-${{ matrix.scenario }} --- cat package.json
       - name: run ts build
         run: npm run ts:build
+      - name: Run ember-try scenario
+        run: ./node_modules/.bin/ember try:one ember-${{ matrix.scenario }} --skip-cleanup=true --- cat package.json
       - name: Build
         run: ./node_modules/.bin/ember build --environment test
       - name: Run test
