@@ -10,6 +10,7 @@ module.exports = function() {
     getChannelURL('canary')
   ]).then((urls) => {
     return {
+      npmOptions: ['--legacy-peer-deps'],
       scenarios: [
         {
           name: 'ember-lts-3.4',
