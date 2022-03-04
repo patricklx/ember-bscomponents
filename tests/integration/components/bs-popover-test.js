@@ -14,7 +14,7 @@ module('Integration | Component | bs-popover', (hooks) => {
     assert.ok(this.element.querySelector('.popover') !== null , 'should display popover');
 
     this.set('show', false);
-    await waitUntil(() => $('.popover').length === 0, { timeout: 100 });
+    await waitUntil(() => $('.popover').length === 0, { timeout: 1000 });
     assert.equal($('.popover').length, 0);
 
   });
