@@ -3,7 +3,7 @@ import { action } from "@ember/object";
 import { tracked } from "@glimmer/tracking";
 
 type Args = {
-  type: 'primary'|'secondary'|'default'|'warning';
+  type: 'primary'|'default'|'warning'|'danger'|'info'|'success'|'link';
   size: 'sm'|'lg'|'md'|'xs';
   onClick(): Promise<any>|null
 }

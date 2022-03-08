@@ -1,6 +1,6 @@
 {
   "name": "ember-bscomponents",
-  "version": "4.2.0",
+  "version": "4.3.0",
   "description": "an addon containing components for bootstrap.",
   "directories": {
     "doc": "doc",
