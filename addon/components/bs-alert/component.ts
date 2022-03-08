@@ -8,7 +8,7 @@ type Args = {
   dismissible: boolean;
   message: string;
   show: boolean;
-  type: 'info'|'warn'|'error'|'success';
+  type: 'info'|'warning'|'danger'|'success';
   onDismiss: () => null|Promise<any>;
   onAutoDismiss: () => null;
 }
