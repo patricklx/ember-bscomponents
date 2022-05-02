@@ -2,7 +2,7 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
-import { htmlSafe } from '@ember/string';
+import { htmlSafe } from '@ember/template';
 import { cancel, bind, next } from '@ember/runloop';
 import jQuery from 'jquery';
 import { tracked } from "@glimmer/tracking";
