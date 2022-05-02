@@ -1,5 +1,6 @@
 {{import Item from './item'}}
 {{import is-equal from '~/helpers/is-equal'}}
+{{import -element from 'ember-element-helper/helpers/-element'}}
 
 {{#with (component (-element this.tag)) as |Elem|}}
   <Elem class="list-group">
