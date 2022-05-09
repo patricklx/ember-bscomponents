@@ -1,7 +1,8 @@
 {{import Heading from './heading'}}
 {{import Text from './text'}}
+{{import -element from 'ember-element-helper/helpers/element'}}
 
-{{#with (-element this.tag) as |Elem|}}
+{{#with (element this.tag) as |Elem|}}
   <Elem onclick="event.preventDefault();return false;" class="list-group-item {{if @isActive 'active'}} {{if @disabled 'disabled'}}" href={{this.href}} {{on 'click' @onItemSelected}}>
     {{#if hasBlock}}
       {{yield (hash

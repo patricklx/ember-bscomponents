@@ -1,10 +1,11 @@
 /* eslint-disable ember/no-jquery */
 import { addObserver } from '@ember/object/observers';
 import Service from '@ember/service';
-import { later, next, scheduleOnce } from '@ember/runloop';
+import {later, next, scheduleOnce} from '@ember/runloop';
 import EmberObject, { set, get } from '@ember/object';
 import { A } from '@ember/array';
 import jQuery from 'jquery';
+import { tracked } from '@glimmer/tracking';
 /*
 The Manager is based on the code from the emberjs action helper.
 the tooltip/popover helper sets the attribute TooltipBoxManager.attribute (currently: bootstrap-tip-id)
@@ -18,9 +19,11 @@ class TooltipBoxManager extends Service {
   attribute = 'bootstrap-tip-id';
   willSetup = false;
   registeredTips = {};
-  constructor(...args) {
-    super(...args);
-  }
+  @tracked popovers = A<any>();
+  @tracked tooltips = A<any>();
+  showing = {};
+  timeout = null;
+
   unregisterTip(id) {
     if (!id || !this.registeredTips[id]) {
       return;
@@ -102,10 +105,7 @@ class TooltipBoxManager extends Service {
     }
     this.willSetup = false;
   }
-  popovers = A<any>();
-  tooltips = A<any>();
-  showing = {};
-  timeout = null;
+
   showTip(id) {
     const data = this.registeredTips[id].data;
     const type = this.registeredTips[id].type;
@@ -115,20 +115,26 @@ class TooltipBoxManager extends Service {
       const obj = EmberObject.create({
         data: data,
         tip_id: id,
+        removed: false,
         didInsert: () => {
           set(view, 'wormholeId', this.registeredTips[id].data.elementId);
         },
         didRemove: () => {
+          obj.removed = true;
           if (!view.isDestroyed) {
             return set(view, 'wormholeId', null);
           }
         }
       });
-      if (type === 'tooltip') {
-        this.tooltips.pushObject(obj);
-      } else {
-        this.popovers.pushObject(obj);
-      }
+      next(() => {
+        if (obj.removed) return;
+        if (type === 'tooltip') {
+          this.tooltips.pushObject(obj);
+        }
+        else {
+          this.popovers.pushObject(obj);
+        }
+      });
     }
   }
   hideTip(id, allowTimer?: boolean) {
@@ -160,12 +166,14 @@ class TooltipBoxManager extends Service {
 
   removeTip(id) {
     const pop = this.popovers.findBy('tip_id', id) || this.tooltips.findBy('tip_id');
-    this.popovers.removeObject(pop);
-    this.tooltips.removeObject(pop);
-    delete this.showing[id];
     if (pop) {
       pop.didRemove();
     }
+    next(() => {
+      this.popovers.removeObject(pop);
+      this.tooltips.removeObject(pop);
+      delete this.showing[id];
+    });
     return pop;
   }
 }

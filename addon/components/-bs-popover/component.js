@@ -56,6 +56,9 @@ export default class InternalPopoverComponent extends Component {
     const pos = this.getPosition();
     const actualWidth = this.$tip[0].offsetWidth;
     const actualHeight = this.$tip[0].offsetHeight;
+    if (actualHeight < 20) {
+      return htmlSafe('');
+    }
     const calculatedOffset = this.getCalculatedOffset(placement, pos, actualWidth, actualHeight);
     return htmlSafe(`top: ${calculatedOffset.top}px; left: ${calculatedOffset.left}px; display: block; opacity: ${opacity}`);
   }
