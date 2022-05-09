@@ -166,13 +166,13 @@ class TooltipBoxManager extends Service {
 
   removeTip(id) {
     const pop = this.popovers.findBy('tip_id', id) || this.tooltips.findBy('tip_id');
-    delete this.showing[id];
     if (pop) {
       pop.didRemove();
     }
     next(() => {
       this.popovers.removeObject(pop);
       this.tooltips.removeObject(pop);
+      delete this.showing[id];
     });
     return pop;
   }

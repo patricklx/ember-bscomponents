@@ -13,7 +13,8 @@
     "lint": "eslint addon",
     "start": "ember server",
     "build": "ember build",
-    "test": "ember try:each",
+    "test": "ember test",
+    "test-try": "ember try:each",
     "test-server": "ember test --serve"
   },
   "repository": "https://github.com/patricklx/ember-bscomponents.git",
