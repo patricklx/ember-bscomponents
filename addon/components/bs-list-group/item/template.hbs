@@ -4,7 +4,7 @@
 
 {{#with (element this.tag) as |Elem|}}
   <Elem onclick="event.preventDefault();return false;" class="list-group-item {{if @isActive 'active'}} {{if @disabled 'disabled'}}" href={{this.href}} {{on 'click' @onItemSelected}}>
-    {{#if hasBlock}}
+    {{#if (has-block)}}
       {{yield (hash
         heading=(component Heading)
         text=(component Text)
