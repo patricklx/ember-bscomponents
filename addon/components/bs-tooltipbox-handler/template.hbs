@@ -3,14 +3,14 @@
 
 {{#each this.manager.popovers as |pop|}}
   <Popover
-    @didInsertElementCallback={{fn pop.didInsert pop}}
+    @didInsertElementCallback={{fn pop.didInsert}}
     @tip_id={{pop.tip_id}}
     @data={{pop.data}}
   />
 {{/each}}
 {{#each this.manager.tooltips as |pop|}}
   <Tooltip
-    @didInsertElementCallback={{fn pop.didInsert pop}}
+    @didInsertElementCallback={{fn pop.didInsert}}
     @tip_id={{pop.tip_id}}
     @data={{pop.data}}
   />
