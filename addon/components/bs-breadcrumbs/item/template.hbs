@@ -1,5 +1,5 @@
 <li class={{if @isActive 'active'}} >
-  {{#if hasBlock}}
+  {{#if (has-block)}}
     {{#unless @isActive}}
       <a href="#" onclick="event.preventDefault();return false;" {{on 'click' (fn @onItemSelected @content)}}>
         {{yield}}
