@@ -1,7 +1,7 @@
 
-<div {{did-insert this.didInsert}} style={{this.style}} class="popover {{if this.fade 'fade'}} {{if this.in 'in'}} {{this.realPlacement}}" {{on-resize this.afterResize}}>
+<div style={{this.style}} class="popover {{if this.fade 'fade'}} {{if this.in 'in'}} {{this.realPlacement}}" {{on-resize this.afterResize}}>
   <div class="arrow"></div>
   {{#if @title}}<h3 class="popover-title">{{@title}}</h3>{{/if}}
-  <div id={{@data.elementId}} class="popover-content"></div>
+  <div {{did-insert this.didInsert}} id={{@data.elementId}} class="popover-content"></div>
 </div>
 

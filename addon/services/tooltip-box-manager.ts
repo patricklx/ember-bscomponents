@@ -116,8 +116,8 @@ class TooltipBoxManager extends Service {
         data: data,
         tip_id: id,
         removed: false,
-        didInsert: () => {
-          set(view, 'wormholeId', this.registeredTips[id].data.elementId);
+        didInsert: (elem) => {
+          set(view, 'wormholeId', elem);
         },
         didRemove: () => {
           obj.removed = true;

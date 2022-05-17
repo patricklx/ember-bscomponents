@@ -66,7 +66,7 @@ export default class InternalPopoverComponent extends Component {
   @action
   didInsert(elem) {
     next(() => {
-      this.$tip = elem;
+      this.$tip = elem.parentElement;
       const ref = this.args.data.trigger;
       this.$element = jQuery(this.args.data.target);
       if ((ref === 'hover' || !ref) && this.args.data.sticky) {
@@ -78,8 +78,8 @@ export default class InternalPopoverComponent extends Component {
           bind(this.tooltipBoxManager, this.tooltipBoxManager.removeTip, this.args.tip_id)
         );
       }
-      this.args.didInsertElementCallback?.();
-      if (jQuery(elem).find('#' + this.args.data?.elementId)?.html().length) {
+      this.args.didInsertElementCallback?.(elem);
+      if (jQuery(elem).html().length) {
         this.afterResize();
       }
     })
