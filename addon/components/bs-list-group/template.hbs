@@ -5,7 +5,7 @@
 {{#with (element this.tag) as |Elem|}}
   <Elem class="list-group">
     {{#each this.items as |item|}}
-      {{#if hasBlock}}
+      {{#if (has-block)}}
         {{yield (hash
           item-component=(component Item content=item withLinks=withLinks isActive=(is-equal item @selected) onItemSelected=(fn this.onItemSelected item))
           content=item
