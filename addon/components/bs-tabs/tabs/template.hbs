@@ -4,7 +4,7 @@
 
 <ul class='{{class-bind "justified:nav-justified" this.args}} nav nav-pills' ...attributes>
 {{#each @content as |tab|}}
-  {{#if hasBlock}}
+  {{#if (has-block)}}
     {{yield (hash
               item-component=(component BsPill isActive=(is-equal tab @selected) onItemSelected=@onItemSelected)
               item=tab
