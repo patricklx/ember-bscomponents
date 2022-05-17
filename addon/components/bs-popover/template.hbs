@@ -7,7 +7,7 @@
 {{didUpdate this.updateOptions @show @triggerOn @sticky @title @content @placement}}
 
 {{#if this.wormholeId}}
-  <Wormhole style="display: none" destinationElement@={{this.wormholeId}} >
+  <Wormhole style="display: none" @destinationElement={{this.wormholeId}} >
     {{yield}}
   </Wormhole>
 {{/if}}
