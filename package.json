@@ -1,6 +1,6 @@
 {
   "name": "ember-bscomponents",
-  "version": "4.5.1",
+  "version": "4.5.2",
   "description": "an addon containing components for bootstrap.",
   "directories": {
     "doc": "doc",
@@ -76,8 +76,7 @@
     "ember-on-resize-modifier": "^1.0.0",
     "ember-hbs-imports": "^0.4.5",
     "ember-maybe-import-regenerator": "^1.0.0",
-    "ember-power-select": "^5.0.4",
-    "ember-wormhole": "^0.6.0"
+    "ember-power-select": "^5.0.4"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
