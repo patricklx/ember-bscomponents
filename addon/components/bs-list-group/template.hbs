@@ -7,11 +7,11 @@
     {{#each this.items as |item|}}
       {{#if (has-block)}}
         {{yield (hash
-          item-component=(component Item content=item withLinks=withLinks isActive=(is-equal item @selected) onItemSelected=(fn this.onItemSelected item))
+          item-component=(component Item content=item withLinks=@withLinks isActive=(is-equal item @selected) onItemSelected=(fn this.onItemSelected item))
           content=item
         )}}
       {{else}}
-        {{component itemComponent content=item withLinks=withLinks isActive=(is-equal item @selected) onItemSelected=(fn this.onItemSelected item)}}
+        {{component itemComponent content=item withLinks=@withLinks isActive=(is-equal item @selected) onItemSelected=(fn this.onItemSelected item)}}
       {{/if}}
     {{/each}}
   </Elem>
