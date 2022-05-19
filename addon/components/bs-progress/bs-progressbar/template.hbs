@@ -1,4 +1,6 @@
-<div class="progress-bar progress-bar-{{@type}}"
+{{import class-bind from '~/helpers/class-bind'}}
+
+<div class="progress-bar progress-bar-{{@type}} {{class-bind 'stripped:progress-bar-striped animated:active' this.args}}"
      style={{this.style}}
      role={{this.role}}
      aria-valuemin={{this.aria-valuemin}}
