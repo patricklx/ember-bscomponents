@@ -3,7 +3,9 @@ import { htmlSafe } from '@ember/template';
 
 type Args = {
   progress: number;
+  stripped: boolean;
   type: 'info'|'warn'|'error'|'success';
+  animated: boolean;
 }
 
 export default class BsProgressbarComponent extends Component<Args> {
