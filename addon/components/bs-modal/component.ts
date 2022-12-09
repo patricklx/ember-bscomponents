@@ -14,6 +14,7 @@ type Args = {
   onClose: (event?: Event) => null;
   allowClose: boolean;
   animation: boolean;
+  size?: 'lg'|'sm'
 }
 
 export default class BsModalComponent extends Component<Args> {

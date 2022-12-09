@@ -1,9 +1,8 @@
 /* eslint-disable ember/no-jquery */
 import { addObserver } from '@ember/object/observers';
 import Service from '@ember/service';
-import {later, next, scheduleOnce} from '@ember/runloop';
+import { later, next, scheduleOnce } from '@ember/runloop';
 import EmberObject, { set, get } from '@ember/object';
-import { A } from '@ember/array';
 import jQuery from 'jquery';
 import { tracked } from '@glimmer/tracking';
 /*
@@ -19,10 +18,16 @@ class TooltipBoxManager extends Service {
   attribute = 'bootstrap-tip-id';
   willSetup = false;
   registeredTips = {};
-  @tracked popovers = A<any>();
-  @tracked tooltips = A<any>();
-  showing = {};
+  @tracked showing: Record<string, any> = {};
   timeout = null;
+
+  get tooltips() {
+    return Object.values(this.showing).filter(v => v.type === 'tooltip');
+  }
+
+  get popovers() {
+    return Object.values(this.showing).filter(v => v.type === 'popover');
+  }
 
   unregisterTip(id) {
     if (!id || !this.registeredTips[id]) {
@@ -111,10 +116,10 @@ class TooltipBoxManager extends Service {
     const type = this.registeredTips[id].type;
     const view = this.registeredTips[id].view;
     if (!this.showing[id]) {
-      this.showing[id] = true;
       const obj = EmberObject.create({
         data: data,
         tip_id: id,
+        type,
         removed: false,
         didInsert: (elem) => {
           set(view, 'wormholeId', elem);
@@ -126,15 +131,8 @@ class TooltipBoxManager extends Service {
           }
         }
       });
-      next(() => {
-        if (obj.removed) return;
-        if (type === 'tooltip') {
-          this.tooltips.pushObject(obj);
-        }
-        else {
-          this.popovers.pushObject(obj);
-        }
-      });
+      this.showing[id] = obj;
+      this.showing = { ...this.showing }
     }
   }
   hideTip(id, allowTimer?: boolean) {
@@ -165,14 +163,13 @@ class TooltipBoxManager extends Service {
   }
 
   removeTip(id) {
-    const pop = this.popovers.findBy('tip_id', id) || this.tooltips.findBy('tip_id');
+    const pop = this.showing[id];
     if (pop) {
       pop.didRemove();
     }
     next(() => {
-      this.popovers.removeObject(pop);
-      this.tooltips.removeObject(pop);
       delete this.showing[id];
+      this.showing = { ...this.showing }
     });
     return pop;
   }

@@ -2,28 +2,28 @@
 {{import Body from './body'}}
 {{import Footer from './footer'}}
 
-<div class="modal {{if this.fade 'face'}} {{if this.isVis 'in'}}"
+<div class="modal {{if @fade 'face'}} {{if this.isVis 'in'}}"
      role={{this.role}}
      aria-labelledby={{this.ariaLabelledBy}}
      aria-hidden={{this.isAriaHidden}}
      style={{this.styles}}
-        {{did-insert this.didInsert}}
-    {{will-destroy this.becameHidden}}
+  {{did-insert this.didInsert}}
+  {{will-destroy this.becameHidden}}
 >
-<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-      <button {{on 'click' (fn this.doClose)}} type="button" class="close {{unless @allowClose 'hide'}}" aria-hidden="true">&times;</button>
-      <h4 class="modal-title">
-        {{yield (hash doClose=this.doClose) to="header" }}
-      </h4>
-    </div>
-    <div class="modal-body">
-      {{yield (hash doClose=this.doClose) to='body'}}
-    </div>
-    <div class="modal-footer {{if @fullFooter 'modal-footer-full'}}">
-      {{yield (hash doClose=this.doClose) to='footer'}}
+  <div class="modal-dialog modal-{{@size}}">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button {{on 'click' (fn this.doClose)}} type="button" class="close {{unless @allowClose 'hide'}}" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">
+          {{yield (hash doClose=this.doClose) to="header" }}
+        </h4>
+      </div>
+      <div class="modal-body">
+        {{yield (hash doClose=this.doClose) to='body'}}
+      </div>
+      <div class="modal-footer {{if @fullFooter 'modal-footer-full'}}">
+        {{yield (hash doClose=this.doClose) to='footer'}}
+      </div>
     </div>
   </div>
-</div>
 </div>
