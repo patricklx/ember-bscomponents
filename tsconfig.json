@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "allowJs": true,
+    "allowJs": false,
     "moduleResolution": "Node",
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
