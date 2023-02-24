@@ -95,12 +95,14 @@ class TooltipBoxManager extends Service {
           case 'manual':
             // eslint-disable-next-line ember/no-observers
             addObserver(pop, 'data.show', pop, function(sender, key) {
-              const value = get(sender, key);
-              if (value) {
-                pop.show();
-              } else {
-                pop.hide();
-              }
+              next(() => {
+                const value = get(sender, key);
+                if (value) {
+                  pop.show();
+                } else {
+                  pop.hide();
+                }
+              })
             });
         }
         if (pop.data.show) {
