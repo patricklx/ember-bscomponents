@@ -3,10 +3,11 @@
 
 {{yield (hash
   Tabs=(component Tabs
-          selected=@selected
+          manager=this
+          selected=this.selected
           content=@content
-          onItemSelected=@onItemSelected
+          onItemSelected=this.onItemSelected
           contentPath=@contentPath
   )
-  Pane=(component Pane tagName='')
+  Pane=(component Pane manager=this tagName='')
 )}}
