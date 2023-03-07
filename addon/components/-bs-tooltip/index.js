@@ -1,5 +1,5 @@
 import template from './template';
-import BsPopoverComponent from '../-bs-popover/component';
+import BsPopoverComponent from '../-bs-popover';
 import { setComponentTemplate } from '@ember/component';
 
 
