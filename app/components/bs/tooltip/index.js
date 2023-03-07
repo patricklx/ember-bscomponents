@@ -1,1 +1,1 @@
-export { default } from "ember-bscomponents/components/bs-tooltip/component";
+export { default } from "ember-bscomponents/components/bs-tooltip";
