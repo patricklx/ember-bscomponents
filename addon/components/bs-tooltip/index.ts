@@ -1,9 +1,9 @@
 import BsPopoverComponent, { Args } from "../bs-popover";
-import template from 'ember-bscomponents/components/bs-popover/template';
-import { setComponentTemplate } from '@ember/component';
+import Popover from 'ember-bscomponents/components/bs-popover';
+import { setComponentTemplate, getComponentTemplate } from '@ember/component';
 
 class BsTooltipComponent extends BsPopoverComponent<Args> {
   type = 'tooltip';
 }
-setComponentTemplate(template, BsTooltipComponent);
+setComponentTemplate(getComponentTemplate(Popover), BsTooltipComponent);
 export default BsTooltipComponent;
