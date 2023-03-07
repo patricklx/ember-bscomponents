@@ -1,8 +1,6 @@
 import Component from '@ember/component';
-import layout from './template';
 
 class BsBtnGroup extends Component {
-  layout = layout;
 
   get args() {
     const o = {};
