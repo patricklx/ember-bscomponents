@@ -1,13 +1,13 @@
 {{import Tabs from './tabs'}}
 {{import Pane from './pane'}}
 
+<Tabs
+  @manager=this
+  @content=@content
+  @onItemSelected=this.onItemSelected
+  @contentPath=@contentPath
+  @selected=this.selected
+/>
 {{yield (hash
-  Tabs=(component Tabs
-          manager=this
-          selected=this.selected
-          content=@content
-          onItemSelected=this.onItemSelected
-          contentPath=@contentPath
-  )
-  Pane=(component Pane manager=this tagName='')
+  Tab=(component Pane manager=this tagName='')
 )}}
