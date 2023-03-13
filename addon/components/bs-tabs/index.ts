@@ -20,7 +20,7 @@ export default class BsTabsManager extends Component<Args> {
   
   @action
   addTab(tab) {
-    this.tabs = [...this.tabs, tab];
+    this.tabs = [...this.tabs, {...tab}];
   }
 
   @action
