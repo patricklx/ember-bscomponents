@@ -12,9 +12,15 @@ type Args = {
 // eslint-disable-next-line ember/no-empty-glimmer-component-classes
 export default class BsTabsManager extends Component<Args> {
   @tracked _selected = null;
+  @tracked tabs=[];
 
   get selected() {
     return this.args.selected ?? this._selected ?? this.args.content?.[0];
+  }
+  
+  @action
+  addTab(tab) {
+    this.tabs = [...this.tabs, tab];
   }
 
   @action
