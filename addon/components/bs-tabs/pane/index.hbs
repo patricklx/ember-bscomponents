@@ -2,6 +2,7 @@
 
 {{#if (is-equal @title @manager.selected)}}
 <div class="tab-content">
+  {{did-insert @manager.addTab @title}}
   <div role="tabpanel" class="tab-pane active" id="home">{{yield}}</div>
 </div>
 {{/if}}
