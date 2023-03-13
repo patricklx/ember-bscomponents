@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 
 type Args = {
-  id: any
+  title: any
 }
 
 // eslint-disable-next-line ember/no-empty-glimmer-component-classes
