@@ -1,6 +1,6 @@
 {{import is-equal from '~/helpers/is-equal'}}
 
-{{#if (is-equal @id @manager.selected)}}
+{{#if (is-equal @title @manager.selected)}}
 <div class="tab-content">
   <div role="tabpanel" class="tab-pane active" id="home">{{yield}}</div>
 </div>
