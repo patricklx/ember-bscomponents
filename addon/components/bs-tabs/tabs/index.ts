@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 
 type Args = {
-  content: any[];
+  tabs: any[];
   selected: any;
   contentPath: string;
   onItemSelected(): void
