@@ -2,12 +2,12 @@
 {{import Pane from './pane'}}
 
 {{yield (hash
-  Tabs=(component Tabs
+  Tabs=(component (ensure-safe-component Tabs)
           manager=this
           selected=this.selected
           content=@content
           onItemSelected=this.onItemSelected
           contentPath=@contentPath
   )
-  Pane=(component Pane manager=this tagName='')
+  Pane=(component (ensure-safe-component Pane) manager=this tagName='')
 )}}

@@ -6,7 +6,7 @@
 {{#each @content as |tab|}}
   {{#if (has-block)}}
     {{yield (hash
-              item-component=(component BsPill isActive=(is-equal tab @selected) onItemSelected=@onItemSelected)
+              item-component=(component (ensure-safe-component BsPill) isActive=(is-equal tab @selected) onItemSelected=@onItemSelected)
               item=tab
             )
     }}

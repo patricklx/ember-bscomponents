@@ -6,11 +6,11 @@
   <Elem onclick="event.preventDefault();return false;" class="list-group-item {{if @isActive 'active'}} {{if @disabled 'disabled'}}" href={{this.href}} {{on 'click' @onItemSelected}}>
     {{#if (has-block)}}
       {{yield (hash
-        heading=(component Heading)
-        text=(component Text)
+        heading=(component (ensure-safe-component Heading))
+        text=(component (ensure-safe-component Text))
       )}}
     {{else}}
-      {{content}}
+      {{this.args.content}}
     {{/if}}
   </Elem>
 {{/with}}

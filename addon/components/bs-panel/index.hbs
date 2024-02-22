@@ -4,8 +4,8 @@
 
 <div class='panel {{if @type (concat "panel-" @type) ""}}'>
   {{yield (hash
-            header=(component Header tagName='' collapsible=@collapsible withTitle=@withTitle toggleCollapsed=(fn this.toggleCollapsed))
-            body=(component Body tagName='' collapsible=@collapsible open=@open)
-            footer=(component Footer tagName='')
+            header=(component (ensure-safe-component Header) tagName='' collapsible=@collapsible withTitle=@withTitle toggleCollapsed=(fn this.toggleCollapsed))
+            body=(component (ensure-safe-component Body) tagName='' collapsible=@collapsible open=@open)
+            footer=(component (ensure-safe-component Footer) tagName='')
           )}}
 </div>

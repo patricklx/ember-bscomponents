@@ -1,9 +1,7 @@
-/* eslint-disable ember/no-jquery */
 import { addObserver } from '@ember/object/observers';
 import Service from '@ember/service';
 import { later, next, scheduleOnce } from '@ember/runloop';
 import EmberObject, { set, get } from '@ember/object';
-import jQuery from 'jquery';
 import { tracked } from '@glimmer/tracking';
 /*
 The Manager is based on the code from the emberjs action helper.
@@ -33,9 +31,13 @@ class TooltipBoxManager extends Service {
     if (!id || !this.registeredTips[id]) {
       return;
     }
-    const elem = this.registeredTips[id].element as Element;
+    const pop = this.registeredTips[id];
     this.removeTip(id);
-    jQuery(elem).off();
+    pop.element.removeEventListener('click', pop.toggle);
+    pop.element.removeEventListener('mouseenter', pop.show);
+    pop.element.removeEventListener('mouseleave', pop.hide);
+    pop.element.removeEventListener('focusin', pop.show);
+    pop.element.removeEventListener('focusout', pop.hide);
     delete this.registeredTips[id];
   }
 
@@ -79,18 +81,18 @@ class TooltipBoxManager extends Service {
       pop = this.registeredTips[i];
       if (pop.bound === false) {
         pop.bound = true;
-        elem = jQuery(pop.element);
+        elem = pop.element;
         switch (pop.eventName) {
           case 'click':
-            elem.on('click', $.proxy(pop.toggle, pop));
+            elem.addEventListener('click', pop.toggle);
             break;
           case 'hover':
-            elem.on('mouseenter', $.proxy(pop.show, pop));
-            elem.on('mouseleave', $.proxy(pop.hide, pop));
+            elem.addEventListener('mouseenter', pop.show);
+            elem.addEventListener('mouseleave', pop.hide);
             break;
           case 'focus':
-            elem.on('focusin', $.proxy(pop.show, pop));
-            elem.on('focusout', $.proxy(pop.hide, pop));
+            elem.addEventListener('focusin', pop.show);
+            elem.addEventListener('focusout', pop.hide);
             break;
           case 'manual':
             // eslint-disable-next-line ember/no-observers
@@ -132,7 +134,7 @@ class TooltipBoxManager extends Service {
             return set(view, 'wormholeId', null);
           }
         }
-      });
+      } as any);
       this.showing[id] = obj;
       this.showing = { ...this.showing }
     }
