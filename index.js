@@ -2,5 +2,11 @@
 'use strict';
 
 module.exports = {
-  name: 'ember-bscomponents'
+  name: 'ember-bscomponents',
+
+  options: {
+    'ember-cli-babel': {
+      enableTypeScriptTransform: true,
+    },
+  },
 };

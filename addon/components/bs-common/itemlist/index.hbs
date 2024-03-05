@@ -3,9 +3,9 @@
 {{#each @content as |item|}}
   {{#if (has-block)}}
     {{yield (hash
-      item-component=(component @itemComponent isActive=(eq item @selected) onItemSelected=(fn @onItemSelected item))
+      item-component=(component (ensure-safe-component @itemComponent) isActive=(eq item @selected) onItemSelected=(fn @onItemSelected item))
       content=item)}}
   {{else}}
-    {{component @itemComponent content=item isActive=(eq item @selected) onItemSelected=(fn @onItemSelected item)}}
+    {{component (ensure-safe-component @itemComponent) content=item isActive=(eq item @selected) onItemSelected=(fn @onItemSelected item)}}
   {{/if}}
 {{/each}}

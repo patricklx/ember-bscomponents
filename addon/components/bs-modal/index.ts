@@ -1,6 +1,5 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
-import jQuery from 'jquery';
 import { tracked } from "@glimmer/tracking";
 import { scheduleOnce } from "@ember/runloop";
 import { action } from "@ember/object";
@@ -26,8 +25,8 @@ export default class BsModalComponent extends Component<Args> {
   @tracked _isVisible = true;
 
   modalBackdrop = '<div class="modal-backdrop fade in"></div>';
-  private _backdrop: JQuery;
-  private _keyUpHandler: (event: JQuery.KeyUpEvent) => any;
+  private _backdrop: Element;
+  private _keyUpHandler: (event: Event) => any;
 
   get styles() {
     if (this.visible) {
@@ -96,10 +95,11 @@ export default class BsModalComponent extends Component<Args> {
 
   appendBackdrop() {
     if (!this._backdrop) {
-      // eslint-disable-next-line ember/no-jquery
-      const parentElement = jQuery(this.element).parent();
-      // eslint-disable-next-line ember/no-jquery
-      this._backdrop = jQuery(this.modalBackdrop).appendTo(parentElement);
+        const parentElement = this.element.parentElement;
+        const div = document.createElement('div');
+        div.innerHTML = this.modalBackdrop;
+        parentElement.appendChild(div.firstChild);
+        this._backdrop = parentElement.lastElementChild
     }
   }
 
@@ -121,10 +121,10 @@ export default class BsModalComponent extends Component<Args> {
         return;
       }
       // eslint-disable-next-line ember/no-jquery
-      return jQuery(this.element).one('webkitTransitionEnd', (e) => {
+            return this.element.addEventListener('webkitTransitionEnd', (e) => {
         this.visible = false;
         return resolve(null);
-      });
+            }, { once: true });
     });
   }
 
@@ -146,7 +146,7 @@ export default class BsModalComponent extends Component<Args> {
   removeHandlers() {
     //Remove key press
     // eslint-disable-next-line ember/no-jquery
-    jQuery(window.document).off('keyup', this._keyUpHandler);
+        document.removeEventListener('keyup', this._keyUpHandler);
     this._keyUpHandler = null;
   }
 
@@ -159,7 +159,7 @@ export default class BsModalComponent extends Component<Args> {
       this.handleEscape(event);
     };
     // eslint-disable-next-line ember/no-jquery
-    jQuery(window.document).on('keyup', handler);
+        document.addEventListener('keyup', handler);
     this._keyUpHandler = handler;
   }
 }

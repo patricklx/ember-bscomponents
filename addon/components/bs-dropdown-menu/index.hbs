@@ -3,8 +3,8 @@
 
 <BasicDropdown as |dd|>
     {{yield (hash
-            Trigger=(component dd.Trigger class="dropdown")
-            Content=(component dd.Content class="dropdown-menu")
-            Item=(component Item)
+            Trigger=(component (ensure-safe-component dd.Trigger) class="dropdown")
+            Content=(component (ensure-safe-component dd.Content) class="dropdown-menu")
+            Item=(component (ensure-safe-component Item))
     )}}
 </BasicDropdown>

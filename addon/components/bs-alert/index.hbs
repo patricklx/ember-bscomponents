@@ -1,6 +1,8 @@
 {{import or from '~/helpers/or'}}
 {{import noop from '~/helpers/noop'}}
 
+{{log @dismissible}}
+
 <div class="alert alert-{{or @type 'info'}}
   {{if this.fade 'fade'}}
   {{if this.show 'in'}}
@@ -8,6 +10,7 @@
   {{did-insert this.setupDismiss}}
   {{did-update this.setupDismiss @dismissAfter}}
      role="alert">
+  {{log @dismissible}}
   {{#if @dismissible }}
     <a class="close" href="#" {{on 'click' this.dismiss}}>&times;</a>
   {{/if}}

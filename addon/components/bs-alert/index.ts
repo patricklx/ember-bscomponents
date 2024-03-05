@@ -3,6 +3,7 @@ import { later } from '@ember/runloop';
 import { action } from '@ember/object';
 import { tracked } from "@glimmer/tracking";
 
+
 type Args = {
   dismissAfter: number;
   dismissible: boolean;
@@ -55,3 +56,4 @@ class BsAlertComponent extends Component<Args> {
 }
 
 export default BsAlertComponent;
+

@@ -4,8 +4,17 @@ import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 import { htmlSafe } from '@ember/template';
 import { cancel, bind, next } from '@ember/runloop';
-import jQuery from 'jquery';
 import { tracked } from "@glimmer/tracking";
+
+
+function offset(elem) {
+  const rect = elem.getBoundingClientRect();
+  const win = elem.ownerDocument.defaultView;
+  return {
+    top: rect.top + win.pageYOffset,
+    left: rect.left + win.pageXOffset
+  };
+}
 
 
 export default class InternalPopoverComponent extends Component {
@@ -34,11 +43,15 @@ export default class InternalPopoverComponent extends Component {
     return (this.args.data && this.args.data.placement) || 'top';
   }
 
+  /**
+   *
+   * @return {HTMLElement}
+   */
   get $tip() {
     return this._tipElement;
   }
   set $tip(v) {
-    return this._tipElement = jQuery(v);
+    return this._tipElement = v;
   }
 
   get style() {
@@ -46,16 +59,17 @@ export default class InternalPopoverComponent extends Component {
       return htmlSafe('');
     }
     const opacity = this.receivedContent ? 1 : 0;
-    this.$tip.css({
+    Object.assign(this.$tip.style, {
       top: 0,
       left: 0,
       display: 'block'
-    }).addClass(this.realPlacement);
+    });
+    this.$tip.classList.add(this.realPlacement)
 
     const placement = this.realPlacement;
     const pos = this.getPosition();
-    const actualWidth = this.$tip[0].offsetWidth;
-    const actualHeight = this.$tip[0].offsetHeight;
+    const actualWidth = this.$tip.offsetWidth;
+    const actualHeight = this.$tip.offsetHeight;
     if (actualHeight < 20) {
       return htmlSafe('');
     }
@@ -68,18 +82,18 @@ export default class InternalPopoverComponent extends Component {
     next(() => {
       this.$tip = elem.parentElement;
       const ref = this.args.data.trigger;
-      this.$element = jQuery(this.args.data.target);
+      this.$element = this.args.data.target;
       if ((ref === 'hover' || !ref) && this.args.data.sticky) {
-        jQuery(this.element).on('mouseenter', () => {
+        this.element.addEventListener('mouseenter', () => {
           cancel(this.tooltipBoxManager.timeout);
         });
-        jQuery(this.element).on(
+        this.element.addEventListener(
           'mouseleave',
           bind(this.tooltipBoxManager, this.tooltipBoxManager.removeTip, this.args.tip_id)
         );
       }
       this.args.didInsertElementCallback?.(elem);
-      if (jQuery(elem).html().length) {
+      if (elem.innerHTML.length) {
         this.afterResize();
       }
     })
@@ -107,8 +121,8 @@ export default class InternalPopoverComponent extends Component {
       placement = placement.replace(autoToken, '') || 'top';
     }
     pos = this.getPosition();
-    actualWidth = this.$tip[0].offsetWidth;
-    actualHeight = this.$tip[0].offsetHeight;
+    actualWidth = this.$tip.offsetWidth;
+    actualHeight = this.$tip.offsetHeight;
     if (autoPlace) {
       docScroll = document.documentElement.scrollTop || document.body.scrollTop;
       parentWidth = window.innerWidth;
@@ -121,11 +135,13 @@ export default class InternalPopoverComponent extends Component {
 
   getPosition() {
     let el, pos;
-    el = this.$element[0];
-    pos = jQuery.extend({}, ((typeof el.getBoundingClientRect === 'function') ? el.getBoundingClientRect() : {
+    el = this.$element;
+    const clientRect =  el.getBoundingClientRect?.() || {
       width: el.offsetWidth,
       height: el.offsetHeight
-    }), this.$element.offset());
+    };
+    const { width, height } = clientRect;
+    pos = Object.assign({}, { width, height }, offset(this.$element));
     return pos;
   }
 
